@@ -43,7 +43,6 @@ are implemented.
 | `bundle_select` | A bundle card is chosen | `bundle_id`, `price_zar` |
 | `cta_click` | Any primary or secondary CTA is clicked | `cta_id`, `location`, `label` |
 | `store_click` | An App Store or Play Store link is clicked | `platform` |
-| `partner_click` | A distribution partner link is clicked | `partner_id` |
 | `faq_open` | An FAQ item is expanded | `question_id` |
 | `language_view` | Languages section enters the viewport | none |
 | `comparison_view` | Competitor comparison enters the viewport | none |
@@ -108,15 +107,14 @@ exist to be replaced.
 | --- | --- | --- |
 | Primary: bundle intent | `bundle_select`, or `cta_click` on a bundle CTA | TBC |
 | Secondary: app install | `store_click` on either platform | TBC |
-| Secondary: partner handoff | `partner_click` | TBC |
 | Engagement: comparison seen | `comparison_view` | TBC |
 | Health: mobile LCP | Vercel Speed Insights, p75 mobile | under 2.5s |
 
 Two things to settle before the numbers mean anything. First, whether a
 conversion is measurable at all on this site, given that the actual purchase
-happens in the app or through a partner, which makes this an intent funnel
+happens in the app, which makes this an intent funnel
 rather than a sales funnel. Second, whether attribution can survive the handoff
-to a partner or an app store, because if it cannot, the primary goal is the
+to an app store, because if it cannot, the primary goal is the
 best proxy available and should be described honestly as one.
 
 ## Before any of this ships

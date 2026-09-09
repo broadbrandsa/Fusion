@@ -29,8 +29,7 @@ Safe to build on, since these are quoted rather than inferred.
 - Graphite and paper palette values, exactly as recorded in `globals.css`.
 - Archivo, IBM Plex Sans and IBM Plex Mono, with a 13px floor and tabular
   numerals on every column of figures.
-- Domains, App Store bundle `com.dsg.vasai`, and the three distribution
-  partners.
+- Domains and the App Store bundle `com.dsg.vasai`.
 - Competitor pricing of roughly R149 to R324 a month, and Claude Pro at about
   R324, checked 28 August 2026.
 
@@ -150,6 +149,19 @@ so `src/components/blocks/app-screens.tsx` recreates it in markup. Faithful to
 the real interface and clearly marked, and it should be replaced by a real
 device capture the moment one exists. The figures shown in the recreations are
 illustrative, not logged transactions.
+
+**No distribution partner is named, anywhere.** Decided 09 September 2026. The
+brand book names three, and the site previously carried a "Distributed by"
+strip listing them. All of it is removed: the strip, the data in
+`src/content/site.ts`, the planned partner page, the `partner_click` analytics
+event, and the names in every document here.
+
+Nothing about third-party distribution may go back on the site without a new
+decision, and the names should not be reintroduced into these documents either.
+If a partner strip returns, it needs approved assets and confirmation that the
+relationship is public, since naming a bank or a retailer as a partner before
+they have agreed to it is the kind of claim this brand cannot afford to get
+wrong.
 
 **Two paper tokens were darkened for WCAG AA, 09 September 2026.** Paper ink
 muted moved from the brand book's `#676E76` to `#60676F`, because the book's own

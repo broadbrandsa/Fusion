@@ -123,7 +123,6 @@ export const features = [
   { id: "eleven-languages", pillar: "built-for-here", label: "All 11 official languages", claim: "It speaks the way you do", live: true },
   { id: "language-first", pillar: "built-for-here", label: "The interface asks your language first", claim: "Yours from the first screen", live: true },
   { id: "real-phones", pillar: "built-for-here", label: "Runs on a 2017 entry-level Android", claim: "Built for the phone you own", live: true },
-  { id: "partners", pillar: "built-for-here", label: "Sold through brands you already pay", claim: "Buy it where you already are", live: true },
   /* Not live. The app's own Top up screen says buying credit needs App Store
      products and receipt checking, which are not built yet. */
   { id: "in-app-topup", pillar: "nothing-to-cancel", label: "Top up inside the app", claim: "Buy a bundle in two taps", live: false },
@@ -208,13 +207,6 @@ export const competitorPricing = {
   subscriptionRangeZar: [149, 324] as const,
   claudeProZar: 324,
 } as const;
-
-/** Partners appear in a "Distributed by" strip, in their own brand colours. */
-export const distributionPartners = [
-  { id: "clicks-connect", name: "Clicks Connect" },
-  { id: "absa", name: "Absa" },
-  { id: "digital-mobile", name: "Digital Mobile" },
-] as const;
 
 /**
  * Decided copy, 09 September 2026. See docs/POSITIONING.md.

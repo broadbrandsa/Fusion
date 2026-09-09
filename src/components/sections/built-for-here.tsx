@@ -1,6 +1,5 @@
 import { Photo } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
-import { distributionPartners } from "@/content/site";
 
 import { SectionShell } from "./section-shell";
 
@@ -8,7 +7,7 @@ const stats = [
   ["11", "languages", "Interface and answers."],
   ["2017", "and up", "Runs on an entry-level Android."],
   ["R20", "to start", "In rand. No card."],
-  ["3", "partners", "On a balance you already hold."],
+  ["0", "debit orders", "Nothing renews. Nothing to cancel."],
 ];
 
 export function BuiltForHere() {
@@ -39,37 +38,20 @@ export function BuiltForHere() {
         ))}
       </div>
 
-      <div className="mt-4 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-        <Reveal delay={80}>
-          {/* Placeholder in spirit, not in markup. Nothing in the supplied set
-              was shot in South Africa, which undercuts this section's claim
-              more than any other. See docs/IMAGE-CREDITS.md. */}
-          <Photo
-            photo="phoneAtDusk"
-            ratio="16 / 9"
-            sizes="(min-width: 1024px) 780px, 100vw"
-          />
-        </Reveal>
-        <Reveal delay={180}>
-          <div className="flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-8">
-            <div>
-              <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
-                Distributed by
-              </p>
-              <ul className="mt-7 space-y-4">
-                {distributionPartners.map((partner) => (
-                  <li key={partner.id} className="card-title">
-                    {partner.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="mt-10 text-sm text-ink-muted">
-              Partner marks land here once the assets arrive.
-            </p>
-          </div>
-        </Reveal>
-      </div>
+      {/* Full-width photograph. Placeholder in spirit, not in markup: nothing
+          in the supplied set was shot in South Africa, which undercuts this
+          section's claim more than any other. See docs/IMAGE-CREDITS.md. */}
+      <Reveal delay={80} as="figure" className="mt-4 block">
+        <Photo
+          photo="phoneAtDusk"
+          ratio="21 / 9"
+          sizes="(min-width: 1024px) 1240px, 100vw"
+        />
+        <figcaption className="mt-5 max-w-xl text-lg text-ink-muted">
+          The heavy lifting happens on our servers, so it runs properly on the
+          phone that is actually in your hand.
+        </figcaption>
+      </Reveal>
     </SectionShell>
   );
 }

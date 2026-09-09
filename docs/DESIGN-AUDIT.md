@@ -110,7 +110,7 @@ actually wants.
 | Full strength | Bento, graphite | unchanged layout, moved to paper | Vitara's light bento |
 | Bundles | Three-up on paper, middle graphite | Three-up on graphite, middle inverts to paper | Vitara pricing |
 | Comparison | Two bordered panels | **A comparison table**, seven rows | None of the three use one, but a versus argument is what a table is for |
-| Built for here | Stat row, photo, partners | unchanged, inverted stat card fixed | Vitara, Appito |
+| Built for here | Stat row, photo, partner strip | Partner strip removed, photograph now full width, inverted stat card fixed | Vitara, Appito |
 | Privacy | Four cards plus one card | **Full-bleed inset panel with no cards at all**, claims as a ruled definition list | Appito's inverted feature panel |
 | FAQ | Two-column accordion | unchanged, moved to paper | Vitara, Habitline |
 | Talk to us | Centred card on paper | unchanged, moved to graphite | — |

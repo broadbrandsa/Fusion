@@ -153,9 +153,10 @@ anything gets built.
 All that is needed from engineering for now is a rough read on whether this is
 close or far off. Enquiries go to the same destination as customer enquiries.
 
-**Partner reach** through Clicks Connect, Absa and Digital Mobile is a channel
-that serves all of these. It is not an audience and it belongs in partner
-surfaces.
+**Retail and banking reach** is a channel that serves all of these, where a
+bundle rides on a balance somebody already holds. It is not an audience. No
+partner is named on the site or in these documents, by decision on
+09 September 2026, so nothing here describes one.
 
 ### What they want most
 
@@ -425,7 +426,7 @@ it is. Nothing marked not live may be claimed on the site.
 | All 11 official languages | 4 | It speaks the way you do | Yes |
 | Interface asks your language first | 4 | Yours from the first screen | Yes |
 | Runs on a 2017 entry-level Android | 4 | Built for the phone you own | Yes |
-| Partner distribution | 4 | Buy it where you already pay | Partners confirmed |
+| Third-party distribution | 4 | Buy it where you already pay | **Not on the site.** No partner is named, by decision |
 | In-app top-up | 1 | Buy a bundle in two taps | **No** |
 | Talk to us, one route for every enquiry | 1 and 4 | We answer real people | Needs a destination |
 | Per-learner accounts, preloaded | 1 and 4 | Every learner gets their own AI | **No, product work needed** |

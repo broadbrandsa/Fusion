@@ -21,7 +21,6 @@ so what exists is structure and a wired brand layer.
 | `/how-it-works` | Long-form walkthrough with real product screens |
 | `/privacy` | Privacy policy, pending legal input |
 | `/terms` | Terms of use, pending legal input |
-| `/partners` | Distribution partner detail for Clicks Connect, Absa, Digital Mobile |
 | `/support` | Help entry point, once support channels are decided |
 
 ## Sections
@@ -39,7 +38,7 @@ in `POSITIONING.md`.
 | `bundles.tsx` | 1 | Graphite | Built. Three-up with the middle inverted to paper, real credit figures, lapse notice. No answer counts |
 | `comparison.tsx` | 1 | Paper | Built. A seven-row comparison table, no competitor named |
 | `full-strength.tsx` | 3 | Paper | Built. Bento grid, five real app captures plus two hand-built cards |
-| `built-for-here.tsx` | 4 | Graphite | Built. Stat row with one card inverted, partner strip, one photo slot |
+| `built-for-here.tsx` | 4 | Graphite | Built. Stat row with one card inverted, plus a full-width photograph |
 | `privacy.tsx` | 2 | Graphite inset panel | Built. Four structural claims as a ruled list, no cards |
 | `faq.tsx` | All | Paper | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
 | `talk-to-us.tsx` | 1 and 4 | Graphite | Built. The institutions route. Needs a real destination |
@@ -69,8 +68,7 @@ held open where the layout clearly wants an image.
 
 Social proof, which needs real customers. A cost demonstration using a real
 device capture of an answer landing, which would replace the hand-built
-recreation. An app store download block, once in-app top-up ships. Partner
-detail pages.
+recreation. An app store download block, once in-app top-up ships.
 
 ## Explicitly excluded
 
@@ -78,7 +76,7 @@ Not in this repository, and not planned for it without a new brief.
 
 - The product itself. This is the marketing site only.
 - Authentication, accounts, balances or any signed-in surface.
-- Payment processing, top-up flows and partner billing integrations.
+- Payment processing and top-up flows.
 - A CMS. Content lives in `src/content` as typed modules, by design.
 - A blog or content marketing engine.
 - Internationalised routing. The site is `en-ZA`, even though the product
@@ -102,8 +100,7 @@ allowances. Final copy written for every section. Real wordmark supplied.
 No section gets built against unresolved facts.
 
 **M3, sections built.** Replace placeholders with finished sections. Real
-product screens. The competitor comparison written and checked. Partner marks
-dropped in.
+product screens. The competitor comparison written and checked.
 
 **M4, measurement.** Wire analytics per `TRACKING_PLAN.md`, define the
 conversion goals, confirm events fire in preview before production.

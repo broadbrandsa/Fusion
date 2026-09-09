@@ -36,8 +36,8 @@ card that takes international recurring billing. R20 to R120, prepaid, in rand,
 sits in a space no competitor occupies.
 
 People reached through brands they already trust and pay, where a bundle rides
-on a balance they already hold. Current distribution partners are Clicks
-Connect, Absa and Digital Mobile.
+on a balance they already hold. Distribution partners are not named anywhere on
+the site or in these documents, by decision on 09 September 2026.
 
 ## Brand
 
