@@ -55,10 +55,10 @@ export function AnswerCostScreen() {
       <div className="mt-3 max-w-[92%] rounded-2xl rounded-bl-md bg-surface px-3.5 py-3">
         <p className="text-sm leading-relaxed text-ink">
           For a 4m² bathroom, plan on R35 000 to R60 000. Tiling and the
-          plumber move that number most, so get both quoted first.
+          plumber move that number most.
         </p>
-        <div className="mt-3 flex items-center gap-2 border-t border-white/10 pt-2.5">
-          <span className="text-xs text-ink-faint">This answer drew</span>
+        <div className="mt-3 flex items-baseline justify-between gap-2 border-t border-white/10 pt-2.5 whitespace-nowrap">
+          <span className="text-xs text-ink-faint">Drew</span>
           <span className="money text-xs">861 credits</span>
         </div>
       </div>
