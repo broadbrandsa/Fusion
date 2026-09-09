@@ -1,0 +1,225 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Digital Fusion - the steel identity (brand book v1.1, 01 September 2026)
+
+   One rule holds the whole interface together: the money is the only colour.
+   Chrome is greyscale, content is greyscale, and the single chromatic element
+   is the credit figure. Marketing surfaces may use steel more freely, but the
+   closer a surface sits to the product, the more strictly the rule applies.
+--------------------------------------------------------------------------- */
+
+@theme inline {
+  /* shadcn semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand roles, named as the brand book names them */
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-high: var(--surface-high);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-steel: var(--steel);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+
+  /* Type: Archivo for display, IBM Plex Sans for running text,
+     IBM Plex Mono for money and figures. */
+  --font-sans: var(--font-plex-sans);
+  --font-heading: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
+
+  /* 13px is the floor and nothing is set under it, so the smallest step in
+     the scale is 13px rather than Tailwind's default 12px. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Paper: the light theme. The same shapes on a neutral off-white, with the
+   accents darkened for contrast. */
+:root {
+  --ground: #ecEEF2;
+  --surface: #ffffff;
+  --surface-high: #f7f9fb;
+  --ink: #1c2126;
+  --ink-muted: #676e76;
+  --ink-faint: #8c939c;
+  --steel: #2e5e8c;
+  --gold: #a3771d;
+  --danger: #b3261e;
+
+  --background: var(--ground);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--ink);
+  --muted: #e3e6eb;
+  --muted-foreground: var(--ink-muted);
+  --accent: #dee6ee;
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: #d7dbe2;
+  --input: #d7dbe2;
+  --ring: var(--ink);
+
+  --chart-1: var(--steel);
+  --chart-2: #4a5560;
+  --chart-3: #6b7682;
+  --chart-4: #98a1aa;
+  --chart-5: #c3c9d1;
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e3e6eb;
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: #d7dbe2;
+  --sidebar-ring: var(--ink);
+
+  --radius: 0.625rem;
+}
+
+/* Graphite: the dark theme and the brand's home ground. */
+.dark {
+  --ground: #191c20;
+  --surface: #232830;
+  --surface-high: #2b313b;
+  --ink: #eef1f4;
+  --ink-muted: #9aa3ad;
+  --ink-faint: #697079;
+  --steel: #6e9bc5;
+  --gold: #e0b75a;
+  --danger: #ff5a4e;
+
+  --background: var(--ground);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--ground);
+  --secondary: var(--surface-high);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--surface-high);
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: #2b313b;
+  --input: #2b313b;
+  --ring: var(--ink);
+
+  --chart-1: var(--steel);
+  --chart-2: #9aa3ad;
+  --chart-3: #697079;
+  --chart-4: #4d545d;
+  --chart-5: #2b313b;
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--ground);
+  --sidebar-accent: var(--surface-high);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: #2b313b;
+  --sidebar-ring: var(--ink);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer components {
+  /* Every column of figures uses tabular numerals so a balance does not
+     shift width as it counts. */
+  .money {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    color: var(--steel);
+  }
+
+  /* Credit held against an answer in flight. */
+  .money-held {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    color: var(--gold);
+  }
+
+  /* Figures that are not money stay greyscale but keep tabular numerals. */
+  .figure {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+}
