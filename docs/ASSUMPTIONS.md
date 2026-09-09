@@ -126,6 +126,11 @@ to five people is adjacent but not the same. Nothing about education may appear
 on the site until engineering confirms what exists. This is the largest open
 question in the project.
 
+**Institutional enquiries have nowhere to go yet.** The site will carry a
+talk-to-us route for schools and teams, decided 09 September 2026, and it needs
+a destination and a named person before it can be wired. An unanswered enquiry
+form does more damage than no form.
+
 **Store URLs are missing.** The primary CTA is now the app store download, so
 it needs real Apple and Google Play links. Both stores use `com.dsg.vasai` and
 the Apple listing is Digital Fusion AI, but the URLs themselves were never

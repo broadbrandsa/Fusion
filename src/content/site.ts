@@ -196,7 +196,13 @@ export const differentiators = [
   },
 ] as const;
 
-/** Competitor pricing, checked 28 August 2026. Re-check before launch. */
+/**
+ * Competitor pricing, checked 28 August 2026. Re-check before launch.
+ *
+ * Decided 09 September 2026: no competitor is named on the site. Copy compares
+ * by range only, "a typical AI subscription costs R149 to R324 a month", so
+ * `claudeProZar` is kept for internal reference and must not reach a page.
+ */
 export const competitorPricing = {
   checkedOn: "2026-08-28",
   subscriptionRangeZar: [149, 324] as const,
@@ -245,6 +251,16 @@ export const cta = {
  */
 export const lapseNotice =
   "Credit is valid 30 days, the same as airtime. We would rather tell you here than in fine print.";
+
+/**
+ * Institutions get a route, not a feature. Per-learner accounts and bulk
+ * provisioning are not built, so the site claims nothing and simply invites
+ * the conversation. TODO: destination, once someone is named to answer.
+ */
+export const institutions = {
+  label: "Buying for a school or a team? Talk to us.",
+  href: "#talk-to-us",
+} as const;
 
 export const nav = [
   { href: "/#how-it-works", label: "How it works" },

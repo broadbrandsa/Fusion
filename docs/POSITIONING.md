@@ -142,11 +142,15 @@ definition, and nothing renews when the course ends. No shared login, no
 per-seat monthly commitment, no procurement conversation about recurring
 international billing.
 
-**Blocked on product.** The screenshots show a single-user app. There is no sign
-of bulk provisioning, an organisation or admin view, or per-learner reporting.
-Shared chats up to five people is adjacent but not the same thing. The demand
-story is the strongest thing in this document and the product story behind it
-is unverified, so it is a route to develop, not a claim to make.
+**Blocked on product, but not absent from the site.** The screenshots show a
+single-user app. There is no sign of bulk provisioning, an organisation or admin
+view, or per-learner reporting. Shared chats up to five people is adjacent but
+not the same thing. So the site makes no education claim. What it carries
+instead is a route: one short section or footer link, along the lines of
+**"Buying for a school or a team? Talk to us."** That captures the demand
+without describing a feature that does not exist, and it tells us how real the
+demand is before anything gets built. Somebody has to answer those enquiries,
+and where they land is an open item.
 
 **Partner reach** through Clicks Connect, Absa and Digital Mobile is a channel
 that serves all of these. It is not an audience and it belongs in partner
@@ -292,13 +296,23 @@ Seven objections, none answered with a promise.
 
 ### The comparison beside it
 
-A month of Claude Pro at about R324 is roughly **16 Starter bundles**. The
-cheapest subscription alternative at about R149 is roughly **7**. If you ask a
-handful of questions a week, you are paying for a hundred you never asked.
+**No competitor is named on the site.** The arithmetic is kept, the brand is
+dropped, and the reader is trusted to know which subscription they were looking
+at.
 
-This is the most persuasive arithmetic we have, and it is checkable. Competitor
-pricing was confirmed 28 August 2026 and must be re-checked before launch,
-because the whole argument rests on it.
+> A typical AI subscription costs R149 to R324 a month, in dollars, on a card.
+> That is 7 to 16 Starter bundles. If you ask a handful of questions a week, you
+> are paying for a hundred you never asked.
+
+This is the most persuasive arithmetic we have, and it stays checkable without
+a name attached: the range is real, the date it was checked sits beside it, and
+anyone can confirm it in two minutes. Naming would add bite, but Claude is also
+a model we sell, and the awkwardness of attacking a partner's pricing on our own
+homepage outweighs the gain.
+
+Competitor pricing was confirmed 28 August 2026 and must be re-checked before
+launch. The internal version of this document may name names freely. The site
+never does.
 
 ### The bundles
 
@@ -353,8 +367,9 @@ longer depends on it.
 
 ### The education variant
 
-Same structure, different buyer. Blocked on product until engineering confirms
-bulk provisioning and per-learner accounts exist.
+Same structure, different buyer. Held for sales conversations until engineering
+confirms bulk provisioning and per-learner accounts exist. On the site, only the
+talk-to-us route appears.
 
 > **Buy each learner their own AI. R50 a head, preloaded, and nothing renews
 > when the course ends.**
@@ -406,6 +421,7 @@ it is. Nothing marked not live may be claimed on the site.
 | Runs on a 2017 entry-level Android | 4 | Built for the phone you own | Yes |
 | Partner distribution | 4 | Buy it where you already pay | Partners confirmed |
 | In-app top-up | 1 | Buy a bundle in two taps | **No** |
+| Talk to us, for schools and teams | 1 and 4 | We take institutions seriously | Route only, claims nothing |
 | Per-learner accounts, preloaded | 1 and 4 | Every learner gets their own AI | **No, needs product work** |
 | Bulk provisioning and admin view | 1 | Buy for a class in one go | **No, no evidence it exists** |
 
@@ -483,7 +499,12 @@ against these before it ships.
     not top-up credits. Short sentences and long ones. It should read like
     someone who knows the product explaining it across a table.
 
-13. **Games go late and never near the hero.**
+13. **Never name a competitor on the site.** Compare by range and shape: "a
+    typical AI subscription costs R149 to R324 a month." The internal documents
+    may name names. The public site does not, partly because one of them is
+    also a model we sell.
+
+14. **Games go late and never near the hero.**
 
 ---
 
@@ -497,6 +518,9 @@ against these before it ships.
 | 09 Sep 2026 | Headline is the brand book tagline, with "nothing to cancel" at the end of the subhead |
 | 09 Sep 2026 | Primary CTA is the app store download, promising the free start rather than a purchase |
 | 09 Sep 2026 | The 30-day lapse is stated plainly and early, in the main flow, in our own voice |
+| 09 Sep 2026 | Q1 is one structural thing with four proofs under the pillars, not the brand book's five-together |
+| 09 Sep 2026 | No competitor is named on the public site. Compare by price range, with the checked date |
+| 09 Sep 2026 | Education appears on the site only as a talk-to-us route for schools and teams, claiming no feature |
 
 ## Open questions
 
@@ -516,6 +540,8 @@ What the copy cannot be finished without.
   organisation or admin view, per-learner spend reporting. A straight answer
   from engineering before any education surface is designed.
 - When in-app top-up ships.
+- Where institutional enquiries go. The talk-to-us route needs a destination,
+  an address or a form, and a named person who answers.
 
 **Decisions still open**
 
@@ -540,3 +566,4 @@ What the copy cannot be finished without.
 | 09 Sep 2026 | Q2 redefined around usage pattern rather than payment blocker. Headline, CTA and lapse handling decided. |
 | 09 Sep 2026 | Team input reframed Q2 around bursts. Education and training added as a second audience, blocked on product. |
 | 09 Sep 2026 | Full rewrite for clarity. Problem section added up front. Q1 now bridges to the problem: cost transparency is what makes buying the right amount possible. Log narration stripped from the body. Writing guidelines consolidated into one list. |
+| 09 Sep 2026 | Three decisions folded in. Q1 framing confirmed as one thing with four proofs. Competitors are compared by price range and never named on the site. Education gets a talk-to-us route rather than silence or a coming-soon. |
