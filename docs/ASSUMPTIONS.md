@@ -114,10 +114,22 @@ number starts with a grant but never says how big it is. The offer in
 `POSITIONING.md` is built on that grant, so the number is needed before the
 primary CTA can be written.
 
-**Audience priority is a recommendation, not a decision.** `POSITIONING.md`
-puts the free-tier wall first and the Claude gap second. That is informed
-judgement without any behavioural data behind it, and all of the Q3 messaging
-changes if the priority is different.
+**Audience decided 09 September 2026.** `POSITIONING.md` defines the audience
+by usage pattern rather than payment blocker: AI use comes in bursts while a
+subscription bills flat. Consumers first, education and training second.
+
+**Education and training is unvalidated against the product.** Per-learner
+accounts with preloaded credit is a strong demand story from team input, and
+nothing in the seven screenshots supports it. No bulk provisioning, no
+organisation or admin view, no per-learner spend reporting, and shared chats up
+to five people is adjacent but not the same. Nothing about education may appear
+on the site until engineering confirms what exists. This is the largest open
+question in the project.
+
+**Store URLs are missing.** The primary CTA is now the app store download, so
+it needs real Apple and Google Play links. Both stores use `com.dsg.vasai` and
+the Apple listing is Digital Fusion AI, but the URLs themselves were never
+supplied.
 
 **Legal pages do not exist.** Privacy policy, terms and POPIA specifics were
 out of scope and need input from whoever owns them. The privacy section makes

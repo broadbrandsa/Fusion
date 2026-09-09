@@ -210,6 +210,42 @@ export const distributionPartners = [
   { id: "digital-mobile", name: "Digital Mobile" },
 ] as const;
 
+/**
+ * Decided copy, 09 September 2026. See docs/POSITIONING.md.
+ *
+ * The headline is the brand book tagline, carrying the mechanism. "Nothing to
+ * cancel" lands at the end of the subhead, which is where it does the most
+ * work, because by then the reader knows what the product is and the line
+ * answers the objection they were about to raise.
+ */
+export const hero = {
+  headline: "Prepaid AI, priced per answer",
+  subhead:
+    "Top up like airtime, ask in your own language, and see what every answer cost. No card, no subscription, nothing to cancel.",
+} as const;
+
+/**
+ * The primary action is the app store download, promising the free start
+ * rather than a purchase, because in-app top-up is not built yet. The
+ * sequence has to stay honest: download, verify your number, use the free
+ * grant. Nobody meets the top-up screen until the grant runs out.
+ *
+ * TODO: real store URLs. Both stores use the bundle id com.dsg.vasai, and the
+ * Apple listing is "Digital Fusion AI".
+ */
+export const cta = {
+  primary: { label: "Get the app, start free", href: "#download" },
+  secondary: { label: "See what an answer costs", href: "/#nothing-hidden" },
+} as const;
+
+/**
+ * The one genuine limitation in the offer, stated in the main flow rather than
+ * buried. Saying it ourselves turns it into another proof that nothing is
+ * hidden, which is the only way to play a real constraint.
+ */
+export const lapseNotice =
+  "Credit is valid 30 days, the same as airtime. We would rather tell you here than in fine print.";
+
 export const nav = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#bundles", label: "Bundles" },
