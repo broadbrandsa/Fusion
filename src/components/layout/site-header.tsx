@@ -25,7 +25,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Button size="sm" className="shrink-0 rounded-full" asChild>
+        <Button size="sm" variant="accent" className="shrink-0 rounded-full" asChild>
           <Link href={stores[0].href}>Get the app</Link>
         </Button>
       </div>

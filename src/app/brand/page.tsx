@@ -113,8 +113,52 @@ export default function BrandReference() {
         <Swatches rows={paper} />
       </div>
 
+      <h2 className="mt-16 text-2xl">The lime accent</h2>
+      <p className="mt-2 text-sm text-ink-muted">
+        #E9FF72. Not in the brand book, added 09 September 2026 as the marketing
+        accent. It sits alongside the money rule rather than inside it, so it
+        comes with limits.
+      </p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-lg border border-border bg-card p-5">
+          <div className="flex h-16 items-center justify-center rounded-md bg-lime">
+            <span className="text-sm font-medium text-[#191C20]">
+              Graphite on lime
+            </span>
+          </div>
+          <p className="figure mt-3 text-xs text-ink-muted">15.48:1 · AAA</p>
+          <p className="mt-1 text-xs text-ink-faint">
+            The only way it is ever used. A fill, with graphite text.
+          </p>
+        </div>
+        <div className="rounded-lg border border-border bg-card p-5">
+          <div className="flex h-16 items-center justify-center rounded-md bg-white">
+            <span className="text-sm font-medium text-lime">
+              Lime as text on white
+            </span>
+          </div>
+          <p className="figure mt-3 text-xs text-ink-muted">1.10:1 · fails</p>
+          <p className="mt-1 text-xs text-ink-faint">
+            Never do this. Lime is a fill, not a text colour.
+          </p>
+        </div>
+      </div>
+      <ul className="mt-6 space-y-2 text-sm text-ink-muted">
+        <li>
+          Interaction only: primary buttons, small marks, atmospheric washes.
+        </li>
+        <li>
+          Never beside a credit figure. Lime is 2.9 times the luminance of steel
+          on graphite, so it wins the eye, and the money is the point.
+        </li>
+        <li>
+          Focus rings stay ink. A lime ring is invisible on paper.
+        </li>
+      </ul>
+
       <h2 className="mt-16 text-2xl">Primitives</h2>
       <div className="mt-6 flex flex-wrap items-center gap-3">
+        <Button variant="accent">Get the app</Button>
         <Button>Get a bundle</Button>
         <Button variant="outline">Secondary</Button>
         <Button variant="ghost">Ghost</Button>

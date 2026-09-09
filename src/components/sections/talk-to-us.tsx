@@ -26,7 +26,7 @@ export function TalkToUs() {
           who did what, and the seat count never matches the class. Tell us what
           you need and we will talk it through properly.
         </p>
-        <Button size="lg" className="mt-8 rounded-full" asChild>
+        <Button size="lg" variant="accent" className="mt-8 rounded-full" asChild>
           <Link href={contact.href}>Talk to us</Link>
         </Button>
         <p className="mt-5 text-xs text-ink-faint">

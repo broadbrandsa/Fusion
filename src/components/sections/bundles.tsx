@@ -38,6 +38,8 @@ export function Bundles() {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium">{bundle.name}</p>
+                {/* Greyscale on purpose. A lime badge here would sit inches
+                    from the price and win, and the price is the point. */}
                 {featured ? <Pill>Best per rand</Pill> : null}
               </div>
 
@@ -72,8 +74,13 @@ export function Bundles() {
           answers cost before you spend anything.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          {stores.map((store) => (
-            <Button key={store.id} className="rounded-full" asChild>
+          {stores.map((store, index) => (
+            <Button
+              key={store.id}
+              variant={index === 0 ? "accent" : "outline"}
+              className="rounded-full"
+              asChild
+            >
               <Link href={store.href}>{store.label}</Link>
             </Button>
           ))}

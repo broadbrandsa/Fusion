@@ -42,8 +42,11 @@ export function HowItWorks() {
             key={step.n}
             className="flex flex-col rounded-2xl border border-border bg-card p-6"
           >
-            <div className="flex items-baseline gap-2">
-              <span className="figure text-xs text-ink-faint">{step.n}</span>
+            <div className="flex items-center gap-2.5">
+              {/* Appito's lime chip. Safe here: nothing in this card is money. */}
+              <span className="figure grid size-7 place-items-center rounded-md bg-lime text-xs font-medium text-[#191C20]">
+                {step.n}
+              </span>
               <span className="text-xs tracking-[0.14em] text-ink-faint uppercase">
                 {step.label}
               </span>

@@ -151,6 +151,19 @@ the real interface and clearly marked, and it should be replaced by a real
 device capture the moment one exists. The figures shown in the recreations are
 illustrative, not logged transactions.
 
+**The lime accent departs from the brand book.** #E9FF72 was chosen as the
+marketing accent on 09 September 2026, on the owner's instruction, after the
+reference sites. The brand book says chrome is greyscale and the money is the
+only colour, so this is a documented departure rather than an interpretation.
+
+It is constrained so the money rule still holds where it matters. Lime is a
+fill only, never text, since it fails contrast on light grounds. It carries
+interaction and nothing else. It never appears beside a credit figure, which is
+why the featured bundle badge stayed greyscale. And adding it let steel come
+out of the pill dot and the hero washes, where it had been stretched past
+"money and nothing else", so the brand rule is observed more closely now than
+before. If the brand book is revised, this belongs in it.
+
 **There is no photography.** The reference layouts lean on it heavily. Three
 photo slots are held open with briefs attached, in `problem.tsx` and
 `built-for-here.tsx`. They render as dashed placeholders and must not ship

@@ -24,7 +24,7 @@ export function Pill({
       )}
     >
       {withDot ? (
-        <span aria-hidden="true" className="size-1.5 rounded-full bg-steel" />
+        <span aria-hidden="true" className="size-1.5 rounded-full bg-lime" />
       ) : null}
       {children}
     </span>

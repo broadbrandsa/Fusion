@@ -510,7 +510,12 @@ against these before it ships.
     may name names. The public site does not, partly because one of them is
     also a model we sell.
 
-14. **Games go late and never near the hero.**
+14. **The lime accent never touches a number.** #E9FF72 carries buttons and
+    small marks. It is a fill, never text, and it stays away from every credit
+    figure, because it is nearly three times brighter than steel and the money
+    has to be the thing the eye finds.
+
+15. **Games go late and never near the hero.**
 
 ---
 
@@ -529,6 +534,7 @@ against these before it ships.
 | 09 Sep 2026 | Education appears on the site only as a talk-to-us route for schools and teams, claiming no feature |
 | 09 Sep 2026 | One enquiry destination for customers and institutions alike |
 | 09 Sep 2026 | Store buttons ship with generic links now rather than waiting on the Apple app id |
+| 09 Sep 2026 | #E9FF72 adopted as the marketing accent, constrained to fills and interaction, never beside a credit figure |
 
 ## Open questions
 

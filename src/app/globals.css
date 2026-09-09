@@ -57,6 +57,7 @@
   --color-steel: var(--steel);
   --color-gold: var(--gold);
   --color-danger: var(--danger);
+  --color-lime: var(--lime);
 
   /* Type: Archivo for display, IBM Plex Sans for running text,
      IBM Plex Mono for money and figures. */
@@ -78,6 +79,29 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+
+/* ---------------------------------------------------------------------------
+   The lime accent, #E9FF72.
+
+   Not in the brand book, added 09 September 2026 as the marketing accent. It
+   sits alongside the rule rather than inside it, so it comes with limits.
+
+   It is a FILL, never text. Graphite on lime is 15.48:1, but lime as text on
+   paper is 1.05:1 and on white 1.10:1, both of which fail outright.
+
+   It is INTERACTION only: primary buttons, small marks, atmospheric washes.
+   Lime is 2.9x the luminance of steel on graphite, so anywhere it sits beside
+   a credit figure the eye goes to the lime instead of the money, which is the
+   one thing this site exists to make visible. So it never appears inside a
+   card whose point is a number, and never adjacent to a price.
+
+   Adding it let steel come out of the pill dot and the hero washes, where it
+   had been stretched past "money and nothing else". Net, the brand rule is
+   better observed now than it was before.
+
+   Focus rings stay ink. A lime ring is invisible on paper.
+--------------------------------------------------------------------------- */
+
 /* Paper: the light theme. The same shapes on a neutral off-white, with the
    accents darkened for contrast. */
 :root {
@@ -90,6 +114,7 @@
   --steel: #2e5e8c;
   --gold: #a3771d;
   --danger: #b3261e;
+  --lime: #e9ff72;
 
   --background: var(--ground);
   --foreground: var(--ink);
@@ -139,6 +164,7 @@
   --steel: #6e9bc5;
   --gold: #e0b75a;
   --danger: #ff5a4e;
+  --lime: #e9ff72;
 
   --background: var(--ground);
   --foreground: var(--ink);
@@ -243,6 +269,7 @@
   --steel: #2e5e8c;
   --gold: #a3771d;
   --danger: #b3261e;
+  --lime: #e9ff72;
 
   --background: var(--ground);
   --foreground: var(--ink);
@@ -277,6 +304,7 @@
   --steel: #6e9bc5;
   --gold: #e0b75a;
   --danger: #ff5a4e;
+  --lime: #e9ff72;
 
   --background: var(--ground);
   --foreground: var(--ink);

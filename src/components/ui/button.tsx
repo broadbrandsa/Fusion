@@ -18,6 +18,12 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        /* DELIBERATE EDIT to a generated shadcn file. Keep it on re-add.
+           The lime marketing accent, #E9FF72. Fill only, graphite text, which
+           is 15.48:1. See the accent note in globals.css for why it never goes
+           near a credit figure. */
+        accent:
+          "bg-lime text-[#191C20] hover:bg-lime/85 focus-visible:ring-lime/40",
       },
       size: {
         default:

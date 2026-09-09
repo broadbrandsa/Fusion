@@ -17,7 +17,7 @@ export function ClosingCta() {
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[48rem] -translate-x-1/2 rounded-full opacity-[0.1] blur-3xl"
-          style={{ background: "var(--steel)" }}
+          style={{ background: "var(--lime)" }}
         />
         <div className="relative grid items-end gap-10 lg:grid-cols-[1fr_0.7fr]">
           <div className="pb-14">
@@ -29,10 +29,11 @@ export function ClosingCta() {
               pay nothing at all in the months you are not asking.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              {stores.map((store) => (
+              {stores.map((store, index) => (
                 <Button
                   key={store.id}
                   size="lg"
+                  variant={index === 0 ? "accent" : "outline"}
                   className="rounded-full"
                   asChild
                 >

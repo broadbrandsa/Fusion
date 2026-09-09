@@ -35,6 +35,13 @@ and steel is reserved for the credit figure. Steel arrives only through the
 `.money`, `.money-held` and `.figure` classes in `globals.css`. If a component
 needs steel and is not showing money, stop and check the brand book.
 
+**The lime accent is a fill, never text.** #E9FF72, added 09 September 2026 as
+the marketing accent, available as `bg-lime` and the `accent` button variant.
+Graphite on lime is 15.48:1. Lime as text on paper is 1.05:1, which fails, so
+it never carries type. It is interaction only, and it never appears beside a
+credit figure, because it is 2.9 times the luminance of steel and would win the
+eye. Focus rings stay ink.
+
 **Graphite is home ground.** `<html>` carries `dark` by default. Both palettes
 are wired; there is no toggle.
 

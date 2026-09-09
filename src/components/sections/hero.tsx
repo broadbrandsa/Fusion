@@ -11,13 +11,12 @@ import { cta, hero, stores } from "@/content/site";
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-5 pt-16 pb-20 md:px-8 md:pt-24 md:pb-28">
-      {/* A single soft steel wash. The one place the money colour is allowed to
-          behave like atmosphere, because a marketing hero is the furthest
-          surface from the product. */}
+      {/* A soft lime wash. Atmosphere is the accent's job, not steel's, so
+          the money colour stays reserved for actual money. */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 left-1/2 h-[36rem] w-[72rem] -translate-x-1/2 rounded-full opacity-[0.07] blur-3xl"
-        style={{ background: "var(--steel)" }}
+        style={{ background: "var(--lime)" }}
       />
       <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
         <div>
@@ -30,8 +29,14 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            {stores.map((store) => (
-              <Button key={store.id} size="lg" className="rounded-full" asChild>
+            {stores.map((store, index) => (
+              <Button
+                key={store.id}
+                size="lg"
+                variant={index === 0 ? "accent" : "outline"}
+                className="rounded-full"
+                asChild
+              >
                 <Link href={store.href}>{store.label}</Link>
               </Button>
             ))}
