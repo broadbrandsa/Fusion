@@ -6,15 +6,18 @@ import { cn } from "@/lib/utils";
  * /public/images. It exists so layout and clear space can be worked on now.
  *
  * The mark exists in exactly two colours: white on dark grounds, and graphite
- * #1C2126 on light grounds. Clear space is the height of the FUSION capitals
- * on every side, which is what the wrapper padding below reserves.
+ * #1C2126 on light grounds. It inherits the current text colour, so a tone
+ * scope handles that on its own.
  */
 export function Wordmark({
   className,
   label = "Digital Fusion",
+  decorative = false,
 }: {
   className?: string;
   label?: string;
+  /** For watermarks. Drops it out of the accessibility tree entirely. */
+  decorative?: boolean;
 }) {
   return (
     <span
@@ -23,8 +26,9 @@ export function Wordmark({
         "text-current",
         className,
       )}
-      aria-label={label}
-      role="img"
+      {...(decorative
+        ? { "aria-hidden": true as const }
+        : { role: "img", "aria-label": label })}
       data-placeholder="wordmark"
     >
       <span className="text-[0.62em]">Digital</span>

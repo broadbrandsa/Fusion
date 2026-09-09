@@ -1,39 +1,80 @@
 import type { ReactNode } from "react";
 
+import { Eyebrow } from "@/components/blocks/eyebrow";
 import { cn } from "@/lib/utils";
 
 /**
  * Shared shell every section sits in, so rhythm and max width are decided
  * once. Sections own their content, never their outer spacing.
+ *
+ * `tone` inverts a section to paper on a graphite page. The reference sites all
+ * do this, and it earns its keep: two or three inverted sections give a long
+ * page a pulse without adding a colour, which suits a brand where the money is
+ * the only colour.
  */
 export function SectionShell({
   id,
   eyebrow,
   title,
+  lede,
   children,
   className,
+  tone = "graphite",
+  align = "start",
+  width = "default",
 }: {
   id?: string;
   eyebrow?: string;
-  title?: string;
+  title?: ReactNode;
+  lede?: ReactNode;
   children?: ReactNode;
   className?: string;
+  tone?: "graphite" | "paper";
+  align?: "start" | "center";
+  width?: "default" | "narrow";
 }) {
+  const centered = align === "center";
+
   return (
     <section
       id={id}
-      className={cn("border-b border-border/60 px-6 py-20 md:px-10", className)}
+      data-tone={tone}
+      className={cn(
+        "px-5 py-20 md:px-8 md:py-28",
+        tone === "paper" && "tone-paper",
+        className,
+      )}
     >
-      <div className="mx-auto w-full max-w-5xl">
-        {eyebrow ? (
-          <p className="text-xs font-medium tracking-[0.14em] text-ink-faint uppercase">
-            {eyebrow}
-          </p>
+      <div
+        className={cn(
+          "mx-auto w-full",
+          width === "narrow" ? "max-w-3xl" : "max-w-[1200px]",
+        )}
+      >
+        {eyebrow || title || lede ? (
+          <div
+            className={cn(
+              "flex flex-col gap-4",
+              centered && "items-center text-center",
+              width === "default" && !centered && "max-w-2xl",
+            )}
+          >
+            {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+            {title ? (
+              <h2 className="text-3xl tracking-[-0.025em] md:text-[2.75rem] md:leading-[1.08]">
+                {title}
+              </h2>
+            ) : null}
+            {lede ? (
+              <p className="text-base text-ink-muted md:text-lg">{lede}</p>
+            ) : null}
+          </div>
         ) : null}
-        {title ? (
-          <h2 className="mt-3 text-3xl md:text-4xl">{title}</h2>
+        {children ? (
+          <div className={cn(eyebrow || title || lede ? "mt-14" : undefined)}>
+            {children}
+          </div>
         ) : null}
-        {children ? <div className="mt-8">{children}</div> : null}
       </div>
     </section>
   );

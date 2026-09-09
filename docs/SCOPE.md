@@ -26,44 +26,51 @@ so what exists is structure and a wired brand layer.
 
 ## Sections
 
-### Placeholders that exist
+Built 09 September 2026, laid out after Appito, Vitara and Habitline. All in
+`src/components/sections`, all rendered on `/`, in the order the argument runs
+in `POSITIONING.md`.
 
-All in `src/components/sections`, all rendered on `/`, all honest about being
-unfinished.
+| Component | Pillar | Tone | State |
+| --- | --- | --- | --- |
+| `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, real credit capture with the cost moment floating off it |
+| `problem.tsx` | Sets up all | Paper | Built. Statement block, two photo slots waiting on a shoot |
+| `how-it-works.tsx` | 1 | Graphite | Built. Four numbered steps, Vitara's stage pattern |
+| `cost-proof.tsx` | 2 | Graphite | Built. Carries Q1. Answer-with-cost screen, quote card, zero floor, real spending capture |
+| `bundles.tsx` | 1 | Paper | Built. Three-up with the middle inverted, real credit figures, lapse notice. No answer counts |
+| `comparison.tsx` | 1 | Graphite | Built. The 7 to 16 bundles arithmetic, no competitor named |
+| `full-strength.tsx` | 3 | Graphite | Built. Bento grid, five real app captures plus two hand-built cards |
+| `built-for-here.tsx` | 4 | Graphite | Built. Stat row with one card inverted, partner strip, one photo slot |
+| `privacy.tsx` | 2 | Paper | Built. Four structural claims plus the grant card |
+| `faq.tsx` | All | Graphite | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
+| `talk-to-us.tsx` | 1 and 4 | Paper | Built. The institutions route. Needs a real destination |
+| `closing-cta.tsx` | 1 | Graphite | Built. Store buttons and the wordmark watermark |
 
-| Component | Section | State |
-| --- | --- | --- |
-| `hero.tsx` | Hero | Placeholder copy, real structure |
-| `how-it-works.tsx` | How it works | Placeholder note only |
-| `bundles.tsx` | Bundles | Real prices and validity, placeholder layout |
-| `languages.tsx` | Languages | Placeholder note only |
-| `privacy.tsx` | Privacy | Placeholder note only |
-| `faq.tsx` | FAQ | Placeholder note only |
-| `distributed-by.tsx` | Distributed by | Partner names as text, no marks yet |
+Supporting pieces: `section-shell.tsx` for rhythm, max width and tone
+inversion. `src/components/blocks/` holds the pill, eyebrow, phone frame,
+hand-built app screens, real app captures and photo slots.
+`src/components/layout/` holds the pill header and the footer.
 
-Supporting pieces: `section-shell.tsx` for shared rhythm and max width,
-`src/components/layout/site-header.tsx`, `site-footer.tsx`, and
-`src/components/brand/wordmark.tsx`.
+### Design decisions taken from the references
 
-### Planned, not built
+Pill buttons and a floating pill nav. A small pill above the headline. Display
+type tracked tight, from -0.02em to -0.03em. Section padding at 80 to 112px.
+Container at 1200px. Cards at 16px radius. Muted body text rather than full
+contrast. A bento grid with real interface inside each card, which is the
+pattern all three lean on hardest. Numbered stage cards. A stat row with one
+card inverted. Three-up pricing with the middle carrying the weight. Two-column
+FAQ. A closing panel with the wordmark set huge behind it.
 
-Sections are now planned against the four pillars in `POSITIONING.md` rather
-than as a feature list. Each one has to prove a pillar or it does not get built.
+Not taken: photography-led heroes and section backgrounds. All three reference
+sites lean on stock imagery, and the brand book asks for calm, precise and
+undecorated, so the app interface carries the visuals instead. Photo slots are
+held open where the layout clearly wants an image.
 
-| Section | Pillar | Why it exists |
-| --- | --- | --- |
-| Cost demonstration | Nothing hidden | Shows an answer reporting what it drew. The best proof we have, and it is a screenshot rather than a claim |
-| Spending screens | Nothing hidden | The 30-day chart and by-conversation totals. No subscription product has any reason to build this screen |
-| Subscription comparison | Nothing to cancel | A typical subscription is 7 to 16 Starter bundles. No competitor named on the site, by decision |
-| Privacy detail | Nothing hidden | Server-enforced private chats, receipts held only on the phone |
-| Product breadth | Full strength | Two AIs, web search, photos, documents, decks, deep research, shopping in rand. Kills the suspicion that prepaid means less |
-| Lists and collections | Full strength | The dinner list came back with 17 specified items. Concrete beats adjectives |
-| Shared chats | Full strength and Nothing to cancel | Up to five people, cost split between whoever pays |
-| Games | Full strength | Quiz Night, Twenty Questions, Stop the Bus, The Court. Goes late and never near the hero, because it is the feature most likely to read as a toy |
-| App store download | Built for here | Only once in-app top-up ships |
-| Partner detail | Built for here | Clicks Connect, Absa, Digital Mobile |
-| Talk to us, for schools and teams | Nothing to cancel, Built for here | A route, not a feature. Captures institutional demand while per-learner accounts are unbuilt. Needs an enquiry destination |
-| Social proof | All | Needs real customers first |
+### Still to build
+
+Social proof, which needs real customers. A cost demonstration using a real
+device capture of an answer landing, which would replace the hand-built
+recreation. An app store download block, once in-app top-up ships. Partner
+detail pages.
 
 ## Explicitly excluded
 

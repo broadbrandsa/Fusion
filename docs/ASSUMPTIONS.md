@@ -143,6 +143,19 @@ out of scope and need input from whoever owns them. The privacy section makes
 product claims about server-side enforcement, and how much of that can be
 described publicly needs sign-off.
 
+**App screens on the site are partly recreations.** Five sections use the real
+captures from 09 September 2026, now in `public/images/app`. But the strongest
+moment we could show, an answer landing with its cost beside it, has no capture,
+so `src/components/blocks/app-screens.tsx` recreates it in markup. Faithful to
+the real interface and clearly marked, and it should be replaced by a real
+device capture the moment one exists. The figures shown in the recreations are
+illustrative, not logged transactions.
+
+**There is no photography.** The reference layouts lean on it heavily. Three
+photo slots are held open with briefs attached, in `problem.tsx` and
+`built-for-here.tsx`. They render as dashed placeholders and must not ship
+looking like that.
+
 ## Where the positioning sits
 
 `POSITIONING.md` holds the four positioning answers and the feature framing.

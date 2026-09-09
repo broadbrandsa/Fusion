@@ -223,3 +223,80 @@
     font-feature-settings: "tnum" 1;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Tone scopes.
+
+   The page is graphite. Two or three sections invert to paper, which gives a
+   long page a pulse without adding a colour. A tone scope redefines the brand
+   roles locally, so every child, including shadcn primitives, follows without
+   knowing anything about it.
+--------------------------------------------------------------------------- */
+
+.tone-paper {
+  --ground: #eceef2;
+  --surface: #ffffff;
+  --surface-high: #f7f9fb;
+  --ink: #1c2126;
+  --ink-muted: #676e76;
+  --ink-faint: #8c939c;
+  --steel: #2e5e8c;
+  --gold: #a3771d;
+  --danger: #b3261e;
+
+  --background: var(--ground);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--ink);
+  --muted: #e3e6eb;
+  --muted-foreground: var(--ink-muted);
+  --accent: #dee6ee;
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: #d7dbe2;
+  --input: #d7dbe2;
+  --ring: var(--ink);
+
+  background-color: var(--ground);
+  color: var(--ink);
+}
+
+.tone-graphite {
+  --ground: #191c20;
+  --surface: #232830;
+  --surface-high: #2b313b;
+  --ink: #eef1f4;
+  --ink-muted: #9aa3ad;
+  --ink-faint: #697079;
+  --steel: #6e9bc5;
+  --gold: #e0b75a;
+  --danger: #ff5a4e;
+
+  --background: var(--ground);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--ground);
+  --secondary: var(--surface-high);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--surface-high);
+  --accent-foreground: var(--ink);
+  --destructive: var(--danger);
+  --border: #2b313b;
+  --input: #2b313b;
+  --ring: var(--ink);
+
+  background-color: var(--ground);
+  color: var(--ink);
+}

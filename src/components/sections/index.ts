@@ -1,8 +1,13 @@
 export { Hero } from "./hero";
+export { Problem } from "./problem";
 export { HowItWorks } from "./how-it-works";
+export { CostProof } from "./cost-proof";
 export { Bundles } from "./bundles";
-export { Languages } from "./languages";
+export { Comparison } from "./comparison";
+export { FullStrength } from "./full-strength";
+export { BuiltForHere } from "./built-for-here";
 export { Privacy } from "./privacy";
 export { Faq } from "./faq";
-export { DistributedBy } from "./distributed-by";
+export { TalkToUs } from "./talk-to-us";
+export { ClosingCta } from "./closing-cta";
 export { SectionShell, SectionPlaceholder } from "./section-shell";

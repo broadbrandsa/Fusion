@@ -283,8 +283,9 @@ export const contact = {
 
 export const nav = [
   { href: "/#how-it-works", label: "How it works" },
+  { href: "/#nothing-hidden", label: "What it costs" },
   { href: "/#bundles", label: "Bundles" },
-  { href: "/#languages", label: "Languages" },
+  { href: "/#full-strength", label: "Features" },
   { href: "/#privacy", label: "Privacy" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
