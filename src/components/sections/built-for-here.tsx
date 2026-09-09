@@ -1,4 +1,4 @@
-import { PhotoSlot } from "@/components/blocks/photo-slot";
+import { Photo } from "@/components/blocks/photo";
 import { distributionPartners } from "@/content/site";
 
 import { SectionShell } from "./section-shell";
@@ -44,9 +44,13 @@ export function BuiltForHere() {
       </div>
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-        <PhotoSlot
+        {/* Placeholder in spirit, not in markup. The set we have was not shot
+            in South Africa, which undercuts this section's claim more than any
+            other. See docs/IMAGE-CREDITS.md for the brief. */}
+        <Photo
+          photo="phoneAtDusk"
           ratio="16 / 9"
-          brief="Someone on an ordinary Android in an ordinary South African setting, a taxi rank, a kitchen table, a spaza counter. Real hands, real phone, no glossy stock optimism."
+          sizes="(min-width: 1024px) 700px, 100vw"
         />
         <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-6">
           <div>

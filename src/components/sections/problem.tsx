@@ -1,4 +1,4 @@
-import { PhotoSlot } from "@/components/blocks/photo-slot";
+import { Photo } from "@/components/blocks/photo";
 
 import { SectionShell } from "./section-shell";
 
@@ -20,15 +20,29 @@ export function Problem() {
             badly the shape fits.
           </span>
         </p>
-        <div className="mt-14 grid gap-4 lg:grid-cols-[1fr_1fr]">
-          <PhotoSlot
-            ratio="4 / 3"
-            brief="The burst, made human. Someone deep in a project at a kitchen table, papers and phone out, mid-week and mid-effort."
-          />
-          <PhotoSlot
-            ratio="4 / 3"
-            brief="The quiet month. The same desk, tidy and unused. The pair is the whole argument in two frames."
-          />
+        <div className="mt-14 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
+          <figure>
+            <Photo
+              photo="projectRenovation"
+              ratio="4 / 3"
+              sizes="(min-width: 1024px) 620px, 100vw"
+            />
+            <figcaption className="mt-3 text-xs text-ink-faint">
+              A renovation. Three weeks of quotes, materials and second
+              opinions, then nothing for months.
+            </figcaption>
+          </figure>
+          <figure>
+            <Photo
+              photo="projectFlatpack"
+              ratio="4 / 3"
+              sizes="(min-width: 1024px) 520px, 100vw"
+            />
+            <figcaption className="mt-3 text-xs text-ink-faint">
+              A move. One frantic weekend of working things out, and it is
+              over.
+            </figcaption>
+          </figure>
         </div>
 
         <div className="mt-14 grid gap-8 border-t border-border pt-10 sm:grid-cols-3">

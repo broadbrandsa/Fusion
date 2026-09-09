@@ -5,6 +5,7 @@ import {
   ModelPickerCard,
 } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
+import { Photo } from "@/components/blocks/photo";
 
 import { SectionShell } from "./section-shell";
 
@@ -80,11 +81,18 @@ export function FullStrength() {
           title="Lists it fills for you"
           body="Ask for a week of dinners and the shopping list comes back specified, quantities and all. Seventeen items, and you just tick them off."
         >
-          <AppShot
-            shot="listDetail"
-            width={280}
-            className="mx-auto max-w-[12.5rem]"
-          />
+          <div className="space-y-4">
+            <Photo
+              photo="kitchenCooking"
+              ratio="16 / 10"
+              sizes="(min-width: 1024px) 360px, 100vw"
+            />
+            <AppShot
+              shot="listDetail"
+              width={280}
+              className="mx-auto max-w-[11rem]"
+            />
+          </div>
         </BentoCard>
 
         <BentoCard
@@ -96,17 +104,18 @@ export function FullStrength() {
             <AppShot
               shot="sharedChat"
               width={280}
-              className="mx-auto max-w-[12.5rem]"
+              className="mx-auto max-w-[12rem]"
             />
-            <div className="space-y-4 text-sm text-ink-muted">
-              <p>
+            <div className="space-y-4">
+              <Photo
+                photo="cookingTogether"
+                ratio="16 / 9"
+                sizes="(min-width: 1024px) 420px, 100vw"
+              />
+              <p className="text-sm text-ink-muted">
                 Ask as a household, a study group or a work team, and read one
-                answer instead of five separate ones.
-              </p>
-              <p>
-                Or hand it a game and let it referee. Quiz Night, Twenty
-                Questions, Stop the Bus and The Court, with the score kept for
-                you.
+                answer instead of five separate ones. Or hand it a game and let
+                it referee.
               </p>
             </div>
           </div>

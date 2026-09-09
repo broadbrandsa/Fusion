@@ -164,10 +164,26 @@ out of the pill dot and the hero washes, where it had been stretched past
 "money and nothing else", so the brand rule is observed more closely now than
 before. If the brand book is revised, this belongs in it.
 
-**There is no photography.** The reference layouts lean on it heavily. Three
-photo slots are held open with briefs attached, in `problem.tsx` and
-`built-for-here.tsx`. They render as dashed placeholders and must not ship
-looking like that.
+**The photography is not South African.** Six Unsplash images were supplied
+09 September 2026 and five are in use. They work, but every kitchen, interior
+and person in the set reads as North American or European.
+
+That matters in one place in particular. The built-for-here section claims the
+product was made for South Africa rather than adapted for it, and illustrating
+it with an American kitchen quietly argues the opposite. Treat the current set
+as placeholder for that section specifically. Full credits, placements and a
+shoot brief are in `IMAGE-CREDITS.md`.
+
+**One supplied image is deliberately not deployable.** A Microsoft Copilot
+campaign photograph, with the Windows 11 logo visible on the laptop in frame,
+is held in `docs/images-not-used/` rather than `public/`. Shipping a
+competitor's AI marketing asset on a site arguing against subscription AI would
+be an unforced error. Kept rather than deleted, in case it is wanted
+internally.
+
+**One supplied image is unused.** `phone-in-hand.jpg` is lit in a hot pink and
+orange wash that fights graphite, steel and lime at once. It is available if
+graded down hard, and better replaced.
 
 ## Where the positioning sits
 
