@@ -110,7 +110,19 @@ Measured on the running site, not read off the source.
 | **Medium** | Nine FAQ triggers had `cursor: default`. | Pointer cursor and a 44px minimum height, applied at the call site rather than by editing a generated shadcn file. |
 | **Medium** | The problem section's opening statement was a `<p>`, so that section had no heading in the document outline. | Promoted to `<h2>`. |
 | **Low** | Model wordmarks warned about a modified width without a matching height. | `width: auto` alongside the explicit height. |
-| **Low** | A deep link or a reload with restored scroll left elements above the viewport permanently at opacity 0 if the reader scrolled back up. | Anything already scrolled past at mount reveals immediately. Elements on screen or below keep their entrance. |
+| **Critical** | A page opened in a background tab came to the front blank. An IntersectionObserver delivers nothing while the document is hidden, and fronting the tab produces no intersection *change* to fire, so every in-viewport block stayed at opacity 0 permanently. Cmd-clicking a link is common enough that this would have hit real people. | `Reveal` now decides from geometry, not only from the observer. Anything in or above the viewport is revealed from a measurement on the next frame, which still plays the transition, and a `visibilitychange` listener re-measures for anything that mounted hidden. |
+| **Low** | A deep link or a reload with restored scroll left elements above the viewport permanently at opacity 0 if the reader scrolled back up. | Same geometry check. Anything already scrolled past at mount reveals immediately; elements below keep their entrance. |
+
+### A note on verifying this
+
+Screenshots are unreliable while the browser pane reports
+`document.visibilityState === "hidden"`, because a hidden document is not
+painted and the captured frame is stale. Two findings in this pass looked like
+blank-page bugs and were not. Computed styles and geometry are the signal to
+trust; measure `data-visible` and `opacity`, not the picture.
+
+That said, the background-tab bug above was found precisely because of it, and
+is real.
 
 ### Contrast
 

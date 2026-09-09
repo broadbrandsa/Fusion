@@ -6,14 +6,20 @@ import { cn } from "@/lib/utils";
 
 /**
  * Fade-up on scroll, the one interaction all three reference sites lean on.
- * Habitline drives 89 of these through Webflow; an IntersectionObserver does
- * the same job without shipping an animation runtime.
+ * Habitline drives 89 of these through Webflow; this does the same job without
+ * shipping an animation runtime.
  *
- * Fires once. Nothing animates back out on the way up, because a block that
- * re-hides when you scroll past it reads as a bug rather than as polish.
+ * Geometry decides, not just the observer. An IntersectionObserver never
+ * delivers a callback while the document is hidden, and fronting the tab later
+ * produces no intersection *change* to fire, so a page opened in a background
+ * tab would come to the front blank. Anything already in or above the viewport
+ * is therefore revealed from a measurement instead.
  *
- * The visual work is entirely in globals.css, and it is wrapped in a
- * prefers-reduced-motion query, so this component sets a flag and nothing more.
+ * The entrance still plays. The element paints at opacity 0 from CSS, the flag
+ * flips on the next frame, and the transition runs from there.
+ *
+ * Fires once, and never animates back out, because a block that re-hides as
+ * you scroll past reads as a bug rather than as polish.
  */
 export function Reveal({
   children,
@@ -34,28 +40,52 @@ export function Reveal({
     const node = ref.current;
     if (!node) return;
 
-    /* Anything already scrolled past at mount is shown immediately. That
-       covers a reload with a restored scroll position and a deep link into a
-       later section, where an element above the viewport would otherwise never
-       intersect and would sit at opacity 0 if the reader scrolled back up.
-       Elements still on screen or below keep their entrance. */
-    if (node.getBoundingClientRect().bottom < 0) {
+    let done = false;
+    const show = () => {
+      if (done) return;
+      done = true;
       setVisible(true);
-      return;
-    }
+    };
+
+    /* Already on screen, or already scrolled past. Reveal on the next frame so
+       the transition has a starting state to animate from. */
+    const showIfReached = () => {
+      const rect = node.getBoundingClientRect();
+      const reached =
+        rect.bottom < 0 || rect.top < window.innerHeight * 0.92;
+      if (reached) {
+        requestAnimationFrame(show);
+        return true;
+      }
+      return false;
+    };
+
+    if (showIfReached()) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          show();
           observer.disconnect();
         }
       },
       { rootMargin: "0px 0px -10% 0px", threshold: 0 },
     );
-
     observer.observe(node);
-    return () => observer.disconnect();
+
+    /* Covers the case above: mounted while hidden, so nothing was ever
+       reported. On becoming visible, measure again. */
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible" && showIfReached()) {
+        observer.disconnect();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, []);
 
   return (
