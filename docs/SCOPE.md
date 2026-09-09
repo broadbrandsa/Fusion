@@ -33,16 +33,16 @@ in `POSITIONING.md`.
 | Component | Pillar | Tone | State |
 | --- | --- | --- | --- |
 | `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, real credit capture with the cost moment floating off it |
-| `problem.tsx` | Sets up all | Paper | Built. Statement block, two photo slots waiting on a shoot |
-| `how-it-works.tsx` | 1 | Graphite | Built. Four numbered steps, Vitara's stage pattern |
-| `cost-proof.tsx` | 2 | Graphite | Built. Carries Q1. Answer-with-cost screen, quote card, zero floor, real spending capture |
-| `bundles.tsx` | 1 | Paper | Built. Three-up with the middle inverted, real credit figures, lapse notice. No answer counts |
-| `comparison.tsx` | 1 | Graphite | Built. The 7 to 16 bundles arithmetic, no competitor named |
-| `full-strength.tsx` | 3 | Graphite | Built. Bento grid, five real app captures plus two hand-built cards |
+| `problem.tsx` | Sets up all | Paper | Built. Spend chart contrasting bursty top-ups with flat billing, plus an asymmetric photo pair |
+| `how-it-works.tsx` | 1 | Graphite | Built. Numbered list beside a full-height device, Vitara's roadmap pattern |
+| `cost-proof.tsx` | 2 | Graphite | Built. Carries Q1. Answer-with-cost screen with a figure floating off it, claims as ruled rows |
+| `bundles.tsx` | 1 | Graphite | Built. Three-up with the middle inverted to paper, real credit figures, lapse notice. No answer counts |
+| `comparison.tsx` | 1 | Paper | Built. A seven-row comparison table, no competitor named |
+| `full-strength.tsx` | 3 | Paper | Built. Bento grid, five real app captures plus two hand-built cards |
 | `built-for-here.tsx` | 4 | Graphite | Built. Stat row with one card inverted, partner strip, one photo slot |
-| `privacy.tsx` | 2 | Paper | Built. Four structural claims plus the grant card |
-| `faq.tsx` | All | Graphite | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
-| `talk-to-us.tsx` | 1 and 4 | Paper | Built. The institutions route. Needs a real destination |
+| `privacy.tsx` | 2 | Graphite inset panel | Built. Four structural claims as a ruled list, no cards |
+| `faq.tsx` | All | Paper | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
+| `talk-to-us.tsx` | 1 and 4 | Graphite | Built. The institutions route. Needs a real destination |
 | `closing-cta.tsx` | 1 | Graphite | Built. Store buttons and the wordmark watermark |
 
 Supporting pieces: `section-shell.tsx` for rhythm, max width and tone

@@ -1,6 +1,6 @@
+import { AppShot } from "@/components/blocks/app-shot";
+import { Eyebrow } from "@/components/blocks/eyebrow";
 import { Reveal } from "@/components/blocks/reveal";
-
-import { SectionShell } from "./section-shell";
 
 const steps = [
   ["01", "Top up", "From R20. No card."],
@@ -9,27 +9,56 @@ const steps = [
   ["04", "Stop", "Nothing renews."],
 ];
 
+/**
+ * Archetype: Vitara's roadmap. A numbered list down one side with a tall
+ * device shot beside it, in place of four equal cards. A sequence reads better
+ * as a list than as a row, and the device gets to be full height.
+ */
 export function HowItWorks() {
   return (
-    <SectionShell
-      id="how-it-works"
-      eyebrow="How it works"
-      title="Four steps. No commitment."
-      lede="Buy what the project needs. Pay nothing when you are not asking."
-    >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {steps.map(([n, label, body], index) => (
-          <Reveal key={n} delay={index * 90}>
-            <div className="hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8">
-              <span className="figure grid size-8 place-items-center rounded-md bg-lime text-xs font-medium text-[#191C20]">
-                {n}
-              </span>
-              <p className="card-title mt-12">{label}</p>
-              <p className="mt-3 text-base text-ink-muted">{body}</p>
-            </div>
+    <section id="how-it-works" className="section-y">
+      <div className="container-site grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-24">
+        <div>
+          <Reveal>
+            <Eyebrow>How it works</Eyebrow>
           </Reveal>
-        ))}
+          <Reveal delay={80}>
+            <h2 className="display-2 mt-5 max-w-md">
+              Four steps. No commitment.
+            </h2>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-6 max-w-md text-lg text-ink-muted">
+              Buy what the project needs. Pay nothing when you are not asking.
+            </p>
+          </Reveal>
+
+          {/* A numbered list with a rule between steps, not a card each. */}
+          <ol className="mt-14">
+            {steps.map(([n, label, body], index) => (
+              <Reveal key={n} delay={220 + index * 90} as="li">
+                <div className="flex items-baseline gap-6 border-t border-border py-7">
+                  <span className="figure w-7 shrink-0 text-sm text-ink-muted">
+                    {n}
+                  </span>
+                  <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                    <span className="card-title">{label}</span>
+                    <span className="text-lg text-ink-muted">{body}</span>
+                  </span>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+
+        <Reveal delay={200} className="mx-auto w-full max-w-[19rem] lg:max-w-none">
+          <AppShot
+            shot="credit"
+            width={380}
+            className="mx-auto w-full max-w-[20rem]"
+          />
+        </Reveal>
       </div>
-    </SectionShell>
+    </section>
   );
 }

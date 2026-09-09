@@ -25,7 +25,7 @@ export function BuiltForHere() {
             <div
               className={
                 index === 1
-                  ? "tone-graphite hover-lift flex h-full flex-col rounded-2xl border border-white/10 p-8"
+                  ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-8"
                   : "hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8"
               }
             >

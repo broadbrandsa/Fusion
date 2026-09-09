@@ -53,7 +53,12 @@ const faqs = [
 
 export function Faq() {
   return (
-    <SectionShell id="faq" eyebrow="Questions" title="Asked first, answered here">
+    <SectionShell
+      id="faq"
+      tone="paper"
+      eyebrow="Questions"
+      title="Asked first, answered here"
+    >
       <div className="grid gap-x-16 lg:grid-cols-2">
         {[faqs.slice(0, 5), faqs.slice(5)].map((column, columnIndex) => (
           <Reveal key={columnIndex} delay={columnIndex * 120}>

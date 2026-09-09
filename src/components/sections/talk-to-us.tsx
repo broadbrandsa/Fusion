@@ -7,7 +7,7 @@ import { contact } from "@/content/site";
 /** A route, not a feature. Per-learner accounts are not built. */
 export function TalkToUs() {
   return (
-    <section id="contact" className="section-y tone-paper">
+    <section id="contact" className="section-y">
       <div className="container-site">
         <Reveal>
           <div className="mx-auto max-w-3xl rounded-3xl border border-border bg-card p-10 text-center md:p-16">

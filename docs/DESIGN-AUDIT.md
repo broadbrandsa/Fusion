@@ -94,6 +94,57 @@ none.
 
 ---
 
+## Part one and a half: giving each section its own shape
+
+First pass had most sections wearing the same clothes: eyebrow, display heading,
+lede, then a grid of bordered cards. The reference sites never repeat a layout
+that often, so each section was re-cut to the archetype its own information
+actually wants.
+
+| Section | Was | Now | Borrowed from |
+| --- | --- | --- | --- |
+| Hero | Split with device and floating card | unchanged | Vitara, Appito |
+| Problem | Heading, lede, two equal photos, three facts | **A spend chart**: spiky monthly top-ups against a flat subscription line, then an asymmetric photo pair | The argument is a shape mismatch, so it is drawn |
+| How it works | Four identical bordered cards | **Numbered list beside a full-height device**, steps ruled rather than boxed | Vitara's roadmap, Appito's steps |
+| Cost proof | Device beside three cards | **Split with a figure floating off the device**, claims as ruled rows, no cards | Vitara's floating stat overlay |
+| Full strength | Bento, graphite | unchanged layout, moved to paper | Vitara's light bento |
+| Bundles | Three-up on paper, middle graphite | Three-up on graphite, middle inverts to paper | Vitara pricing |
+| Comparison | Two bordered panels | **A comparison table**, seven rows | None of the three use one, but a versus argument is what a table is for |
+| Built for here | Stat row, photo, partners | unchanged, inverted stat card fixed | Vitara, Appito |
+| Privacy | Four cards plus one card | **Full-bleed inset panel with no cards at all**, claims as a ruled definition list | Appito's inverted feature panel |
+| FAQ | Two-column accordion | unchanged, moved to paper | Vitara, Habitline |
+| Talk to us | Centred card on paper | unchanged, moved to graphite | — |
+| Closing | Panel with wordmark watermark | unchanged | Vitara |
+
+Three sections now contain no bordered card at all, which is what stops the
+page reading as one long list of boxes.
+
+### The spend chart
+
+Worth calling out because it is the one piece of design here that is not
+borrowed. Twelve months of prepaid top-ups as bars, against a dashed line at
+the cheapest subscription price, with both totals underneath. Steel is correct
+rather than an exception, because every quantity on it is money.
+
+It is labelled on the page as an example year, and it deliberately uses the
+cheapest competitor rather than the dearest so the comparison cannot be
+accused of flattering itself. R400 of top-ups against R1 788 of subscription.
+
+### Tone rhythm
+
+The alternation had drifted into a three-section graphite run and a five-section
+one. Now: graphite, paper, graphite, graphite, paper, graphite, paper,
+graphite, graphite-inset, paper, graphite, graphite-inset. The two remaining
+adjacencies are either closely related sections or an inset panel, which reads
+as distinct anyway.
+
+**One real bug this surfaced.** The built-for-here stat row had an "inverted"
+card set to `tone-graphite` inside a graphite section, so it was identical to
+its neighbours and had been inverting nothing since it was written. It is paper
+now, and actually inverts.
+
+---
+
 ## Part two: the audit
 
 Measured on the running site, not read off the source.
@@ -163,9 +214,12 @@ without a breakpoint per step.
 
 ### Current state
 
+Re-measured after the section variation work, since five sections changed
+ground and every contrast pair changed with them.
+
 | Check | Result |
 | --- | --- |
-| Contrast failures in site copy | 0 of 51 pairs |
+| Contrast failures in site copy | 0 of 52 pairs |
 | Images missing alt text | 0 of 24 |
 | Broken images | 0 |
 | Elements below 44x44 | 2, both the "FAQ" nav link at 31–38 x 44. Passes WCAG 2.5.8 AA, which asks 24x24 |

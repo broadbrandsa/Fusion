@@ -42,6 +42,7 @@ export function FullStrength() {
   return (
     <SectionShell
       id="full-strength"
+      tone="paper"
       eyebrow="Full strength"
       title="Not a lite version of anything"
       lede="Prepaid is how you pay. It is not what you get."

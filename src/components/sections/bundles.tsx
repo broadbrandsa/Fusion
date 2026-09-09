@@ -13,7 +13,7 @@ import { formatCredits, formatRand } from "@/lib/format";
  */
 export function Bundles() {
   return (
-    <section id="bundles" className="section-y tone-paper">
+    <section id="bundles" className="section-y">
       <div className="container-site">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
           <Reveal>
@@ -40,7 +40,7 @@ export function Bundles() {
                 <div
                   className={
                     featured
-                      ? "tone-graphite hover-lift flex h-full flex-col rounded-2xl border border-white/10 p-9"
+                      ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-9"
                       : "hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-9"
                   }
                 >
