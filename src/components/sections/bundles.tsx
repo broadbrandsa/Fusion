@@ -1,5 +1,5 @@
 import { bundles } from "@/content/site";
-import { formatRand } from "@/lib/format";
+import { formatCredits, formatRand } from "@/lib/format";
 
 import { SectionShell } from "./section-shell";
 
@@ -19,7 +19,7 @@ export function Bundles() {
             <p className="text-sm text-ink-muted">{bundle.name}</p>
             <p className="money mt-3 text-3xl">{formatRand(bundle.price)}</p>
             <p className="figure mt-2 text-xs text-ink-faint">
-              {bundle.validity} days
+              {formatCredits(bundle.credits)} credits · {bundle.validity} days
             </p>
           </div>
         ))}
@@ -29,8 +29,9 @@ export function Bundles() {
         own, and a balance can never go below zero.
       </p>
       <p className="mt-3 text-xs text-ink-faint">
-        Placeholder layout. Credit allowances per bundle are not published in
-        the brand book, so they are deliberately absent until confirmed.
+        Placeholder layout. Answer estimates are deliberately absent until the
+        real cost spread is known, since the app estimates about 128 credits an
+        answer and the one logged transaction drew 861.
       </p>
     </SectionShell>
   );

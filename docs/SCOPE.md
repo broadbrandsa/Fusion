@@ -47,10 +47,22 @@ Supporting pieces: `section-shell.tsx` for shared rhythm and max width,
 
 ### Planned, not built
 
-Social proof, the competitor comparison that carries the R149 to R324 argument,
-a partner detail strip, an app store download block, and a cost demonstration
-that shows an answer reporting what it drew. That last one is the section most
-likely to sell the product, and it needs real product screens.
+Sections are now planned against the four pillars in `POSITIONING.md` rather
+than as a feature list. Each one has to prove a pillar or it does not get built.
+
+| Section | Pillar | Why it exists |
+| --- | --- | --- |
+| Cost demonstration | Nothing hidden | Shows an answer reporting what it drew. The best proof we have, and it is a screenshot rather than a claim |
+| Spending screens | Nothing hidden | The 30-day chart and by-conversation totals. No subscription product has any reason to build this screen |
+| Competitor comparison | Nothing to cancel | A month of Claude Pro is about 16 Starter bundles. The most persuasive arithmetic available |
+| Privacy detail | Nothing hidden | Server-enforced private chats, receipts held only on the phone |
+| Product breadth | Full strength | Two AIs, web search, photos, documents, decks, deep research, shopping in rand. Kills the suspicion that prepaid means less |
+| Lists and collections | Full strength | The dinner list came back with 17 specified items. Concrete beats adjectives |
+| Shared chats | Full strength and Nothing to cancel | Up to five people, cost split between whoever pays |
+| Games | Full strength | Quiz Night, Twenty Questions, Stop the Bus, The Court. Goes late and never near the hero, because it is the feature most likely to read as a toy |
+| App store download | Built for here | Only once in-app top-up ships |
+| Partner detail | Built for here | Clicks Connect, Absa, Digital Mobile |
+| Social proof | All | Needs real customers first |
 
 ## Explicitly excluded
 

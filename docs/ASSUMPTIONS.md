@@ -51,10 +51,38 @@ purely so layout and clear space can be worked on. It carries a
 `data-placeholder="wordmark"` attribute and must be swapped for the real SVG
 before anything ships.
 
-**Credit allowances per bundle are unknown.** The brand book shows "R2 495,00 ·
-12 440 credits · 30 days" as a typography specimen, not as bundle data. So the
-bundle cards deliberately show price and validity only. Do not fill this in by
-arithmetic.
+**Credit allowances per bundle: resolved 09 September 2026.** Read off the
+app's own Top up screen. Starter is 60 000 credits, Regular 165 000 and Heavy
+440 000, all valid 30 days. These are now in `src/content/site.ts`. The brand
+book's "R2 495,00 · 12 440 credits · 30 days" was only ever a typography
+specimen and is not bundle data.
+
+**Answer counts are not safe to publish.** The app estimates about 468, 1289
+and 3437 answers, which works out at about 128 credits an answer across all
+three bundles. But the single real transaction in the app's spending log cost
+861 credits, which would make Starter about 70 answers. One data point, on what
+looks like a long research answer, so it may be an outlier. Get the real
+distribution before any answer count goes on the site. A brand built on showing
+every cost cannot advertise a figure that is out by a factor of six.
+
+**In-app top-up is not built.** The Top up screen says so itself: buying credit
+needs App Store products and receipt checking on our side, which are not built
+yet. So the site cannot send anyone to buy a bundle, and the primary CTA has to
+be the free grant until that ships. `in-app-topup` is marked `live: false` in
+`src/content/site.ts` and nothing marked false may be claimed on the site.
+
+**The app and the brand book disagree in three places.** The app writes prices
+as R20.00 with a full stop, while the brand book writes R2 495,00 with a comma,
+and the site follows the book. The app fills list checkboxes in steel, though
+steel is meant to be money and nothing else. And the app uses gold for a
+not-built-yet warning, though the brand book defines gold as credit held
+against an answer in flight. All three look like the app drifting from the
+book, but somebody has to decide which moves.
+
+**The screenshots read darker than the graphite spec.** They look closer to
+#0F1114 than the #191C20 the brand book gives for ground. Most likely the
+capture or display profile rather than the app, so check it with an eyedropper
+on a real device before changing a token.
 
 **Paper borders, ink faint and surface high were derived.** The paper table in
 the brand book lists seven roles and does not cover borders, ink faint or
@@ -81,10 +109,27 @@ support actually receives, not from guesses.
 **Analytics and conversion goals are unconfigured.** See `TRACKING_PLAN.md`.
 No measurement IDs existed at build time, so nothing is wired.
 
+**The free grant size is unknown.** The brand book confirms a newly verified
+number starts with a grant but never says how big it is. The offer in
+`POSITIONING.md` is built on that grant, so the number is needed before the
+primary CTA can be written.
+
+**Audience priority is a recommendation, not a decision.** `POSITIONING.md`
+puts the free-tier wall first and the Claude gap second. That is informed
+judgement without any behavioural data behind it, and all of the Q3 messaging
+changes if the priority is different.
+
 **Legal pages do not exist.** Privacy policy, terms and POPIA specifics were
 out of scope and need input from whoever owns them. The privacy section makes
 product claims about server-side enforcement, and how much of that can be
 described publicly needs sign-off.
+
+## Where the positioning sits
+
+`POSITIONING.md` holds the four positioning answers and the feature framing.
+Every open decision in it is also listed here, because a copy decision made
+against an unresolved assumption is how a brand ends up claiming something it
+cannot check.
 
 ## Dates
 

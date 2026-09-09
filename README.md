@@ -41,6 +41,10 @@ Scaffold and brand layer are done. Sections are placeholders on purpose, and
 they say so on the page. Read `docs/SCOPE.md` for what exists and what does
 not, and `docs/ASSUMPTIONS.md` before writing copy or filling in any figure.
 
+Read `docs/POSITIONING.md` before writing a single line of copy. It holds the
+four positioning answers and the pillar each feature has to prove, and nothing
+should go on the site that does not ladder back to one of them.
+
 Two things to know before touching the design. The money is the only colour:
 chrome and content stay greyscale, and steel belongs to the credit figure
 alone. And the wordmark in `src/components/brand/wordmark.tsx` is a placeholder
@@ -52,6 +56,7 @@ brand book is explicit that the mark is never rebuilt in another typeface.
 | Document | Covers |
 | --- | --- |
 | [docs/PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md) | What this is, who it is for, the stack, the owner |
+| [docs/POSITIONING.md](docs/POSITIONING.md) | The messaging spine: the four positioning answers, and how every feature frames into them |
 | [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) | What is confirmed, what was guessed, what needs a decision |
 | [docs/SCOPE.md](docs/SCOPE.md) | Pages and sections in and out, launch milestones |
 | [docs/STRUCTURE.md](docs/STRUCTURE.md) | Folder layout, the brand layer, section rules, content approach |
