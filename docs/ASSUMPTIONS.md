@@ -151,6 +151,20 @@ the real interface and clearly marked, and it should be replaced by a real
 device capture the moment one exists. The figures shown in the recreations are
 illustrative, not logged transactions.
 
+**Two paper tokens were darkened for WCAG AA, 09 September 2026.** Paper ink
+muted moved from the brand book's `#676E76` to `#60676F`, because the book's own
+pairing against paper ground `#ECEEF2` measures 4.44:1 and AA needs 4.5. Paper
+ink faint moved from `#8C939C`, which was derived here rather than taken from the
+book and measured 2.67:1, to `#5F666E`. Both changes are invisible to the eye
+and take failing pairs to passing. The ink muted one is worth raising with
+whoever owns the brand book.
+
+**Ink faint is not a body text colour.** The book scopes it to "placeholders,
+timestamps". It was being used for eyebrows, captions and labels across the
+site, where it measured 2.67:1 to 3.41:1. Those twenty-four usages moved to ink
+muted. The token is unchanged and still used inside the phone mockups, which is
+the job the book describes.
+
 **The lime accent departs from the brand book.** #E9FF72 was chosen as the
 marketing accent on 09 September 2026, on the owner's instruction, after the
 reference sites. The brand book says chrome is greyscale and the money is the

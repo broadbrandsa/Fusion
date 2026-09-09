@@ -1,71 +1,65 @@
 import { Photo } from "@/components/blocks/photo";
+import { Reveal } from "@/components/blocks/reveal";
 
 import { SectionShell } from "./section-shell";
 
-/**
- * The problem, before the product. Habitline opens with a large statement
- * block in place of a feature list, and it suits us better than it suits them,
- * because our argument is a mismatch rather than a benefit.
- */
+const facts = [
+  ["Flat billing", "Lumpy use."],
+  ["Priced in dollars", "On a card you may not hold."],
+  ["The wall hits mid-task", "Right when it matters."],
+];
+
+/** One statement, then three short facts. Nothing to read twice. */
 export function Problem() {
   return (
     <SectionShell id="problem" tone="paper">
-      <div className="mx-auto max-w-4xl">
-        <p className="font-heading text-2xl leading-[1.25] tracking-[-0.02em] md:text-[2.25rem] md:leading-[1.2]">
-          You use AI in bursts. A renovation, a business plan, a thesis, a month
-          of job applications. Heavy for a fortnight, then almost nothing.{" "}
-          <span className="text-ink-muted">
-            Every subscription bills you the same either way, and none of them
-            will tell you what a single answer cost, so you cannot even see how
-            badly the shape fits.
-          </span>
-        </p>
-        <div className="mt-14 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
-          <figure>
-            <Photo
-              photo="projectRenovation"
-              ratio="4 / 3"
-              sizes="(min-width: 1024px) 620px, 100vw"
-            />
-            <figcaption className="mt-3 text-xs text-ink-faint">
-              A renovation. Three weeks of quotes, materials and second
-              opinions, then nothing for months.
-            </figcaption>
-          </figure>
-          <figure>
-            <Photo
-              photo="projectFlatpack"
-              ratio="4 / 3"
-              sizes="(min-width: 1024px) 520px, 100vw"
-            />
-            <figcaption className="mt-3 text-xs text-ink-faint">
-              A move. One frantic weekend of working things out, and it is
-              over.
-            </figcaption>
-          </figure>
-        </div>
+      <div className="max-w-4xl">
+        <Reveal>
+          <h2 className="display-2">
+            You use AI in bursts.{" "}
+            <span className="text-ink-muted">
+              Every subscription bills you flat.
+            </span>
+          </h2>
+        </Reveal>
+        <Reveal delay={120}>
+          <p className="mt-8 max-w-xl text-lg text-ink-muted">
+            Heavy for a fortnight, then nothing for a month. And none of them
+            will tell you what a single answer cost.
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="mt-14 grid gap-8 border-t border-border pt-10 sm:grid-cols-3">
-          {[
-            {
-              title: "Flat billing, lumpy use",
-              body: "You pay through every quiet month for questions you never asked.",
-            },
-            {
-              title: "Priced in dollars, on a card",
-              body: "Recurring international billing, on a card plenty of people do not hold or keep well away from it.",
-            },
-            {
-              title: "The wall arrives mid-task",
-              body: "Free tiers stop exactly when the work starts mattering.",
-            },
-          ].map((item) => (
-            <div key={item.title}>
-              <p className="text-sm font-semibold text-ink">{item.title}</p>
-              <p className="mt-2 text-sm text-ink-muted">{item.body}</p>
-            </div>
-          ))}
-        </div>
+      <div className="mt-16 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
+        <Reveal delay={80} as="figure">
+          <Photo
+            photo="projectRenovation"
+            ratio="4 / 3"
+            sizes="(min-width: 1024px) 700px, 100vw"
+          />
+          <figcaption className="mt-4 text-sm text-ink-muted">
+            A renovation. Three weeks flat out, then months of nothing.
+          </figcaption>
+        </Reveal>
+        <Reveal delay={200} as="figure">
+          <Photo
+            photo="projectFlatpack"
+            ratio="4 / 3"
+            sizes="(min-width: 1024px) 580px, 100vw"
+          />
+          <figcaption className="mt-4 text-sm text-ink-muted">
+            A move. One frantic weekend, then done.
+          </figcaption>
+        </Reveal>
+      </div>
+
+      <div className="mt-16 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
+        {facts.map(([title, body], index) => (
+          <Reveal key={title} delay={index * 100}>
+            <p className="card-title">{title}</p>
+            <p className="mt-3 text-base text-ink-muted">{body}</p>
+          </Reveal>
+        ))}
       </div>
     </SectionShell>
   );

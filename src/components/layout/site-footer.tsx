@@ -5,18 +5,17 @@ import { contact, nav, site } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border px-5 py-14 md:px-8">
-      <div className="mx-auto grid w-full max-w-[1200px] gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="border-t border-border py-16">
+      <div className="container-site grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Wordmark className="text-base" />
-          <p className="mt-5 max-w-xs text-sm text-ink-muted">
-            Prepaid AI for South Africa. Buy a bundle like airtime, ask in your
-            own language, and see what every answer cost.
+          <p className="mt-6 max-w-xs text-base text-ink-muted">
+            Prepaid AI for South Africa. Buy it like airtime. See every cost.
           </p>
         </div>
 
         <div>
-          <p className="text-xs tracking-[0.14em] text-ink-faint uppercase">
+          <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
             The site
           </p>
           <ul className="mt-5 space-y-3">
@@ -24,7 +23,7 @@ export function SiteFooter() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-ink-muted transition-colors hover:text-ink"
+                  className="inline-flex min-h-11 items-center text-base text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"
                 >
                   {item.label}
                 </Link>
@@ -34,26 +33,26 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-xs tracking-[0.14em] text-ink-faint uppercase">
+          <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
             Get in touch
           </p>
           <ul className="mt-5 space-y-3">
             <li>
               <Link
                 href={contact.href}
-                className="text-sm text-ink-muted transition-colors hover:text-ink"
+                className="inline-flex min-h-11 items-center text-base text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"
               >
                 Talk to us
               </Link>
             </li>
-            <li className="text-sm text-ink-muted">
+            <li className="text-base text-ink-muted">
               {site.url.replace("https://", "")}
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="mx-auto mt-14 flex w-full max-w-[1200px] flex-col gap-2 border-t border-border pt-7 text-xs text-ink-faint md:flex-row md:justify-between">
+      <div className="container-site mt-16 flex flex-col gap-2 border-t border-border pt-8 text-sm text-ink-muted md:flex-row md:justify-between">
         <p>
           {site.name}. Prepaid, in rand. Nothing renews, so there is nothing to
           cancel.

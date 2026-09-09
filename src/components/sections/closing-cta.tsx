@@ -1,58 +1,56 @@
 import Link from "next/link";
 
 import { AppShot } from "@/components/blocks/app-shot";
+import { Reveal } from "@/components/blocks/reveal";
 import { Wordmark } from "@/components/brand/wordmark";
 import { Button } from "@/components/ui/button";
 import { cta, stores } from "@/content/site";
 
-/**
- * Vitara closes on a dark panel with a device shot and the wordmark set huge
- * behind it. Borrowed here, because the last thing on the page should be the
- * name and the action.
- */
+/** Vitara closes on a dark panel with the wordmark set huge behind it. */
 export function ClosingCta() {
   return (
-    <section className="px-5 pb-20 md:px-8 md:pb-28">
-      <div className="relative mx-auto w-full max-w-[1200px] overflow-hidden rounded-3xl border border-white/10 bg-surface px-6 pt-14 md:px-14">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[48rem] -translate-x-1/2 rounded-full opacity-[0.1] blur-3xl"
-          style={{ background: "var(--lime)" }}
-        />
-        <div className="relative grid items-end gap-10 lg:grid-cols-[1fr_0.7fr]">
-          <div className="pb-14">
-            <h2 className="max-w-lg text-3xl tracking-[-0.03em] md:text-5xl md:leading-[1.05]">
-              Buy the amount of AI your project needs
-            </h2>
-            <p className="mt-5 max-w-md text-base text-ink-muted">
-              Start free on a verified number, see what every answer costs, and
-              pay nothing at all in the months you are not asking.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {stores.map((store, index) => (
-                <Button
-                  key={store.id}
-                  size="lg"
-                  variant={index === 0 ? "accent" : "outline"}
-                  className="rounded-full"
-                  asChild
-                >
-                  <Link href={store.href}>{store.label}</Link>
-                </Button>
-              ))}
-            </div>
-            <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
+    <section className="pb-[var(--spacing-section)]">
+      <div className="container-site">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface px-7 pt-16 md:px-16">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[48rem] -translate-x-1/2 rounded-full opacity-[0.1] blur-3xl"
+            style={{ background: "var(--lime)" }}
+          />
+          <div className="relative grid items-end gap-10 lg:grid-cols-[1fr_0.65fr]">
+            <Reveal className="pb-16">
+              <h2 className="display-2 max-w-xl">
+                Buy the AI your project needs
+              </h2>
+              <p className="mt-6 max-w-sm text-lg text-ink-muted">
+                Start free. See every cost. Pay nothing in the quiet months.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                {stores.map((store, index) => (
+                  <Button
+                    key={store.id}
+                    size="lg"
+                    variant={index === 0 ? "accent" : "outline"}
+                    className="h-14 rounded-full px-7 text-base"
+                    asChild
+                  >
+                    <Link href={store.href}>{store.label}</Link>
+                  </Button>
+                ))}
+              </div>
+              <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
+            </Reveal>
+
+            <Reveal delay={160} className="relative mx-auto w-full max-w-[16rem] lg:mx-0">
+              <AppShot shot="spending" width={280} />
+            </Reveal>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[15rem] lg:mx-0">
-            <AppShot shot="spending" width={260} />
-          </div>
+          <Wordmark
+            decorative
+            className="pointer-events-none mt-8 w-full text-[6rem] leading-[0.78] text-ink/[0.04] select-none md:text-[11rem]"
+          />
         </div>
-
-        <Wordmark
-          decorative
-          className="pointer-events-none mt-6 w-full text-[6rem] leading-[0.78] text-ink/[0.04] select-none md:text-[10rem]"
-        />
       </div>
     </section>
   );

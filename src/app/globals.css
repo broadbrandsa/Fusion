@@ -65,10 +65,32 @@
   --font-heading: var(--font-archivo);
   --font-mono: var(--font-plex-mono);
 
-  /* 13px is the floor and nothing is set under it, so the smallest step in
-     the scale is 13px rather than Tailwind's default 12px. */
+  /* Type scale, measured off Appito, Vitara and Habitline at 1440px.
+     Their display sizes are far larger than the brand book's document scale,
+     which is correct: the book sets documents, this sets a marketing page.
+     Reference: h1 56 / 86 / 90, h2 48 / 56 / 58, card titles 22-24, body
+     16-20. The 13px floor still holds at the bottom of the scale.
+
+     Fluid, so the big sizes do not need a breakpoint each. */
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.25rem;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: clamp(1.125rem, 0.4vw + 1rem, 1.25rem);
+  --text-lg--line-height: 1.55;
+  --text-card: clamp(1.25rem, 0.5vw + 1.1rem, 1.5rem);
+  --text-card--line-height: 1.25;
+  --text-h3: clamp(1.5rem, 1vw + 1.2rem, 2rem);
+  --text-h3--line-height: 1.2;
+  --text-h2: clamp(2.25rem, 3.2vw + 0.6rem, 3.5rem);
+  --text-h2--line-height: 1.06;
+  --text-h1: clamp(2.75rem, 5.4vw + 0.4rem, 5.25rem);
+  --text-h1--line-height: 1.03;
+
+  /* Block sizes. The references run 100-200px of section padding and
+     1260-1580px containers, so this sits deliberately in that band. */
+  --spacing-section: clamp(4.5rem, 8vw, 10rem);
+  --container-site: 82.5rem;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -103,14 +125,20 @@
 --------------------------------------------------------------------------- */
 
 /* Paper: the light theme. The same shapes on a neutral off-white, with the
-   accents darkened for contrast. */
+   accents darkened for contrast.
+
+   Two deviations from the brand book, both for WCAG AA, both flagged in
+   docs/ASSUMPTIONS.md. Ink muted is #60676F rather than the book's #676E76,
+   because the book's own pairing against paper ground measures 4.44:1 and AA
+   needs 4.5. Ink faint is #5F666E rather than the #8C939C derived here
+   earlier, which measured 2.67:1. */
 :root {
   --ground: #ecEEF2;
   --surface: #ffffff;
   --surface-high: #f7f9fb;
   --ink: #1c2126;
-  --ink-muted: #676e76;
-  --ink-faint: #8c939c;
+  --ink-muted: #60676f;
+  --ink-faint: #5f666e;
   --steel: #2e5e8c;
   --gold: #a3771d;
   --danger: #b3261e;
@@ -206,6 +234,17 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Keyboard focus. The reset above sets an outline colour but leaves the
+     style at none, so plain links had no focus indicator at all: measured
+     "3px none" with no ring. Ink against either ground clears AA comfortably,
+     and lime is deliberately not used here because a lime ring is invisible
+     on paper. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -264,8 +303,8 @@
   --surface: #ffffff;
   --surface-high: #f7f9fb;
   --ink: #1c2126;
-  --ink-muted: #676e76;
-  --ink-faint: #8c939c;
+  --ink-muted: #60676f;
+  --ink-faint: #5f666e;
   --steel: #2e5e8c;
   --gold: #a3771d;
   --danger: #b3261e;
@@ -327,4 +366,136 @@
 
   background-color: var(--ground);
   color: var(--ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Movement.
+
+   All three reference sites do the same three things and little else: a
+   staggered fade-up as the hero loads, a fade-up as each block scrolls in, and
+   0.3s ease-in-out on hover. Habitline drives 89 reveals that way. None of
+   them animate anything decorative, which suits a brand asked to be calm.
+
+   Reveals are opacity plus a 24px lift, once, never on the way back out.
+   Everything here collapses to nothing under prefers-reduced-motion.
+--------------------------------------------------------------------------- */
+
+/* Gated on (scripting: enabled), so CSS decides this rather than a script.
+   With scripting off, or on a browser that does not know the feature, the
+   query simply does not match and nothing is hidden, which is the safe
+   direction. Hiding content behind JS with no fallback is how a marketing page
+   ends up blank, and doing it with an inline script also costs a hydration
+   mismatch. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Marquee. Habitline runs these through Webflow's JS; a keyframe does the
+     same job with less shipped code. The track holds two copies of its
+     children, so -50% lands exactly on a seam. */
+  .marquee-track {
+    animation: marquee-scroll var(--marquee-duration, 42s) linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion: everything is simply present, and the marquee holds still. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@layer components {
+  /* One section rhythm, from the references' generous vertical padding. */
+  .section-y {
+    padding-block: var(--spacing-section);
+  }
+
+  .container-site {
+    width: 100%;
+    max-width: var(--container-site);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Display type. Archivo, per the brand book, at marketing sizes. */
+  .display-1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+    letter-spacing: -0.032em;
+  }
+
+  .display-2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    letter-spacing: -0.028em;
+  }
+
+  .display-3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: -0.022em;
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-card);
+    line-height: var(--text-card--line-height);
+    letter-spacing: -0.018em;
+  }
+
+  /* Hover, matched to the references' 0.3s ease-in-out. */
+  .hover-lift {
+    transition:
+      transform 0.3s ease-in-out,
+      border-color 0.3s ease-in-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in oklch, var(--ink) 22%, transparent);
+  }
 }

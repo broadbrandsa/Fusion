@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
-import {
-  LanguagesCard,
-  ModelPickerCard,
-} from "@/components/blocks/app-screens";
+import { LanguagesCard } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
+import { ModelLogo } from "@/components/blocks/model-logo";
 import { Photo } from "@/components/blocks/photo";
+import { Reveal } from "@/components/blocks/reveal";
+import { models } from "@/content/models";
 
 import { SectionShell } from "./section-shell";
 
@@ -14,32 +14,29 @@ function BentoCard({
   body,
   children,
   className,
+  delay = 0,
 }: {
   title: string;
   body: string;
   children?: ReactNode;
   className?: string;
+  delay?: number;
 }) {
   return (
-    <div
-      className={`flex flex-col rounded-2xl border border-border bg-card p-6 ${className ?? ""}`}
-    >
-      <p className="font-heading text-lg font-bold tracking-[-0.01em]">
-        {title}
-      </p>
-      <p className="mt-2 text-sm text-ink-muted">{body}</p>
-      {children ? <div className="mt-6">{children}</div> : null}
-    </div>
+    <Reveal delay={delay} className={className}>
+      <div className="hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8">
+        <p className="card-title">{title}</p>
+        <p className="mt-3 text-base text-ink-muted">{body}</p>
+        {children ? <div className="mt-8">{children}</div> : null}
+      </div>
+    </Reveal>
   );
 }
 
 /**
- * The bento grid, the pattern all three reference sites lean on hardest, with
- * real interface inside each card.
- *
- * Its job is one specific piece of work: killing the suspicion that prepaid
- * means a cut-down product. Every card here is evidence against that, which is
- * why the section leads with the two frontier models and not with a list.
+ * The bento grid, the pattern all three references lean on hardest, with real
+ * interface inside each card. Its job is one thing: killing the suspicion that
+ * prepaid means a cut-down product.
  */
 export function FullStrength() {
   return (
@@ -47,45 +44,54 @@ export function FullStrength() {
       id="full-strength"
       eyebrow="Full strength"
       title="Not a lite version of anything"
-      lede="Prepaid is the way you pay, not what you get. Claude and Gemini both answer, chosen per question, spending one balance."
+      lede="Prepaid is how you pay. It is not what you get."
     >
       <div className="grid gap-4 lg:grid-cols-3">
         <BentoCard
           className="lg:col-span-2"
-          title="Two frontier AIs, one wallet"
-          body="Pick the model per question. Claude for long reasoning, Gemini for fast answers with search. One balance either way, and the cost shows up the same."
+          title="Every model, one wallet"
+          body="Pick the right one per question. One balance either way."
         >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <ModelPickerCard />
-            <div className="flex flex-col justify-center gap-4 text-sm text-ink-muted">
-              <p>
-                Searches the web when a question needs it, so answers are
-                current rather than frozen.
-              </p>
-              <p>
-                Reads photos, writes documents and slide decks, runs deep
-                research, and shops with live prices in rand.
-              </p>
-            </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {models.map((model) => (
+              <div
+                key={model.id}
+                className="flex items-center gap-4 rounded-xl border border-border bg-surface-high/40 px-5 py-4"
+              >
+                <ModelLogo id={model.id} variant="icon" height={24} />
+                <span>
+                  <span className="block text-base text-ink">{model.name}</span>
+                  <span className="block text-sm text-ink-muted">
+                    {model.note}
+                  </span>
+                </span>
+              </div>
+            ))}
           </div>
+          <p className="mt-6 text-base text-ink-muted">
+            Plus web search, photos, documents, decks, deep research and
+            shopping in rand.
+          </p>
         </BentoCard>
 
         <BentoCard
-          title="Every language you actually speak"
-          body="The interface asks your language before anything else and speaks it, and the assistant answers in whichever one you write."
+          delay={100}
+          title="Your language, asked first"
+          body="All 11 official languages, before anything else."
         >
           <LanguagesCard />
         </BentoCard>
 
         <BentoCard
+          delay={60}
           title="Lists it fills for you"
-          body="Ask for a week of dinners and the shopping list comes back specified, quantities and all. Seventeen items, and you just tick them off."
+          body="Ask for a week of dinners. Seventeen items come back specified."
         >
           <div className="space-y-4">
             <Photo
               photo="kitchenCooking"
               ratio="16 / 10"
-              sizes="(min-width: 1024px) 360px, 100vw"
+              sizes="(min-width: 1024px) 380px, 100vw"
             />
             <AppShot
               shot="listDetail"
@@ -96,11 +102,12 @@ export function FullStrength() {
         </BentoCard>
 
         <BentoCard
+          delay={140}
           className="lg:col-span-2"
           title="Ask together, split the cost"
-          body="Up to five people in one chat, everybody reads every answer, and the cost is split between whoever pays. A chat is shared from the moment it starts or never, so a private conversation can never be opened up after the fact."
+          body="Up to five people. One answer. Shared from the start or never."
         >
-          <div className="grid items-center gap-6 sm:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid items-center gap-6 sm:grid-cols-[0.75fr_1.25fr]">
             <AppShot
               shot="sharedChat"
               width={280}
@@ -110,37 +117,37 @@ export function FullStrength() {
               <Photo
                 photo="cookingTogether"
                 ratio="16 / 9"
-                sizes="(min-width: 1024px) 420px, 100vw"
+                sizes="(min-width: 1024px) 440px, 100vw"
               />
-              <p className="text-sm text-ink-muted">
-                Ask as a household, a study group or a work team, and read one
-                answer instead of five separate ones. Or hand it a game and let
-                it referee.
+              <p className="text-base text-ink-muted">
+                Or hand it a game and let it referee.
               </p>
             </div>
           </div>
         </BentoCard>
 
         <BentoCard
-          title="Your work is kept, not lost"
-          body="Files, documents and decks in one place. Recipes saved off answers, and bookmarked sources one tap from reopening."
+          delay={80}
+          title="Nothing gets lost"
+          body="Files, decks, saved recipes, bookmarked sources."
         >
           <AppShot
             shot="collections"
             width={280}
-            className="mx-auto max-w-[12.5rem]"
+            className="mx-auto max-w-[12rem]"
           />
         </BentoCard>
 
         <BentoCard
+          delay={160}
           className="lg:col-span-2"
           title="And it is good company"
-          body="A R20 bundle buys the whole product, games included. An AI referee runs the round and keeps the score, which is not something a productivity tool usually bothers to do."
+          body="Quiz Night, Twenty Questions, Stop the Bus, The Court. An AI keeps the score."
         >
           <AppShot
             shot="games"
             width={300}
-            className="mx-auto max-w-[12.5rem]"
+            className="mx-auto max-w-[12rem]"
           />
         </BentoCard>
       </div>

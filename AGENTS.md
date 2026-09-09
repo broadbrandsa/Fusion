@@ -45,6 +45,21 @@ eye. Focus rings stay ink.
 **Graphite is home ground.** `<html>` carries `dark` by default. Both palettes
 are wired; there is no toggle.
 
+**Display type uses the classes, not raw sizes.** `display-1`, `display-2`,
+`display-3` and `card-title` in `globals.css`, plus `container-site` and
+`section-y` for block rhythm. The scale is measured off the reference sites and
+recorded in `docs/DESIGN-AUDIT.md`.
+
+**Movement is three things only.** A staggered fade-up on load, a fade-up on
+scroll via `Reveal`, and 0.3s ease-in-out hovers. Nothing decorative loops.
+Everything collapses under `prefers-reduced-motion`, and the reveals are gated
+on `@media (scripting: enabled)` so a blocked script never leaves the page
+blank.
+
+**Ink faint is not body text.** It is for placeholders and timestamps inside the
+app mockups. Site copy uses ink muted or better, because ink faint fails WCAG AA
+on every ground we have.
+
 **13px is the floor.** `--text-xs` is overridden to 13px, so `text-xs` is the
 smallest step available. Nothing goes under it.
 

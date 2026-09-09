@@ -57,6 +57,7 @@ brand book is explicit that the mark is never rebuilt in another typeface.
 | --- | --- |
 | [docs/PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md) | What this is, who it is for, the stack, the owner |
 | [docs/POSITIONING.md](docs/POSITIONING.md) | The messaging spine: the four positioning answers, and how every feature frames into them |
+| [docs/DESIGN-AUDIT.md](docs/DESIGN-AUDIT.md) | What the reference sites do, measured, and our own UI/UX audit against it |
 | [docs/IMAGE-CREDITS.md](docs/IMAGE-CREDITS.md) | Every image, its source, where it is used, and what is still missing |
 | [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) | What is confirmed, what was guessed, what needs a decision |
 | [docs/SCOPE.md](docs/SCOPE.md) | Pages and sections in and out, launch milestones |

@@ -10,4 +10,4 @@ export { Privacy } from "./privacy";
 export { Faq } from "./faq";
 export { TalkToUs } from "./talk-to-us";
 export { ClosingCta } from "./closing-cta";
-export { SectionShell, SectionPlaceholder } from "./section-shell";
+export { SectionShell } from "./section-shell";

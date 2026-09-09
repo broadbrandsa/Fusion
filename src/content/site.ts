@@ -226,8 +226,8 @@ export const distributionPartners = [
  */
 export const hero = {
   headline: "Prepaid AI, priced per answer",
-  subhead:
-    "Top up like airtime, ask in your own language, and see what every answer cost. No card, no subscription, nothing to cancel.",
+  /* Short on purpose. Three statements, no clauses. */
+  subhead: "Buy it like airtime. See what every answer costs. Nothing renews.",
 } as const;
 
 /**
@@ -255,7 +255,7 @@ export const stores = [
 
 export const cta = {
   /** Sits under the store buttons, so the promise stays the free start. */
-  promise: "Start free on a verified number. No card.",
+  promise: "Start free. No card.",
   secondary: { label: "See what an answer costs", href: "/#nothing-hidden" },
 } as const;
 
@@ -265,7 +265,7 @@ export const cta = {
  * hidden, which is the only way to play a real constraint.
  */
 export const lapseNotice =
-  "Credit is valid 30 days, the same as airtime. We would rather tell you here than in fine print.";
+  "Credit lasts 30 days, the same as airtime. We would rather say it here than in fine print.";
 
 /**
  * One destination for every enquiry, customer and institutional alike, decided

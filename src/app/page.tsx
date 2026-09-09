@@ -29,9 +29,12 @@ export default function Home() {
         <Problem />
         <HowItWorks />
         <CostProof />
+        {/* Full strength comes before the price. Someone who reads R20 while
+            still suspecting a cut-down product reads it as cheap rather than
+            as fair, so the lite-version doubt gets killed first. */}
+        <FullStrength />
         <Bundles />
         <Comparison />
-        <FullStrength />
         <BuiltForHere />
         <Privacy />
         <Faq />
