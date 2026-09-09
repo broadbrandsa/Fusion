@@ -236,11 +236,26 @@ export const hero = {
  * sequence has to stay honest: download, verify your number, use the free
  * grant. Nobody meets the top-up screen until the grant runs out.
  *
- * TODO: real store URLs. Both stores use the bundle id com.dsg.vasai, and the
- * Apple listing is "Digital Fusion AI".
+ * The Play link is the real one, built from the known package. The Apple link
+ * is a store search, because the numeric app id was never supplied.
+ * TODO: swap in the Apple listing URL once the app id is known.
  */
+export const stores = [
+  {
+    id: "apple",
+    label: "Download on the App Store",
+    href: "https://apps.apple.com/za/search?term=digital%20fusion%20ai",
+  },
+  {
+    id: "google",
+    label: "Get it on Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.dsg.vasai",
+  },
+] as const;
+
 export const cta = {
-  primary: { label: "Get the app, start free", href: "#download" },
+  /** Sits under the store buttons, so the promise stays the free start. */
+  promise: "Start free on a verified number. No card.",
   secondary: { label: "See what an answer costs", href: "/#nothing-hidden" },
 } as const;
 
@@ -253,13 +268,17 @@ export const lapseNotice =
   "Credit is valid 30 days, the same as airtime. We would rather tell you here than in fine print.";
 
 /**
- * Institutions get a route, not a feature. Per-learner accounts and bulk
- * provisioning are not built, so the site claims nothing and simply invites
- * the conversation. TODO: destination, once someone is named to answer.
+ * One destination for every enquiry, customer and institutional alike, decided
+ * 09 September 2026. Institutions get a route rather than a feature, because
+ * per-learner accounts and bulk provisioning are not built, so the site
+ * invites the conversation without describing anything.
+ *
+ * TODO: the real destination. An anchor is a placeholder, not an answer.
  */
-export const institutions = {
-  label: "Buying for a school or a team? Talk to us.",
-  href: "#talk-to-us",
+export const contact = {
+  href: "#contact",
+  general: "Questions? Talk to us.",
+  institutions: "Buying for a school or a team? Talk to us.",
 } as const;
 
 export const nav = [

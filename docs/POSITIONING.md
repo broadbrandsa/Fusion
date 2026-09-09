@@ -143,14 +143,15 @@ per-seat monthly commitment, no procurement conversation about recurring
 international billing.
 
 **Blocked on product, but not absent from the site.** The screenshots show a
-single-user app. There is no sign of bulk provisioning, an organisation or admin
-view, or per-learner reporting. Shared chats up to five people is adjacent but
-not the same thing. So the site makes no education claim. What it carries
-instead is a route: one short section or footer link, along the lines of
-**"Buying for a school or a team? Talk to us."** That captures the demand
-without describing a feature that does not exist, and it tells us how real the
-demand is before anything gets built. Somebody has to answer those enquiries,
-and where they land is an open item.
+single-user app, with no sign of buying in bulk or of accounts being handed out
+to a class. So the site makes no education claim. What it carries instead is a
+route: one short section or footer link, along the lines of **"Buying for a
+school or a team? Talk to us."** That captures the demand without describing a
+feature that does not exist, and it tells us how real the demand is before
+anything gets built.
+
+All that is needed from engineering for now is a rough read on whether this is
+close or far off. Enquiries go to the same destination as customer enquiries.
 
 **Partner reach** through Clicks Connect, Absa and Digital Mobile is a channel
 that serves all of these. It is not an audience and it belongs in partner
@@ -346,9 +347,14 @@ be: download, verify your number, use the free grant. Nobody meets the top-up
 screen until the grant runs out, and the CTA and the first-run experience agree
 with each other.
 
-Wording: **Get the app, start free.** Never "Get a bundle" until top-up ships.
-Bundle prices stay on the page as context for what comes after the grant, not as
-a checkout. When top-up ships, the CTA needs no rewrite, only a purchase path.
+In practice that is two store buttons with the promise sitting under them:
+**Start free on a verified number. No card.** Never "Get a bundle" until top-up
+ships. Bundle prices stay on the page as context for what comes after the
+grant, not as a checkout. When top-up ships, the CTA needs no rewrite, only a
+purchase path.
+
+The Google Play link is already correct, built from the `com.dsg.vasai`
+package. Apple points at a store search until the numeric app id is supplied.
 
 ### The 30-day lapse
 
@@ -421,9 +427,9 @@ it is. Nothing marked not live may be claimed on the site.
 | Runs on a 2017 entry-level Android | 4 | Built for the phone you own | Yes |
 | Partner distribution | 4 | Buy it where you already pay | Partners confirmed |
 | In-app top-up | 1 | Buy a bundle in two taps | **No** |
-| Talk to us, for schools and teams | 1 and 4 | We take institutions seriously | Route only, claims nothing |
-| Per-learner accounts, preloaded | 1 and 4 | Every learner gets their own AI | **No, needs product work** |
-| Bulk provisioning and admin view | 1 | Buy for a class in one go | **No, no evidence it exists** |
+| Talk to us, one route for every enquiry | 1 and 4 | We answer real people | Needs a destination |
+| Per-learner accounts, preloaded | 1 and 4 | Every learner gets their own AI | **No, product work needed** |
+| Buying in bulk for a class | 1 | Buy for a class in one go | **No, not seen in the app** |
 
 ### Notes on the awkward ones
 
@@ -448,9 +454,9 @@ be retroactively exposed.
 with seventeen properly specified grocery items, quantities included. Concrete
 does more than adjectives.
 
-**Education is a demand story without a product story yet.** Nothing about it
-goes on the site until engineering confirms what exists, because the whole brand
-rests on claiming only what the product does today.
+**Education is a demand story without a product story yet.** No education claim
+goes on the site, only the talk-to-us route, because the whole brand rests on
+claiming only what the product does today.
 
 ---
 
@@ -521,6 +527,8 @@ against these before it ships.
 | 09 Sep 2026 | Q1 is one structural thing with four proofs under the pillars, not the brand book's five-together |
 | 09 Sep 2026 | No competitor is named on the public site. Compare by price range, with the checked date |
 | 09 Sep 2026 | Education appears on the site only as a talk-to-us route for schools and teams, claiming no feature |
+| 09 Sep 2026 | One enquiry destination for customers and institutions alike |
+| 09 Sep 2026 | Store buttons ship with generic links now rather than waiting on the Apple app id |
 
 ## Open questions
 
@@ -528,20 +536,71 @@ What the copy cannot be finished without.
 
 **Facts still needed**
 
-- The size of the free grant. The hero promises a free start and cannot say what
-  you get.
-- The real Apple and Google Play URLs. Bundle id is `com.dsg.vasai` on both.
-- A screenshot of an answer landing with its cost beside it, and one of a big
-  job quoting before it runs. These are the two strongest proofs of Q1 and
-  neither is captured yet.
-- The real distribution of credits per answer. 128 by the app's estimate, 861
-  in the one logged transaction.
-- Whether the product can serve education at all: bulk provisioning, an
-  organisation or admin view, per-learner spend reporting. A straight answer
-  from engineering before any education surface is designed.
-- When in-app top-up ships.
-- Where institutional enquiries go. The talk-to-us route needs a destination,
-  an address or a form, and a named person who answers.
+**How big is the free grant?** The brand book says only that "a newly verified
+number starts with a free grant" and never gives the size. The app screenshots
+probably answer it: the Your credit screen shows 60 000 credits granted,
+labelled "from Starter", lapsing 15 Sep 2026, and 60 000 minus the 861 spent is
+exactly the 59 139 balance shown. So that device got a full Starter bundle's
+worth free. The only doubt left is whether that is the real welcome grant or a
+seeded test account. Confirm which, and the hero can say what you get.
+
+**The Apple app id.** The site currently links to an App Store search, which
+works but looks unfinished. Google Play is correct already, built from the
+`com.dsg.vasai` package.
+
+**Two screenshots we do not have.** An answer landing with its cost beside it,
+and a big job quoting before it runs. These are the two strongest proofs of Q1
+and neither is captured. Everything else we can show is a balance or a total,
+which is the aftermath rather than the moment.
+
+**What a typical answer actually costs.** Explained in full below, because the
+short version is easy to misread.
+
+**Can the product serve education, roughly?** Not a spec, just a high-level
+read: is anything like per-learner accounts or buying in bulk possible today,
+close, or a long way off? That is enough to know whether the talk-to-us route
+is collecting demand we can serve this year or next.
+
+**When in-app top-up ships.** It does not change the CTA any more. It decides
+when bundle prices can become a checkout rather than context.
+
+**Where enquiries go.** One destination for everything, customer and
+institutional alike, decided 09 September 2026. It needs a real address or form
+and somebody named to answer it, because an unanswered enquiry route does more
+damage than none.
+
+### On what a typical answer costs
+
+This one is worth spelling out, because the question sounds more technical than
+it is.
+
+The app advertises Starter as "about 468 answers". That comes from dividing
+60 000 credits by an assumed 128 credits per answer, and all three bundles use
+the same 128. But the single real answer in the Spending log cost **861
+credits**, nearly seven times that. At 861, Starter is about 70 answers, not
+468.
+
+Both figures can be true at once, because answers do not cost the same. A quick
+factual question is cheap. A deep research job that searches the web, reads
+several pages and writes a long reply is expensive. So 128 might be a fair
+average with one unusual outlier sitting in a test account, or 128 might be
+optimistic and real answers routinely cost far more.
+
+**What would settle it:** the costs of a few hundred real answers, and from
+those the middle value and the range. Engineering can pull it from whatever
+already feeds the Spending screen. Nothing elaborate, just "half of all answers
+cost under X, and nine in ten cost under Y".
+
+**Why it matters enough to ask.** If we print "about 468 answers" and the true
+figure is 70, we have overstated by nearly seven times on a site whose entire
+argument is that we show you real costs. That is the one mistake this brand
+cannot survive.
+
+**The likely resolution, and it is a better one.** Drop answer counts
+altogether and show real examples instead: what a quick question costs, what a
+long research job costs. Concrete, checkable, no average to be wrong about, and
+it demonstrates the thing we are selling rather than estimating it. That needs
+the same data, so the ask does not change.
 
 **Decisions still open**
 
@@ -567,3 +626,4 @@ What the copy cannot be finished without.
 | 09 Sep 2026 | Team input reframed Q2 around bursts. Education and training added as a second audience, blocked on product. |
 | 09 Sep 2026 | Full rewrite for clarity. Problem section added up front. Q1 now bridges to the problem: cost transparency is what makes buying the right amount possible. Log narration stripped from the body. Writing guidelines consolidated into one list. |
 | 09 Sep 2026 | Three decisions folded in. Q1 framing confirmed as one thing with four proofs. Competitors are compared by price range and never named on the site. Education gets a talk-to-us route rather than silence or a coming-soon. |
+| 09 Sep 2026 | Open facts rewritten in plain language. The grant size is probably 60 000 credits, evidenced by the arithmetic on the Your credit screen. The credits-per-answer question explained properly, with dropping answer counts entirely as the likely and better resolution. Education ask reduced to a high-level read. One enquiry destination. Store links wired generically. |

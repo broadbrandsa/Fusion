@@ -57,13 +57,14 @@ app's own Top up screen. Starter is 60 000 credits, Regular 165 000 and Heavy
 book's "R2 495,00 · 12 440 credits · 30 days" was only ever a typography
 specimen and is not bundle data.
 
-**Answer counts are not safe to publish.** The app estimates about 468, 1289
-and 3437 answers, which works out at about 128 credits an answer across all
-three bundles. But the single real transaction in the app's spending log cost
-861 credits, which would make Starter about 70 answers. One data point, on what
-looks like a long research answer, so it may be an outlier. Get the real
-distribution before any answer count goes on the site. A brand built on showing
-every cost cannot advertise a figure that is out by a factor of six.
+**Answer counts are not safe to publish.** The app estimates 468, 1289 and 3437
+answers, all from an assumed 128 credits per answer. The single real transaction
+in the spending log cost 861, which would make Starter about 70 answers. Both
+can be true, since a quick question is cheap and a deep research job is not, so
+what is needed is the middle value and the range across a few hundred real
+answers. The likely resolution is better than a fixed number anyway: drop the
+counts and show real examples of what a short question and a long research job
+each cost. See `POSITIONING.md` for the full explanation.
 
 **In-app top-up is not built.** The Top up screen says so itself: buying credit
 needs App Store products and receipt checking on our side, which are not built
@@ -109,10 +110,13 @@ support actually receives, not from guesses.
 **Analytics and conversion goals are unconfigured.** See `TRACKING_PLAN.md`.
 No measurement IDs existed at build time, so nothing is wired.
 
-**The free grant size is unknown.** The brand book confirms a newly verified
-number starts with a grant but never says how big it is. The offer in
-`POSITIONING.md` is built on that grant, so the number is needed before the
-primary CTA can be written.
+**The free grant is probably 60 000 credits, not confirmed.** The brand book
+says only that a newly verified number starts with a free grant, without a
+size. The Your credit screen shows 60 000 credits granted, labelled "from
+Starter", lapsing 15 Sep 2026, and 60 000 minus the 861 spent equals the 59 139
+balance exactly. So that device received a full Starter bundle's worth free.
+Whether that is the standard welcome grant or a seeded test account is the open
+part.
 
 **Audience decided 09 September 2026.** `POSITIONING.md` defines the audience
 by usage pattern rather than payment blocker: AI use comes in bursts while a
@@ -120,21 +124,19 @@ subscription bills flat. Consumers first, education and training second.
 
 **Education and training is unvalidated against the product.** Per-learner
 accounts with preloaded credit is a strong demand story from team input, and
-nothing in the seven screenshots supports it. No bulk provisioning, no
-organisation or admin view, no per-learner spend reporting, and shared chats up
-to five people is adjacent but not the same. Nothing about education may appear
-on the site until engineering confirms what exists. This is the largest open
-question in the project.
+nothing in the seven screenshots supports it. The site therefore makes no
+education claim and carries only a talk-to-us route. All that is needed for now
+is a high-level read from engineering on whether this is close or far off.
 
-**Institutional enquiries have nowhere to go yet.** The site will carry a
-talk-to-us route for schools and teams, decided 09 September 2026, and it needs
-a destination and a named person before it can be wired. An unanswered enquiry
-form does more damage than no form.
+**Enquiries have nowhere to go yet.** Customer and institutional enquiries share
+one destination, decided 09 September 2026. It needs a real address or form and
+somebody named to answer, because an unanswered enquiry route does more damage
+than none.
 
-**Store URLs are missing.** The primary CTA is now the app store download, so
-it needs real Apple and Google Play links. Both stores use `com.dsg.vasai` and
-the Apple listing is Digital Fusion AI, but the URLs themselves were never
-supplied.
+**The Apple app id is missing.** The Google Play link is correct, built from the
+`com.dsg.vasai` package. Apple needs a numeric app id, so the site links to a
+store search in the meantime, decided 09 September 2026 rather than holding the
+buttons back.
 
 **Legal pages do not exist.** Privacy policy, terms and POPIA specifics were
 out of scope and need input from whoever owns them. The privacy section makes
