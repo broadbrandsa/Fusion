@@ -64,7 +64,9 @@ reversing. Habitline drives 89 of these, Appito 23, Vitara a handful.
 **0.3s ease-in-out on hover**, on colour and background only.
 
 Habitline also runs infinite marquee strips, driven by Webflow's JS rather than
-CSS keyframes. Nothing decorative loops or bounces anywhere on any of the three.
+CSS keyframes. We had one carrying the model logos and it has been removed, so
+nothing on our page loops at all. Nothing decorative loops or bounces anywhere
+on any of the three references either.
 
 ### What we took, and what we did not
 
@@ -103,7 +105,7 @@ actually wants.
 
 | Section | Was | Now | Borrowed from |
 | --- | --- | --- | --- |
-| Hero | Split with device and floating card | unchanged | Vitara, Appito |
+| Hero | Split with device and floating card, on flat graphite | **Vitara's hero**: inset rounded panel, full-bleed photograph under a scrim, headline left, device centre bleeding off the bottom, supporting line and actions right, nav floating over the image | Vitara |
 | Problem | Heading, lede, two equal photos, three facts | **A spend chart**: spiky monthly top-ups against a flat subscription line, then an asymmetric photo pair | The argument is a shape mismatch, so it is drawn |
 | How it works | Four identical bordered cards | **Numbered list beside a full-height device**, steps ruled rather than boxed | Vitara's roadmap, Appito's steps |
 | Cost proof | Device beside three cards | **Split with a figure floating off the device**, claims as ruled rows, no cards | Vitara's floating stat overlay |
@@ -144,6 +146,9 @@ since, all still entrance or interaction, nothing decorative looping:
 | Nav underline grows from the left | Header links | Replaces a link that just changed colour |
 | Scroll progress hairline | Top of the page | The page runs past 20 000px on a phone. Knowing there is an end is worth two pixels. Lime, because it is chrome and steel belongs to money |
 
+The model logo marquee was removed on 10 September 2026, along with the
+`Marquee` component, which had no other user. Nothing on the page loops now.
+
 Counting is deliberately not applied to a year, a zero, or a bundle price. A
 price list should read as a price list.
 
@@ -152,6 +157,10 @@ does not run at all in a hidden document, and CSS transitions do not progress
 either. Counters, the progress bar and the header state will all measure as
 frozen if the browser pane is backgrounded. Force the trigger state and check
 the computed style instead, which is how the chart bar rule was confirmed.
+
+Image decoding is suspended too. A freshly requested image reports
+`complete: true` with `naturalWidth: 0`, and `img.decode()` never settles, both
+of which look exactly like a broken image and are not.
 
 ### Tone rhythm
 
@@ -186,6 +195,24 @@ Measured on the running site, not read off the source.
 | **Low** | Model wordmarks warned about a modified width without a matching height. | `width: auto` alongside the explicit height. |
 | **Critical** | A page opened in a background tab came to the front blank. An IntersectionObserver delivers nothing while the document is hidden, and fronting the tab produces no intersection *change* to fire, so every in-viewport block stayed at opacity 0 permanently. Cmd-clicking a link is common enough that this would have hit real people. | `Reveal` now decides from geometry, not only from the observer. Anything in or above the viewport is revealed from a measurement on the next frame, which still plays the transition, and a `visibilitychange` listener re-measures for anything that mounted hidden. |
 | **Low** | A deep link or a reload with restored scroll left elements above the viewport permanently at opacity 0 if the reader scrolled back up. | Same geometry check. Anything already scrolled past at mount reveals immediately; elements below keep their entrance. |
+
+### Text on photography
+
+The hero puts type over an image, which needs its own palette. Three explicit
+tokens rather than white with an opacity modifier, for two reasons: the
+composited result is reviewable rather than implied, and Tailwind compiles an
+opacity modifier to `oklab()`, which any contrast checker written against
+`rgb()` silently misreads as near-black. That false-flagged the hero as
+failing at 1.23:1 when it was actually passing at 10:1.
+
+Measured against the worst case the scrim can produce, which is a pure white
+photograph under both wash layers, landing at `#26292D`:
+
+| Token | Value | Worst case |
+| --- | --- | --- |
+| `--on-image` | `#FFFFFF` | 14.61:1 |
+| `--on-image-muted` | `#D6DAE0` | 10.41:1 |
+| `--on-image-faint` | `#B9BFC7` | 7.89:1 |
 
 ### A note on verifying this
 

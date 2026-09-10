@@ -58,6 +58,9 @@
   --color-gold: var(--gold);
   --color-danger: var(--danger);
   --color-lime: var(--lime);
+  --color-on-image: var(--on-image);
+  --color-on-image-muted: var(--on-image-muted);
+  --color-on-image-faint: var(--on-image-faint);
 
   /* Type: Archivo for display, IBM Plex Sans for running text,
      IBM Plex Mono for money and figures. */
@@ -90,6 +93,9 @@
   /* Block sizes. The references run 100-200px of section padding and
      1260-1580px containers, so this sits deliberately in that band. */
   --spacing-section: clamp(4.5rem, 8vw, 10rem);
+  /* Sticky header height, so the hero can slide under it the way Vitara's
+     nav sits over its hero photograph. */
+  --header-h: 4.75rem;
   --container-site: 82.5rem;
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -123,6 +129,22 @@
 
    Focus rings stay ink. A lime ring is invisible on paper.
 --------------------------------------------------------------------------- */
+
+/* Text sitting on a photograph, in the hero.
+   Explicit values rather than white with an opacity modifier, for two
+   reasons. The composited result is then reviewable rather than implied, and
+   Tailwind compiles an opacity modifier to oklab(), which every contrast
+   checker written against rgb() silently misreads.
+   Measured against the worst case the scrim can produce, a pure white
+   photograph under both wash layers, which lands at #26292D:
+   on-image 14.61:1, muted 10.41:1, faint 7.89:1. */
+:root,
+.tone-paper,
+.tone-graphite {
+  --on-image: #ffffff;
+  --on-image-muted: #d6dae0;
+  --on-image-faint: #b9bfc7;
+}
 
 /* Paper: the light theme. The same shapes on a neutral off-white, with the
    accents darkened for contrast.
@@ -402,37 +424,15 @@
     transform: none;
   }
 
-  /* Marquee. Habitline runs these through Webflow's JS; a keyframe does the
-     same job with less shipped code. The track holds two copies of its
-     children, so -50% lands exactly on a seam. */
-  .marquee-track {
-    animation: marquee-scroll var(--marquee-duration, 42s) linear infinite;
-  }
-
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
 }
 
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Reduced motion: everything is simply present, and the marquee holds still. */
+/* Reduced motion: everything is simply present. */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
   }
 
-  .marquee-track {
-    animation: none;
-  }
 }
 
 @layer components {
@@ -503,8 +503,7 @@
 /* ---------------------------------------------------------------------------
    Second pass on movement, 10 September 2026.
 
-   Still entrance and interaction only. Nothing decorative loops, and the
-   marquee is content rather than decoration.
+   Still entrance and interaction only. Nothing loops.
 --------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) {

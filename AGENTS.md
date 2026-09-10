@@ -54,8 +54,7 @@ recorded in `docs/DESIGN-AUDIT.md`.
 The vocabulary: a staggered fade-up on load, a fade-up on scroll via `Reveal`,
 0.3s ease-in-out hovers, figures that count up via `CountUp`, chart bars that
 grow from the baseline, a photograph that lifts slightly under the cursor, a
-header that tightens once you leave the hero, a scroll progress hairline, and
-one marquee, which is content rather than decoration.
+header that tightens once you leave the hero, and a scroll progress hairline.
 
 Everything collapses under `prefers-reduced-motion`, and the reveals are gated
 on `@media (scripting: enabled)` so a blocked script never leaves the page
