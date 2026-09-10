@@ -29,6 +29,7 @@ photographer is good practice and costs nothing.
 | `photos/phone-in-hand.jpg` | Jonas Leupe | o0A5BpHxziU |
 | `photos/study-at-window.jpg` | Microsoft Copilot | Zcp8xN9DnjM |
 | `photos/side-hustle-maker.jpg` | Toa Heftiba | qtkeIDsgrLg |
+| `photos/cafe-phone.jpg` | Nel Ranoko | iaHFmpXVltw |
 
 ### Where each one is used
 
@@ -42,6 +43,7 @@ photographer is good practice and costs nothing.
 | `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |
 | `study-at-window.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped and mirrored, see below** |
 | `side-hustle-maker.jpg` | Problem, side hustle tab | A maker painting pottery at a home workbench. Real trade, which is what the brief asked for |
+| `cafe-phone.jpg` | Bundles band | A young man laughing at his phone in a café. The first frame in the set that reads local. **Cropped, see below** |
 
 ## The Copilot photograph is cropped, deliberately
 
@@ -80,16 +82,32 @@ luminance rather than from a house default.
 `BentoCard` takes the pair as a `scrim` prop. Measure any new photograph
 before swapping it in: at 0.72, the kitchen frame leaves body text at 2.40:1.
 
+## The cafe photograph is cropped too
+
+`cafe-phone.jpg` is 3400 x 1642 taken from y 300 of the original 5184 x 3456,
+then resized to 2400 wide. That window was chosen by measurement, not by eye.
+
+The band it sits in runs type across the middle of the frame, and the original
+has the subject dead centre with a sunlit window behind him. Twelve candidate
+crops were scored on the p99.5 luminance of the rectangle the type actually
+occupies. This one is the only crop that puts him at 70% across, clear of the
+type, while keeping his face in shot, and it drops the scrim the band needs
+from 0.76 to 0.52 because the type lands on the dark window rather than the
+sunlit patches. Anything reframed here has to be re-measured.
+
 ## The gap worth naming
 
-None of this photography was shot in South Africa. The kitchens, the interiors
-and the people all read as North American or European.
+Almost none of this photography reads as South African. The kitchens, the
+interiors and the people mostly read as North American or European.
 
-That matters most in one specific place. The built-for-here section claims the
-product was made for South Africa rather than adapted for it, and illustrating
-that claim with an American kitchen quietly contradicts it. The current set
-works as placeholder, and a local shoot, or at minimum locally shot stock,
-would do more for that section than any copy change.
+`cafe-phone.jpg`, added 10 September 2026, is the first exception, and it is
+why it carries the bundles band. Do not over-read that: the location is not
+stated on the source and nobody here has confirmed it, so it is not a claim
+the site makes anywhere in copy.
+
+The rest of the set still works as placeholder only. A local shoot, or at
+minimum locally shot stock, would do more for the built-for-here argument than
+any copy change.
 
 Brief for anything new: real hands and real phones in real South African
 places. A taxi rank, a kitchen table, a spaza counter, a building site. Entry

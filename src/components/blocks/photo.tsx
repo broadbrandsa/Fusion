@@ -6,11 +6,16 @@ import { cn } from "@/lib/utils";
  * Photography. Sources are Unsplash, resized to 2400px and re-encoded, with
  * credits in docs/IMAGE-CREDITS.md.
  *
- * Two things to keep in mind when adding more. None of the current set was
- * shot in South Africa, which works against the built-for-here claim more than
- * it works against anything else. And the brand book asks for calm, precise
- * and undecorated, so images carry a slight desaturation to keep them from
- * shouting over greyscale chrome and a steel figure.
+ * `cafePhone` arrived 10 September 2026 and is the first frame in the set that
+ * reads as local rather than imported. Treat that as unverified: the location
+ * is not stated on the source and nobody here has confirmed it, so it is not a
+ * claim the site makes, only a reason this frame carries the band where the
+ * built-for-here argument lands. Everything else in the set is visibly not
+ * South African, which is the gap to keep closing.
+ *
+ * The brand book asks for calm, precise and undecorated, so images carry a
+ * slight desaturation to keep them from shouting over greyscale chrome and a
+ * steel figure.
  */
 export const photos = {
   projectRenovation: {
@@ -42,6 +47,14 @@ export const photos = {
        caches serving the old bytes, because the URL does not change. */
     src: "/images/photos/study-at-window.jpg",
     alt: "Someone at a desk by a window, speaking into their phone with an open notebook in front of them",
+  },
+  cafePhone: {
+    /* Cropped to 3400 x 1642 of the original 5184 x 3456, from y 300. That
+       window puts him at 70% across, clear of the type column, and keeps the
+       type over the dark window rather than the sunlit patches, which is what
+       drops the scrim this band needs from 0.76 to 0.52. */
+    src: "/images/photos/cafe-phone.jpg",
+    alt: "A young man laughing at something on his phone in a sunlit café",
   },
   sideHustleMaker: {
     src: "/images/photos/side-hustle-maker.jpg",

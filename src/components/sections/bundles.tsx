@@ -19,11 +19,20 @@ import { formatRand } from "@/lib/format";
  * The device shows the credit screen, which is the only screen that lists the
  * bundles, so the band illustrates its own heading.
  *
- * The scrim is set from this photograph rather than a house default. Measured
- * by column band its p99 luminance runs 0.461 in the darkest quarter to 0.611
- * in the brightest, and the type column is capped at 30rem so it ends at 67%
- * of the band. Holding 0.74 to 70% leaves white at 4.91:1 across every line,
- * and easing to 0.42 after that keeps the maker in the picture.
+ * The frame was chosen by measurement as much as by eye. Of twelve candidate
+ * crops of the original, this one (3400 x 1642 from y 300) is the only one
+ * that puts him clear of the type at 70% across while keeping his face in
+ * shot, and it drops the scrim the band needs from 0.76 to 0.52 by leaving the
+ * type over the dark window rather than the sunlit patches.
+ *
+ * The scrim is 0.65, set by sampling the composited pixels under the rendered
+ * type at 1280, 1440 and 1920 rather than by estimating from the whole frame.
+ * Worth doing that way: 0.60 left the lede's single brightest pixel at 4.42:1,
+ * which a frame-wide average hides completely, and the failure was at 1280
+ * only. The band keeps a fixed height while its width changes, so the cover
+ * crop shows more of the frame vertically at narrower widths and the type
+ * lands on different pixels at each one. Checking a single width would have
+ * shipped it.
  *
  * Answer counts stay off the price cards. The app estimates 128 credits an
  * answer and the one logged transaction drew 861, so no count goes on the site
@@ -34,40 +43,37 @@ export function Bundles() {
     <section id="bundles" className="section-y">
       <div className="container-site">
         <Reveal>
-          <div className="relative isolate overflow-hidden rounded-[30px]">
-            <Image
-              src={photos.sideHustleMaker.src}
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 1240px, 100vw"
-              className="-z-10 object-cover object-[78%_center]"
-            />
-            {/* Below xl the type is either stacked or filling most of a
-                narrower band, so the scrim has to be flat. Measured over the
-                whole frame at p99 0.572, 0.78 holds white at 5.81:1. */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 bg-[#12151A]/[0.78] xl:hidden"
-            />
-            {/* From xl the band is wide enough that the type stops at 67% of
-                it, so the scrim only has to hold that far and the maker keeps
-                her light. At 1024 the same column ran to 87% and the eased
-                end of the gradient left the lede at 3.2:1. */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 hidden xl:block"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(18,21,26,0.80) 0%, rgba(18,21,26,0.74) 70%, rgba(18,21,26,0.42) 100%)",
-              }}
-            />
+          <div className="relative isolate overflow-hidden rounded-[30px] border border-border bg-card xl:border-transparent">
+            {/* Below xl the photograph is a strip at the top of a graphite
+                panel rather than a ground, because full-width type would run
+                across his face and the sunlit window behind him, and holding
+                that at 4.5:1 takes a 0.81 scrim, which leaves no photograph
+                worth having. From xl the type column stops at 57% of the band
+                and the frame becomes the ground. Between md and xl the device
+                and the type still sit side by side under the strip, because
+                stacking all three ran the band to 1117px at 1024.
+                Below md it stacks, because a 12rem device and a paragraph do
+                not both fit. */}
+            <div className="absolute inset-x-0 top-0 -z-10 h-60 sm:h-72 xl:inset-0 xl:h-auto">
+              <Image
+                src={photos.cafePhone.src}
+                alt=""
+                fill
+                sizes="(min-width: 1280px) 1240px, 100vw"
+                className="object-cover object-[62%_32%] saturate-[0.9]"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 hidden bg-[#12151A]/[0.65] xl:block"
+              />
+            </div>
 
-            <div className="grid items-center gap-12 px-6 py-14 sm:px-10 lg:grid-cols-[14rem_minmax(0,30rem)] lg:gap-16 lg:py-16 lg:pl-14">
+            <div className="grid gap-12 px-6 pt-72 pb-14 sm:px-10 sm:pt-84 md:grid-cols-[12rem_minmax(0,30rem)] md:items-center xl:grid-cols-[12rem_minmax(0,25rem)] xl:gap-14 xl:py-16 xl:pt-16 xl:pl-10">
               <AppShot
                 shot="credit"
                 frame="glass"
-                width={300}
-                className="mx-auto w-full max-w-[13rem] lg:max-w-none"
+                width={280}
+                className="mx-auto w-full max-w-[12rem]"
               />
 
               <div>

@@ -198,15 +198,19 @@ out of the pill dot and the hero washes, where it had been stretched past
 "money and nothing else", so the brand rule is observed more closely now than
 before. If the brand book is revised, this belongs in it.
 
-**The photography is not South African.** Six Unsplash images were supplied
-09 September 2026 and five are in use. They work, but every kitchen, interior
-and person in the set reads as North American or European.
+**The photography is mostly not South African.** Six Unsplash images were
+supplied 09 September 2026 and a seventh on 10 September. Every kitchen,
+interior and person in the first six reads as North American or European.
 
-That matters in one place in particular. The built-for-here section claims the
-product was made for South Africa rather than adapted for it, and illustrating
-it with an American kitchen quietly argues the opposite. Treat the current set
-as placeholder for that section specifically. Full credits, placements and a
-shoot brief are in `IMAGE-CREDITS.md`.
+The seventh, `cafe-phone.jpg`, is the first that reads local, and it now
+carries the bundles band. **Its location is unverified.** Nothing on the source
+states where it was taken and nobody here has confirmed it, so it is not a
+claim the site makes in copy, only a reason it was placed where the
+built-for-here argument lands. If the location matters commercially, confirm
+it before the site goes live.
+
+The rest of the set stays placeholder. Full credits, placements and a shoot
+brief are in `IMAGE-CREDITS.md`.
 
 **One supplied image is deliberately not deployable.** A Microsoft Copilot
 campaign photograph, with the Windows 11 logo visible on the laptop in frame,

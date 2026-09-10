@@ -487,14 +487,35 @@ sections running one into the next.
 reads as a sticker cut out and dropped on top; the screen inside is still a
 real capture.
 
-**The scrim has two forms, and the reason is worth recording.** Measured by
-column band, this photograph's p99 luminance runs 0.461 in its darkest quarter
-to 0.611 in its brightest, where the maker is. From `xl` the band is wide
-enough that the type column stops at 67% of it, so a horizontal gradient holds
-0.74 to 70% (white at 4.91:1) and then eases to 0.42, leaving the maker in the
-picture. Below `xl` the same column runs to 87% of a narrower band, where the
-eased end of that gradient left the lede at 3.2:1, so those widths get a flat
-0.78 instead (5.81:1). Measuring at 1440 only would have shipped the failure.
+**The photograph changed to `cafe-phone.jpg` the same day**, the first frame
+in the set that reads local. It forced the band to be measured properly, and
+three things came out of that which are worth carrying forward.
+
+*Crops can be scored.* The original has the subject dead centre with a sunlit
+window behind him, which is the worst possible arrangement for type across the
+middle. Twelve candidate crops were scored on the p99.5 luminance of the
+rectangle the type actually occupies. The winner (3400 x 1642 from y 300) puts
+him at 70% across, clear of the type, keeps his face in shot, and drops the
+scrim the band needs from 0.76 to 0.52.
+
+*Sample the composited pixels, not the frame.* Every earlier scrim on this
+site was set from a frame-wide or column-wide p99. Here that hid a real
+failure: at a 0.60 scrim the frame-wide numbers looked fine while the lede's
+single brightest pixel sat at 4.42:1. The band is now checked by decoding the
+served image in the page, mapping each text element's rectangle through the
+`object-fit: cover` transform, and taking the worst pixel under it.
+
+*One width is not enough.* The band keeps a fixed height while its width
+changes, so the cover crop shows more of the frame vertically at narrower
+widths and the type lands on different pixels at each one. The 0.60 failure
+appeared at 1280 and not at 1440. Final numbers at 0.65, worst pixel, at 1280
+/ 1366 / 1440: eyebrow 5.64, headline 4.59 (large text, needs 3.0), lede 4.71
+to 6.17, promise 10.85.
+
+Below `xl` the photograph stops being a ground at all. Full-width type would
+run across his face and the window, and holding that at 4.5:1 needs a 0.81
+scrim, which leaves no photograph worth having. Those widths get the frame as
+a strip at the top of a graphite panel instead.
 
 ### Sections removed
 
