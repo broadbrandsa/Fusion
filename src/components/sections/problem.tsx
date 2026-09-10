@@ -82,8 +82,7 @@ export function Problem() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-lg text-ink-muted">
-                  Heavy for a fortnight, then nothing for a month. And none of
-                  them will tell you what a single answer cost.
+                  Heavy for a fortnight, then nothing for a month.
                 </p>
               </Reveal>
             </div>

@@ -131,17 +131,20 @@ because the quantity plotted is money.
 The line draws itself in on reveal via `stroke-dashoffset`, with the area fill
 and the dots following.
 
-**It was stripped back on 10 September 2026.** It had carried a dashed
-subscription reference, a label on that line, and a caption with both yearly
-totals. All of it came off: the shape is the argument, and a spiky line beside
-a heading reading "you use AI in bursts" does not need explaining. The
-subscription line went with its label rather than sitting there unlabelled,
-because an undecorated dashed rule is something a reader has to decode. The
-flat-billing half of the argument is carried by the heading above it and by
-the comparison table further down.
+**It was stripped back on 10 September 2026, in stages.** It had carried a
+dashed subscription reference, a label on that line, a caption with both
+yearly totals, and twelve month labels. All of it came off.
 
-Nothing on it is presented as data. The aria-label describes the shape rather
-than quoting figures, and no number from it is claimed anywhere on the site.
+The shape is the argument, and a spiky line beside a heading reading "you use
+AI in bursts" does not need explaining. The subscription line went with its
+label rather than sitting there unlabelled, because an undecorated dashed rule
+is something a reader has to decode. The flat-billing half of the argument is
+carried by the heading above it and by the comparison table further down.
+
+What is left has no text in it at all, so the aria-label carries the entire
+meaning for a screen reader. It describes the shape rather than quoting
+figures, which is also the honest description: nothing on the chart is data,
+and no number from it is claimed anywhere on the site.
 
 ### The problem section, measured against Habitline
 
