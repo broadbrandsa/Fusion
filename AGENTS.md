@@ -50,11 +50,24 @@ are wired; there is no toggle.
 `section-y` for block rhythm. The scale is measured off the reference sites and
 recorded in `docs/DESIGN-AUDIT.md`.
 
-**Movement is three things only.** A staggered fade-up on load, a fade-up on
-scroll via `Reveal`, and 0.3s ease-in-out hovers. Nothing decorative loops.
+**Movement is entrance and interaction only. Nothing decorative loops.**
+The vocabulary: a staggered fade-up on load, a fade-up on scroll via `Reveal`,
+0.3s ease-in-out hovers, figures that count up via `CountUp`, chart bars that
+grow from the baseline, a photograph that lifts slightly under the cursor, a
+header that tightens once you leave the hero, a scroll progress hairline, and
+one marquee, which is content rather than decoration.
+
 Everything collapses under `prefers-reduced-motion`, and the reveals are gated
 on `@media (scripting: enabled)` so a blocked script never leaves the page
 blank.
+
+**Counting is for quantities.** `CountUp` goes on figures that are amounts.
+Not on a year, not on a zero, and not on a price in a price list, which should
+read as a price list. The brand book asks for tabular numerals "so a balance
+does not shift width as it counts", which is where the idea comes from.
+
+**`CountUp` takes a format name, not a format function.** A Server Component
+cannot pass a function to a Client Component, and the build fails if you try.
 
 **Ink faint is not body text.** It is for placeholders and timestamps inside the
 app mockups. Site copy uses ink muted or better, because ink faint fails WCAG AA

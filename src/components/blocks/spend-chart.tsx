@@ -1,3 +1,4 @@
+import { CountUp } from "@/components/blocks/count-up";
 import { competitorPricing } from "@/content/site";
 import { formatRand } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -57,13 +58,16 @@ export function SpendChart({ className }: { className?: string }) {
           aria-hidden="true"
           className="flex h-52 items-end gap-1.5 sm:gap-2.5"
         >
-          {MONTHS.map(([month, amount]) => (
+          {MONTHS.map(([month, amount], index) => (
             <div key={month} className="flex flex-1 flex-col items-center gap-2">
               <div className="flex w-full flex-1 items-end">
                 {amount > 0 ? (
                   <div
-                    className="w-full rounded-t-[3px] bg-steel"
-                    style={{ height: `${(amount / CEILING) * 100}%` }}
+                    className="chart-bar w-full rounded-t-[3px] bg-steel"
+                    style={{
+                      height: `${(amount / CEILING) * 100}%`,
+                      ["--bar-delay" as string]: `${index * 55}ms`,
+                    }}
                   />
                 ) : (
                   <div className="h-px w-full bg-ink-muted/25" />
@@ -83,7 +87,7 @@ export function SpendChart({ className }: { className?: string }) {
             What you actually used
           </span>
           <span className="money mt-1 block text-3xl">
-            {formatRand(PREPAID_TOTAL)}
+            <CountUp value={PREPAID_TOTAL} format="rand" />
           </span>
         </span>
         <span>
@@ -91,7 +95,11 @@ export function SpendChart({ className }: { className?: string }) {
             What a subscription charged
           </span>
           <span className="money mt-1 block text-3xl">
-            {formatRand(SUBSCRIPTION_TOTAL)}
+            <CountUp
+              value={SUBSCRIPTION_TOTAL}
+              format="rand"
+              durationMs={1400}
+            />
           </span>
         </span>
         <span className="text-sm text-ink-muted">

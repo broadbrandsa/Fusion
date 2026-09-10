@@ -499,3 +499,49 @@
     border-color: color-mix(in oklch, var(--ink) 22%, transparent);
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Second pass on movement, 10 September 2026.
+
+   Still entrance and interaction only. Nothing decorative loops, and the
+   marquee is content rather than decoration.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  /* Chart bars grow from the baseline as the chart arrives. scaleY rather
+     than height, so it stays on the compositor. */
+  .chart-bar {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--bar-delay, 0ms);
+  }
+
+  .reveal[data-visible="true"] .chart-bar {
+    transform: scaleY(1);
+  }
+
+  /* Photographs lift very slightly under the cursor. Scale only, so nothing
+     reflows, and the figure clips it. */
+  .photo-zoom img {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .photo-zoom:hover img {
+    transform: scale(1.035);
+  }
+
+  /* The header tightens once you leave the hero. */
+  .site-header-bar {
+    transition:
+      padding 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-bar {
+    transform: none;
+  }
+}

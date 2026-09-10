@@ -61,7 +61,10 @@ export function Photo({
 
   return (
     <div
-      className={cn("relative overflow-hidden rounded-2xl bg-surface", className)}
+      className={cn(
+        "photo-zoom relative overflow-hidden rounded-2xl bg-surface",
+        className,
+      )}
       style={{ aspectRatio: ratio }}
     >
       <Image

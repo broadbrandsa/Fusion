@@ -1,14 +1,23 @@
+import { CountUp, type CountUpFormat } from "@/components/blocks/count-up";
 import { Photo } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 
 import { SectionShell } from "./section-shell";
 
+/* `count` only where the figure is a quantity. A year is not a quantity, and
+   counting to zero is not worth watching. */
 const stats = [
-  ["11", "languages", "Interface and answers."],
-  ["2017", "and up", "Runs on an entry-level Android."],
-  ["R20", "to start", "In rand. No card."],
-  ["0", "debit orders", "Nothing renews. Nothing to cancel."],
-];
+  { figure: "11", count: 11, format: "integer", unit: "languages", note: "Interface and answers." },
+  { figure: "2017", unit: "and up", note: "Runs on an entry-level Android." },
+  { figure: "R20", count: 20, format: "rand", unit: "to start", note: "In rand. No card." },
+  { figure: "0", unit: "debit orders", note: "Nothing renews. Nothing to cancel." },
+] as const satisfies readonly {
+  figure: string;
+  count?: number;
+  format?: CountUpFormat;
+  unit: string;
+  note: string;
+}[];
 
 export function BuiltForHere() {
   return (
@@ -19,8 +28,8 @@ export function BuiltForHere() {
       lede="Priced in rand. Sold the way the country already buys airtime."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map(([figure, unit, note], index) => (
-          <Reveal key={figure} delay={index * 90}>
+        {stats.map((stat, index) => (
+          <Reveal key={stat.figure} delay={index * 90}>
             <div
               className={
                 index === 1
@@ -28,11 +37,17 @@ export function BuiltForHere() {
                   : "hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8"
               }
             >
-              <p className="figure display-3">{figure}</p>
-              <p className="mt-2 text-xs tracking-[0.14em] text-ink-muted uppercase">
-                {unit}
+              <p className="figure display-3">
+                {"count" in stat ? (
+                  <CountUp value={stat.count} format={stat.format} />
+                ) : (
+                  stat.figure
+                )}
               </p>
-              <p className="mt-6 text-base text-ink-muted">{note}</p>
+              <p className="mt-2 text-xs tracking-[0.14em] text-ink-muted uppercase">
+                {stat.unit}
+              </p>
+              <p className="mt-6 text-base text-ink-muted">{stat.note}</p>
             </div>
           </Reveal>
         ))}

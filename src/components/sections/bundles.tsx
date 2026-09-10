@@ -1,10 +1,11 @@
 import Link from "next/link";
 
+import { CountUp } from "@/components/blocks/count-up";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
 import { Button } from "@/components/ui/button";
 import { bundles, cta, lapseNotice, stores } from "@/content/site";
-import { formatCredits, formatRand } from "@/lib/format";
+import { formatRand } from "@/lib/format";
 
 /**
  * Answer counts stay off these cards. The app estimates 128 credits an answer
@@ -55,7 +56,12 @@ export function Bundles() {
                     {formatRand(bundle.price)}
                   </p>
                   <p className="figure mt-4 text-sm text-ink-muted">
-                    {formatCredits(bundle.credits)} credits
+                    <CountUp
+                      value={bundle.credits}
+                      format="credits"
+                      durationMs={1300}
+                    />{" "}
+                    credits
                   </p>
                   <p className="figure mt-1 text-sm text-ink-muted">
                     {bundle.validity} days

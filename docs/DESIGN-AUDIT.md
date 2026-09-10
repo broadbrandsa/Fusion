@@ -130,6 +130,29 @@ It is labelled on the page as an example year, and it deliberately uses the
 cheapest competitor rather than the dearest so the comparison cannot be
 accused of flattering itself. R400 of top-ups against R1 788 of subscription.
 
+### Motion, second pass
+
+The first pass had the three things the references do and nothing else. Added
+since, all still entrance or interaction, nothing decorative looping:
+
+| Movement | Where | Why it earns its place |
+| --- | --- | --- |
+| Figures count up | Chart totals, two of the four stats, bundle credits | The brand book asks for tabular numerals "so a balance does not shift width as it counts". A counting figure is the product's own behaviour |
+| Chart bars grow from the baseline | The spend chart, staggered 55ms apart | The chart is the argument, and watching it build makes the shape mismatch land |
+| Photographs lift under the cursor | All five | `scale(1.035)`, clipped by the figure, so nothing reflows |
+| Header tightens on scroll | Site header | Reads as chrome over content once you leave the hero, rather than part of it |
+| Nav underline grows from the left | Header links | Replaces a link that just changed colour |
+| Scroll progress hairline | Top of the page | The page runs past 20 000px on a phone. Knowing there is an end is worth two pixels. Lime, because it is chrome and steel belongs to money |
+
+Counting is deliberately not applied to a year, a zero, or a bundle price. A
+price list should read as a price list.
+
+**One thing worth knowing for anyone verifying this.** `requestAnimationFrame`
+does not run at all in a hidden document, and CSS transitions do not progress
+either. Counters, the progress bar and the header state will all measure as
+frozen if the browser pane is backgrounded. Force the trigger state and check
+the computed style instead, which is how the chart bar rule was confirmed.
+
 ### Tone rhythm
 
 The alternation had drifted into a three-section graphite run and a five-section
