@@ -50,6 +50,28 @@ product visible in it, on a site whose whole argument is against subscription
 AI would be an unforced error. It is kept rather than deleted in case it is
 wanted for something internal.
 
+## Two photographs still needed
+
+The problem section's burst tabs went from three to five on 10 September 2026,
+and the two new ones have no photograph. Each renders a dashed "Photo needed"
+placeholder carrying its brief, so neither can ship unnoticed. 16:9, and they
+sit under a glass information card at the bottom right, so keep that corner
+uncluttered.
+
+| Tab | Brief |
+| --- | --- |
+| Studying | A student working through notes at a kitchen table or a library desk, phone beside the books. Mid-term, not a graduation photo |
+| A side hustle | Someone running a small business from home or a market stall, doing the admin on a phone. Real trade, not a stock-photo boardroom |
+
+Both were chosen because studying and small-business admin are the two
+commonest things people bring to an assistant after writing, and both are
+properly bursty: a term ends, a business gets off the ground.
+
+**One thing to watch when these arrive.** The glass card over the bottom right
+runs at 0.90 opacity, which was set against the brightest photograph in the
+current set. A brighter one would need that checked again. The maths is in
+`docs/DESIGN-AUDIT.md`.
+
 ## The gap worth naming
 
 None of this photography was shot in South Africa. The kitchens, the interiors

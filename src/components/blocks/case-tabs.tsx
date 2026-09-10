@@ -1,17 +1,32 @@
 "use client";
 
-import { Briefcase, Hammer, Truck } from "lucide-react";
+import {
+  Briefcase,
+  GraduationCap,
+  Hammer,
+  Store,
+  Truck,
+} from "lucide-react";
 import Image from "next/image";
 import { useId, useRef, useState } from "react";
 
-const ICONS = { hammer: Hammer, truck: Truck, briefcase: Briefcase } as const;
+const ICONS = {
+  hammer: Hammer,
+  truck: Truck,
+  briefcase: Briefcase,
+  graduationCap: GraduationCap,
+  store: Store,
+} as const;
 
 export type CaseTab = {
   id: string;
   label: string;
   icon: keyof typeof ICONS;
-  photoSrc: string;
-  photoAlt: string;
+  /** Absent while a photograph is still being sourced. */
+  photoSrc?: string;
+  photoAlt?: string;
+  /** Shown in place of a missing photograph, so it cannot ship unnoticed. */
+  photoBrief?: string;
   body: string;
   figure: string;
   caption: string;
@@ -105,13 +120,27 @@ export function CaseTabs({ tabs }: { tabs: readonly CaseTab[] }) {
               className="photo-zoom relative overflow-hidden rounded-[20px] bg-surface"
               style={{ aspectRatio: "16 / 9" }}
             >
-              <Image
-                src={tab.photoSrc}
-                alt={tab.photoAlt}
-                fill
-                sizes="(min-width: 1024px) 1000px, 100vw"
-                className="object-cover saturate-[0.78] contrast-[1.02]"
-              />
+              {tab.photoSrc ? (
+                <Image
+                  src={tab.photoSrc}
+                  alt={tab.photoAlt ?? ""}
+                  fill
+                  sizes="(min-width: 1024px) 1000px, 100vw"
+                  className="object-cover saturate-[0.78] contrast-[1.02]"
+                />
+              ) : (
+                <div
+                  data-placeholder="photo"
+                  className="grid h-full place-items-center border border-dashed border-border bg-muted p-8"
+                >
+                  <p className="max-w-sm text-center text-sm text-ink-muted">
+                    <span className="block font-medium tracking-[0.14em] uppercase">
+                      Photo needed
+                    </span>
+                    <span className="mt-2 block">{tab.photoBrief}</span>
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Habitline runs this glass at 0.72 with #B8B8B8 text, which

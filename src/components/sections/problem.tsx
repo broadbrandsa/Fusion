@@ -44,15 +44,39 @@ const bursts: CaseTab[] = [
     figure: "6",
     caption: "weeks of asking, then silence",
   },
+  /* Studying and a side hustle are the two commonest things people bring to
+     an assistant after writing, and both are properly bursty: a term ends, a
+     business gets off the ground. Photographs still to come. */
+  {
+    id: "studying",
+    label: "Studying",
+    icon: "graduationCap",
+    photoBrief:
+      "A student working through notes at a kitchen table or a library desk, phone beside the books. Mid-term, not a graduation photo.",
+    body: "Explaining what the textbook did not, drafting an assignment, then checking your own reasoning.",
+    figure: "12",
+    caption: "weeks of term, then a long holiday",
+  },
+  {
+    id: "side-hustle",
+    label: "A side hustle",
+    icon: "store",
+    photoBrief:
+      "Someone running a small business from home or a market stall, doing the admin on a phone. Real trade, not a stock-photo boardroom.",
+    body: "Pricing the work, writing the quote, and getting the first bit of marketing out the door.",
+    figure: "8",
+    caption: "weeks getting it going, then it runs",
+  },
 ];
 
+/* Nothing here repeats a tab above it. */
 const alsoBursts = [
   "#tax season",
   "#a new baby",
-  "#exam term",
-  "#a side hustle",
-  "#moving town",
   "#a big quote",
+  "#wedding planning",
+  "#a legal letter",
+  "#planning a trip",
 ];
 
 export function Problem() {
