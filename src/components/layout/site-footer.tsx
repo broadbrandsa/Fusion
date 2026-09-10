@@ -1,24 +1,40 @@
 import Link from "next/link";
 
+import { ModelLogo } from "@/components/blocks/model-logo";
 import { Wordmark } from "@/components/brand/wordmark";
-import { nav, site } from "@/content/site";
+import { models } from "@/content/models";
+import { lapseNotice, nav, site } from "@/content/site";
 
+/**
+ * The third column used to be "Get in touch" holding one line, the domain,
+ * ever since the schools section it linked to came off the page. A column
+ * with a single item in it reads as something broken rather than as something
+ * brief, so the domain moved to the bottom bar and the models took the slot.
+ * They are the strongest thing left to say at the end of the page, and they
+ * repeat a claim the site already makes rather than adding a new one.
+ *
+ * NEEDS CONFIRMATION, the same as everywhere else the four appear: the brand
+ * book names two. See `src/content/models.ts`.
+ */
 export function SiteFooter() {
   return (
     <footer className="border-t border-border py-16">
-      <div className="container-site grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <Wordmark className="text-base" />
+      <div className="container-site grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr]">
+        <div className="flex flex-col">
+          <Wordmark className="text-lg" />
           <p className="mt-6 max-w-xs text-base text-ink-muted">
             Prepaid AI for South Africa. Buy it like airtime. See every cost.
           </p>
+          <p className="mt-auto max-w-xs pt-10 text-sm text-ink-muted">
+            {lapseNotice}
+          </p>
         </div>
 
-        <div>
+        <nav aria-label="Footer">
           <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
             The site
           </p>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-4">
             {nav.map((item) => (
               <li key={item.label}>
                 <Link
@@ -30,20 +46,26 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
         <div>
           <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
-            Get in touch
+            Answers from
           </p>
-          {/* "Talk to us" pointed at the schools section, which came off the
-              page on 10 September 2026. It goes back the moment there is a
-              real destination for it. See the contact TODO in site.ts. */}
-          <ul className="mt-5 space-y-3">
-            <li className="text-base text-ink-muted">
-              {site.url.replace("https://", "")}
-            </li>
+          <ul className="mt-6 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
+            {models.map((model) => (
+              <li
+                key={model.id}
+                className="flex items-center gap-3 bg-card px-4 py-4"
+              >
+                <ModelLogo id={model.id} variant="icon" height={20} />
+                <span className="text-base text-ink-muted">{model.name}</span>
+              </li>
+            ))}
           </ul>
+          <p className="mt-5 text-sm text-ink-muted">
+            One balance across all of them.
+          </p>
         </div>
       </div>
 
@@ -52,7 +74,7 @@ export function SiteFooter() {
           {site.name}. Prepaid, in rand. Nothing renews, so there is nothing to
           cancel.
         </p>
-        <p>Credit is valid 30 days, the same as airtime.</p>
+        <p>{site.url.replace("https://", "")}</p>
       </div>
     </footer>
   );

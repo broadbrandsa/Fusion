@@ -59,6 +59,7 @@
   --color-danger: var(--danger);
   --color-lime: var(--lime);
   --color-on-lime: var(--on-lime);
+  --color-lime-ink: var(--lime-ink);
   --color-on-image: var(--on-image);
   --color-on-image-muted: var(--on-image-muted);
   --color-on-image-faint: var(--on-image-faint);
@@ -593,8 +594,10 @@
   .site-header-bar {
     transition:
       padding 0.3s ease-in-out,
+      max-width 0.3s ease-in-out,
       background-color 0.3s ease-in-out,
-      border-color 0.3s ease-in-out;
+      border-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
   }
 }
 
@@ -753,6 +756,42 @@
 .tone-paper,
 .tone-graphite {
   --on-lime: #191c20;
+}
+
+/* The accent, darkened until it reads on a light ground, hue and saturation
+   held. It exists because the accent itself cannot carry a line on paper:
+   measured against the paper ground, lime is 1.02:1, mint 1.21, butter 1.21,
+   ice 1.22 and lilac 1.48, so a line in any of them is not visible at all.
+   Each variant here clears 4.5:1 on paper and 3.18:1 on graphite, so the same
+   token works on both grounds and the line stays recognisably the accent.
+
+   Only the spend line uses it. It is not a second accent, and nothing that is
+   a fill should reach for it. */
+:root,
+.dark,
+.tone-paper,
+.tone-graphite {
+  --lime-ink: #617200;
+}
+
+[data-accent="mint"],
+[data-accent="mint"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime-ink: #0f7c47;
+}
+
+[data-accent="butter"],
+[data-accent="butter"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime-ink: #846900;
+}
+
+[data-accent="lilac"],
+[data-accent="lilac"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime-ink: #7141ff;
+}
+
+[data-accent="ice"],
+[data-accent="ice"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime-ink: #0072a6;
 }
 
 /* The tone scopes each redeclare --lime, so setting it on <html> alone is

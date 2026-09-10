@@ -13,13 +13,15 @@ import { cn } from "@/lib/utils";
  *
  * The line carries the accent colour, on instruction, 10 September 2026.
  * That is a departure from the brand book, which reserves steel for money and
- * keeps the accent off anything that shows a quantity. Two things make it
- * defensible rather than sloppy, and both should be checked if this chart
- * ever changes. There is no figure anywhere on it, so the accent is not
- * competing with a credit figure, which is what the rule exists to prevent.
- * And it sits on a graphite panel, because every accent on offer measures
- * under 1.5:1 against paper and a line in any of them would not be visible
- * at all.
+ * keeps the accent off anything showing a quantity. What makes it defensible
+ * rather than sloppy: there is no figure anywhere on this chart, so the
+ * accent is not competing with a credit figure, which is what the rule exists
+ * to prevent. Check that again if a figure is ever added back.
+ *
+ * It uses --lime-ink, not --lime. The accent as shipped cannot carry a line
+ * on paper at all: lime measures 1.02:1 against the paper ground, and the
+ * other four are no better. --lime-ink is the same hue darkened until it
+ * clears 4.5:1, defined per accent in globals.css.
  *
  * There is no legend, no totals and no annotation: the shape is the whole
  * point, and a spiky line next to a heading that reads "you use AI in bursts"
@@ -85,8 +87,8 @@ export function SpendChart({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="spend-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--lime)" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="var(--lime)" stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--lime-ink)" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="var(--lime-ink)" stopOpacity="0" />
         </linearGradient>
       </defs>
 
@@ -94,7 +96,7 @@ export function SpendChart({ className }: { className?: string }) {
       <path
         d={linePath}
         fill="none"
-        stroke="var(--lime)"
+        stroke="var(--lime-ink)"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -107,7 +109,7 @@ export function SpendChart({ className }: { className?: string }) {
             cx={px}
             cy={py}
             r="5"
-            fill="var(--lime)"
+            fill="var(--lime-ink)"
             className="chart-dot"
             style={
               { "--dot-delay": `${dotDelay(px)}ms` } as CSSProperties

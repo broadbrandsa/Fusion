@@ -32,12 +32,16 @@ palette values do apply, and this project follows both.
 
 **One deviation from that, recorded 10 September 2026.** The spend line in
 the Problem section carries the accent rather than steel, on the client's
-instruction. It survives review for two specific reasons, both of which have
-to hold if that chart ever changes: there is no figure anywhere on it, so the
-accent is not competing with a credit figure, which is what the rule exists to
-prevent; and it sits on a graphite panel, because every accent on offer
-measures under 1.5:1 against paper and a line in any of them would simply not
-be visible.
+instruction. It survives review because there is no figure anywhere on that
+chart, so the accent is not competing with a credit figure, which is what the
+rule exists to prevent. Check that again if a figure is ever put back.
+
+It draws with `--lime-ink`, not `--lime`. The accent as shipped cannot carry a
+line on a light ground at all: against paper, lime measures 1.02:1, mint 1.21,
+butter 1.21, ice 1.22 and lilac 1.48. `--lime-ink` is the same hue darkened
+until it clears 4.5:1 on paper and 3.18:1 on graphite, defined per accent
+alongside the picker. It is not a second accent. Only that line uses it, and
+nothing that is a fill should reach for it.
 
 **The money is the only colour.** Chrome is greyscale, content is greyscale,
 and steel is reserved for the credit figure. Steel arrives only through the

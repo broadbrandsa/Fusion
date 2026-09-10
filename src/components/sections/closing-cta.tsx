@@ -7,7 +7,12 @@ import { cta } from "@/content/site";
 /** Vitara closes on a dark panel with the wordmark set huge behind it. */
 export function ClosingCta() {
   return (
-    <section className="pb-[var(--spacing-section)]">
+    /* Pulled up so the panel breaks into the FAQ's bottom padding, from lg
+       only. Measured: the same pull left 9px between the last FAQ line and
+       the panel at 375 and 768, because the FAQ already sits close to its own
+       padding edge there. At lg it leaves over 100px. z-10 puts the dark
+       panel over the paper section rather than under it. */
+    <section className="relative z-10 pb-[var(--spacing-section)] lg:-mt-[clamp(2rem,4vw,5rem)]">
       <div className="container-site">
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface px-7 pt-16 md:px-16">
           <div

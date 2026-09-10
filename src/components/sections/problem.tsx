@@ -111,15 +111,8 @@ export function Problem() {
               </Reveal>
             </div>
 
-            {/* The chart moved onto a graphite panel when its line took the
-                accent colour. Every accent on offer measures between 1.02:1
-                and 1.48:1 against paper, so a line in any of them was simply
-                invisible there; on graphite the same line reads at 10.67:1
-                at worst. */}
             <Reveal delay={220} className="mt-16 block">
-              <div className="tone-graphite dot-grid overflow-hidden rounded-2xl bg-ground px-6 py-10 sm:px-10">
-                <SpendChart />
-              </div>
+              <SpendChart />
             </Reveal>
 
             <Reveal delay={80} className="mt-20 block">

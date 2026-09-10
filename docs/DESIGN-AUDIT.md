@@ -671,3 +671,54 @@ On graphite the same line reads between 10.67:1 and 15.48:1.
 because the reveal never fires and transitions never tick. Forcing
 `data-visible` and injecting `transition: none` resolved them to 38 / 102 /
 269 of a 269px track, exactly the declared 14 / 38 / 100%.
+
+## Sixth pass, 10 September 2026
+
+### The header had no mobile menu
+
+Restyling it after a supplied pattern turned up the real problem: below `lg`
+the nav links were hidden and there was nothing to open them, so four of the
+page's five destinations were unreachable on a phone. That is a bug, not a
+styling gap, and it had been there since the header was built.
+
+There is now a 44px toggle with an animated two-bar-to-cross mark, and a panel
+that opens below the bar rather than over it, so the toggle stays visible and
+reachable while it is open. Verified end to end: `aria-expanded` flips, the
+panel is `hidden` when closed so it stays out of the tab order, the body locks
+behind it, Escape closes it and returns focus to the toggle, and every link
+plus the CTA is reachable.
+
+The bar also narrows now as well as tightening: 1320 to 1088 on scroll, with
+the padding down to 6px and a shadow. Measured by killing the transition, for
+the reason below.
+
+### The closing panel overlaps the FAQ
+
+From `lg` only. The same pull left 9px between the last FAQ line and the panel
+at 375 and 768, because the FAQ already sits close to its own padding edge at
+those widths. At 1440 it leaves 117px.
+
+### The footer's third column was a stub
+
+"Get in touch" had held a single line, the domain, ever since the schools
+section it linked to came off the page. One item in a column reads as broken
+rather than as brief. The domain moved to the bottom bar and the four models
+took the slot, which repeats a claim the site already makes rather than adding
+a new one.
+
+### `--lime-ink`
+
+The spend line lost its graphite panel on instruction, which put the accent
+back on paper where none of the five options is visible. `--lime-ink` is the
+accent darkened per option until it clears 4.5:1 on paper: lime `#617200`,
+mint `#0f7c47`, butter `#846900`, lilac `#7141ff`, ice `#0072a6`. All five
+measured in place: 4.52 to 4.63:1.
+
+### The pane artefact, compounding
+
+Worth restating, because it produced two false negatives in one pass. With the
+Browser pane hidden, `requestAnimationFrame` does not run **and** CSS
+transitions do not tick. A scroll-driven, rAF-throttled state change therefore
+never fires, and even when the class is applied by hand the element keeps
+reporting its pre-transition geometry. The header looked like it had stopped
+narrowing; it had not. Inject `transition: none !important`, measure, remove.
