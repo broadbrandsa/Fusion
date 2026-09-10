@@ -58,6 +58,7 @@
   --color-gold: var(--gold);
   --color-danger: var(--danger);
   --color-lime: var(--lime);
+  --color-on-lime: var(--on-lime);
   --color-on-image: var(--on-image);
   --color-on-image-muted: var(--on-image-muted);
   --color-on-image-faint: var(--on-image-faint);
@@ -709,4 +710,54 @@
   100% {
     opacity: 0;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Accent preview, 10 September 2026. TEMPORARY.
+
+   Added for sign-off, because the accent is the one colour on this site that
+   is a choice and the room could not agree on it. The picker in the bottom
+   left writes data-accent onto <html> and these blocks do the rest.
+
+   REMOVE BEFORE LAUNCH. Two lines: the <AccentPicker /> in layout.tsx and
+   this block. Whichever value is chosen goes into --lime in both palettes and
+   into the brand book.
+
+   Every option is a pale fill carrying graphite text, because that is what
+   the accent is for. Measured against graphite: lime 15.48:1, mint 13.07,
+   butter 13.11, ice 13.01, lilac 10.67. None of them can ever be type on
+   paper, exactly as the lime note above says, and each one is between 5.8 and
+   8.6 times the luminance of steel, so the rule about keeping the accent away
+   from a credit figure holds for all five.
+--------------------------------------------------------------------------- */
+:root,
+.dark,
+.tone-paper,
+.tone-graphite {
+  --on-lime: #191c20;
+}
+
+/* The tone scopes each redeclare --lime, so setting it on <html> alone is
+   overridden inside every .tone-paper and .tone-graphite block on the page.
+   The descendant selector puts it back. This is a symptom of the palettes
+   repeating a value that never changes between them; when the accent is
+   settled, --lime wants declaring once and inheriting. */
+[data-accent="mint"],
+[data-accent="mint"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime: #9bf3c8;
+}
+
+[data-accent="butter"],
+[data-accent="butter"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime: #ffe066;
+}
+
+[data-accent="lilac"],
+[data-accent="lilac"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime: #d3c4ff;
+}
+
+[data-accent="ice"],
+[data-accent="ice"] :is(.dark, .tone-paper, .tone-graphite) {
+  --lime: #b6e8ff;
 }

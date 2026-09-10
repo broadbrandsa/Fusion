@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
 import { ScrollProgress } from "@/components/blocks/scroll-progress";
+import { AccentPicker } from "@/components/dev/accent-picker";
 import { site } from "@/content/site";
 
 import "./globals.css";
@@ -67,6 +68,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col">
         <ScrollProgress />
+        {/* TEMPORARY, for sign-off. Delete this line and the [data-accent]
+            block in globals.css once the accent is chosen. */}
+        <AccentPicker />
         {children}
       </body>
     </html>

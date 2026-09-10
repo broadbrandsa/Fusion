@@ -23,7 +23,7 @@ const buttonVariants = cva(
            is 15.48:1. See the accent note in globals.css for why it never goes
            near a credit figure. */
         accent:
-          "bg-lime text-[#191C20] hover:bg-lime/85 focus-visible:ring-lime/40",
+          "bg-lime text-on-lime hover:bg-lime/85 focus-visible:ring-lime/40",
       },
       size: {
         default:

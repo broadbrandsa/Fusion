@@ -263,7 +263,7 @@ export function ChatDemo({ className }: { className?: string }) {
             >
               <svg
                 viewBox="0 0 24 24"
-                className="size-3.5 text-graphite"
+                className="size-3.5 text-on-lime"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2.5}

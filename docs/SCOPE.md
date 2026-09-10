@@ -34,9 +34,8 @@ in `POSITIONING.md`.
 | `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, and a chat that types itself in, answered turn by turn by Claude, Gemini, Grok and ChatGPT while the balance falls |
 | `problem.tsx` | Sets up all | Paper | Built. Spend chart contrasting bursty top-ups with flat billing, plus an asymmetric photo pair |
 | `how-it-works.tsx` | 1 and 2 | Graphite | Built. Appito's sticky scroll stepper, four steps, absorbing the former cost-proof section as step three |
-| `bundles.tsx` | 1 | Graphite | Built. Opens on a photograph band with a glass device and the heading beside it, then the three-up with the middle inverted to paper. No answer counts |
-| `full-strength.tsx` | 3 and 4 | Paper | Built. Bento grid, five cards, closing on the built-for-here stats full width |
-| `privacy.tsx` | 2 | Graphite inset panel | Built. Four structural claims as a ruled list, no cards |
+| `bundles.tsx` | 1 | Photograph | Built. One photograph behind heading and prices together, type in a narrow column at the left, three cards with the middle inverted to paper. No answer counts |
+| `full-strength.tsx` | 2 and 3 | Paper | Built. Bento grid, five cards, with the privacy claims full width in the middle row |
 | `faq.tsx` | All | Paper | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
 | `closing-cta.tsx` | 1 | Graphite | Built. Store buttons and the wordmark watermark |
 
@@ -45,7 +44,8 @@ Removed 10 September 2026, all one-line restores from git:
 | Component | Was | Why |
 | --- | --- | --- |
 | `comparison.tsx` | The arithmetic, a seven-row versus table | Cut at the client's request. It was the page's only direct competitor argument, so if the versus case is wanted back this is the file |
-| `built-for-here.tsx` | Its own stat section with a full-width photograph | Folded into `full-strength.tsx` as its closing card. Nothing was lost but the photograph, which `IMAGE-CREDITS.md` already flagged as not shot in South Africa |
+| `built-for-here.tsx` | Its own stat section: 11 languages, an entry-level Android from 2017, R20 to start, no debit orders | Cut at the client's request. **This was the whole of the fourth pillar.** Nothing on the site now says the product is made for South Africa rather than adapted for it, and the language count, the low-end Android support and the no-debit-order promise are all gone with it |
+| `privacy.tsx` | Its own inverted panel with the four privacy claims | Not lost. The claims moved into `full-strength.tsx` as its middle card, so the panel went. It was the page's only section with no card in it anywhere, which is a shape the page no longer has |
 | `talk-to-us.tsx` | Schools and teams, the institutions route | Cut at the client's request. It was the only destination for an institutional enquiry, and the footer's "Talk to us" link pointed at it, so that came out too. See the contact TODO in `site.ts` |
 
 Supporting pieces: `section-shell.tsx` for rhythm, max width and tone

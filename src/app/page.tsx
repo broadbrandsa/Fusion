@@ -7,7 +7,6 @@ import {
   FullStrength,
   Hero,
   HowItWorks,
-  Privacy,
   Problem,
 } from "@/components/sections";
 
@@ -31,7 +30,6 @@ export default function Home() {
             as fair, so the lite-version doubt gets killed first. */}
         <FullStrength />
         <Bundles />
-        <Privacy />
         <Faq />
         <ClosingCta />
       </main>

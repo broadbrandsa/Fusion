@@ -285,6 +285,5 @@ export const nav = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#bundles", label: "Bundles" },
   { href: "/#full-strength", label: "Features" },
-  { href: "/#privacy", label: "Privacy" },
   { href: "/#faq", label: "FAQ" },
 ] as const;

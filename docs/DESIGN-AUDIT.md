@@ -562,3 +562,60 @@ transitions to that list. In a hidden pane they do not tick, so
 `getComputedStyle` keeps reporting the start value however long you wait, and
 a working transition looks like a broken one. To read the target value,
 inject `transition: none !important`, measure, then remove it.
+
+## Fourth pass, 10 September 2026
+
+### Bundles is one section now
+
+The photograph band sat above a separate block of cards, and the seam between
+them was exactly what made it read as two sections. One photograph now runs
+behind heading and prices together.
+
+The device came out and the heading changed to "Purchase as you go", both on
+instruction. With the device gone the type sits in a 34rem column at the left
+and the man stays clear on the right, which is the reference's arrangement
+minus its phone.
+
+**The cards were three identical slabs.** Every one listed the same three
+benefits, so nothing on them helped anyone choose and the two lines that
+actually differ were buried under the repetition. What is shared now appears
+once, under the row. Each card carries a small table of what differs, with
+credits per rand added, because that is the arithmetic behind "bigger bundles
+buy more per rand" and it lets the claim be checked rather than taken on
+trust: 3 000, 3 300, 3 667.
+
+The outer two cards are glass rather than solid, so the photograph carries
+through the row instead of the cards sitting on top of it. **That has a
+contrast cost worth naming.** A translucent card raises the floor its own text
+sits on, by the photograph behind it, so card text has to be measured through
+two layers: scrim, then card alpha. Measured worst pixel in a glass card:
+name 15.22, price 5.60, label 7.07, value 17.63.
+
+On the photograph directly, worst pixel at 1280 / 1440 / 375: eyebrow 5.15 to
+6.83, headline 7.38 to 8.35, lede 5.23 to 5.67, promise 7.77 to 7.94, lapse
+notice 9.84 to 10.23. Below md the scrim goes to 0.82, because the section is
+tall and narrow there, the crop keeps almost nothing but his face, and
+full-width type runs across it.
+
+### The accent picker
+
+Temporary, for sign-off, in the bottom left. Five pale accents, all fills
+carrying graphite text: lime 15.48:1, mint 13.07, butter 13.11, ice 13.01,
+lilac 10.67. Each is 5.8 to 8.6 times the luminance of steel, so the brand
+book's rule about keeping the accent away from a credit figure holds for all
+of them.
+
+It writes `data-accent` on `<html>` and remembers the choice. 44px hit areas,
+`aria-pressed` on each swatch, dismissible.
+
+**It surfaced a real problem in the palettes.** Setting `--lime` on `<html>`
+changed almost nothing, because `.dark`, `.tone-paper` and `.tone-graphite`
+each redeclare `--lime` with the identical value, so every tone-scoped block
+on the page overrode it. The picker works around that with a descendant
+selector, but the underlying redundancy is worth fixing when the accent is
+settled: a value that never differs between palettes wants declaring once and
+inheriting.
+
+Graphite-on-accent text was also hardcoded as `text-[#191C20]` in four places.
+That is now an `--on-lime` token, which is the right shape regardless of which
+accent wins.

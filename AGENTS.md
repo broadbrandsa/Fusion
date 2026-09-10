@@ -41,6 +41,13 @@ pass `tone` unless you are overriding on purpose. A section that changes tone
 would otherwise leave its logos white on white, which is exactly what happened
 when Full strength moved to paper.
 
+**There is a temporary accent picker on the site.** Bottom left, added
+10 September 2026 for sign-off, because the accent is the one colour here
+that is a choice and the room could not agree. Remove two things once it is
+settled: `<AccentPicker />` in `layout.tsx` and the `[data-accent]` block at
+the end of `globals.css`. Graphite-on-accent text is the `--on-lime` token,
+which stays either way.
+
 **The lime accent is a fill, never text.** #E9FF72, added 09 September 2026 as
 the marketing accent, available as `bg-lime` and the `accent` button variant.
 Graphite on lime is 15.48:1. Lime as text on paper is 1.05:1, which fails, so

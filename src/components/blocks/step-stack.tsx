@@ -82,7 +82,7 @@ export function StepStack({ steps }: { steps: readonly Step[] }) {
             key={step.id}
             className="bg-background pt-10 lg:sticky lg:top-24 lg:h-[40rem]"
           >
-            <span className="inline-flex rounded-full bg-lime px-6 py-2 text-base font-medium text-[#191C20]">
+            <span className="inline-flex rounded-full bg-lime px-6 py-2 text-base font-medium text-on-lime">
               Step {step.index}
             </span>
             <h3 className="mt-7 font-heading text-[clamp(1.75rem,2vw+1rem,2.75rem)] leading-[1.15] font-bold tracking-[-0.025em]">
@@ -148,7 +148,7 @@ function Item({ children }: { children: string }) {
     <li className="flex list-none items-start gap-2.5">
       <span
         aria-hidden="true"
-        className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-lime text-[0.625rem] text-[#191C20]"
+        className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-lime text-[0.625rem] text-on-lime"
       >
         ✓
       </span>

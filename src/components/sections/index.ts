@@ -3,7 +3,6 @@ export { Problem } from "./problem";
 export { HowItWorks } from "./how-it-works";
 export { Bundles } from "./bundles";
 export { FullStrength } from "./full-strength";
-export { Privacy } from "./privacy";
 export { Faq } from "./faq";
 export { ClosingCta } from "./closing-cta";
 export { SectionShell } from "./section-shell";
