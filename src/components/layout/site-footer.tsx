@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Wordmark } from "@/components/brand/wordmark";
-import { contact, nav, site } from "@/content/site";
+import { nav, site } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -36,15 +36,10 @@ export function SiteFooter() {
           <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
             Get in touch
           </p>
+          {/* "Talk to us" pointed at the schools section, which came off the
+              page on 10 September 2026. It goes back the moment there is a
+              real destination for it. See the contact TODO in site.ts. */}
           <ul className="mt-5 space-y-3">
-            <li>
-              <Link
-                href={contact.href}
-                className="inline-flex min-h-11 items-center text-base text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"
-              >
-                Talk to us
-              </Link>
-            </li>
             <li className="text-base text-ink-muted">
               {site.url.replace("https://", "")}
             </li>

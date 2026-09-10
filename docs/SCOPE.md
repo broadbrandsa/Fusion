@@ -31,17 +31,22 @@ in `POSITIONING.md`.
 
 | Component | Pillar | Tone | State |
 | --- | --- | --- | --- |
-| `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, real credit capture with the cost moment floating off it |
+| `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, and a chat that types itself in, answered turn by turn by Claude, Gemini, Grok and ChatGPT while the balance falls |
 | `problem.tsx` | Sets up all | Paper | Built. Spend chart contrasting bursty top-ups with flat billing, plus an asymmetric photo pair |
 | `how-it-works.tsx` | 1 and 2 | Graphite | Built. Appito's sticky scroll stepper, four steps, absorbing the former cost-proof section as step three |
-| `bundles.tsx` | 1 | Graphite | Built. Three-up with the middle inverted to paper, real credit figures, lapse notice. No answer counts |
-| `comparison.tsx` | 1 | Paper | Built. A seven-row comparison table, no competitor named |
-| `full-strength.tsx` | 3 | Paper | Built. Bento grid, five real app captures plus two hand-built cards |
-| `built-for-here.tsx` | 4 | Graphite | Built. Stat row with one card inverted, plus a full-width photograph |
+| `bundles.tsx` | 1 | Graphite | Built. Opens on a photograph band with a glass device and the heading beside it, then the three-up with the middle inverted to paper. No answer counts |
+| `full-strength.tsx` | 3 and 4 | Paper | Built. Bento grid, five cards, closing on the built-for-here stats full width |
 | `privacy.tsx` | 2 | Graphite inset panel | Built. Four structural claims as a ruled list, no cards |
 | `faq.tsx` | All | Paper | Built. Nine questions in two columns, drawn from the fears in POSITIONING.md |
-| `talk-to-us.tsx` | 1 and 4 | Graphite | Built. The institutions route. Needs a real destination |
 | `closing-cta.tsx` | 1 | Graphite | Built. Store buttons and the wordmark watermark |
+
+Removed 10 September 2026, all one-line restores from git:
+
+| Component | Was | Why |
+| --- | --- | --- |
+| `comparison.tsx` | The arithmetic, a seven-row versus table | Cut at the client's request. It was the page's only direct competitor argument, so if the versus case is wanted back this is the file |
+| `built-for-here.tsx` | Its own stat section with a full-width photograph | Folded into `full-strength.tsx` as its closing card. Nothing was lost but the photograph, which `IMAGE-CREDITS.md` already flagged as not shot in South Africa |
+| `talk-to-us.tsx` | Schools and teams, the institutions route | Cut at the client's request. It was the only destination for an institutional enquiry, and the footer's "Talk to us" link pointed at it, so that came out too. See the contact TODO in `site.ts` |
 
 Supporting pieces: `section-shell.tsx` for rhythm, max width and tone
 inversion. `src/components/blocks/` holds the pill, eyebrow, phone frame,

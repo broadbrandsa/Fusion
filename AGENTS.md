@@ -60,7 +60,16 @@ recorded in `docs/DESIGN-AUDIT.md`.
 The vocabulary: a staggered fade-up on load, a fade-up on scroll via `Reveal`,
 0.3s ease-in-out hovers, figures that count up via `CountUp`, chart bars that
 grow from the baseline, a photograph that lifts slightly under the cursor, a
-header that tightens once you leave the hero, and a scroll progress hairline.
+header that tightens once you leave the hero, a scroll progress hairline, and
+the hero conversation, which types itself in once and then rests on the
+finished thread.
+
+The hero conversation is the one place a loop appears, in its typing dots, and
+they exist for 850ms at a time as a state indicator. Everything about it is
+built the way `chat-demo.tsx` is built: the finished state in the markup, no
+React state, and the animation living entirely inside the motion query, so a
+blocked script leaves a real conversation on the page rather than an empty
+phone.
 
 Everything collapses under `prefers-reduced-motion`, and the reveals are gated
 on `@media (scripting: enabled)` so a blocked script never leaves the page

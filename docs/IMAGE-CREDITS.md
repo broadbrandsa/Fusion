@@ -36,7 +36,7 @@ photographer is good practice and costs nothing.
 | --- | --- | --- |
 | `project-renovation.jpg` | Problem | A renovation is the burst, stated in a picture |
 | `project-flatpack.jpg` | Problem | The second burst. A project with a deadline and a manual |
-| `phone-at-dusk.jpg` | Built for here | An ordinary person on an ordinary phone, unglamorous. Tonally the closest fit to graphite in the whole set |
+| `phone-at-dusk.jpg` | Hero | An ordinary person on an ordinary phone, unglamorous. Tonally the closest fit to graphite in the whole set |
 | `friends-tea.jpg` | Full strength, shared chats | Fills the card behind the type. Four people round one table is what a shared chat looks like |
 | `kitchen-cooking.jpg` | Full strength, lists | Fills the card behind the type and the list, rather than sitting inside it |
 | `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |

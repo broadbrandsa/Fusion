@@ -5,12 +5,26 @@ import Image from "next/image";
 import { ListCard } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
 import { CollectionOrbit } from "@/components/blocks/collection-orbit";
+import { CountUp, type CountUpFormat } from "@/components/blocks/count-up";
 import { ModelLogo } from "@/components/blocks/model-logo";
 import { photos, type PhotoName } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 import { models } from "@/content/models";
 
 import { SectionShell } from "./section-shell";
+
+const localStats = [
+  { figure: "11", count: 11, format: "integer", unit: "languages", note: "Interface and answers." },
+  { figure: "2017", unit: "and up", note: "Runs on an entry-level Android." },
+  { figure: "R20", count: 20, format: "rand", unit: "to start", note: "In rand. No card." },
+  { figure: "0", unit: "debit orders", note: "Nothing renews. Nothing to cancel." },
+] as const satisfies readonly {
+  figure: string;
+  count?: number;
+  format?: CountUpFormat;
+  unit: string;
+  note: string;
+}[];
 
 function BentoCard({
   title,
@@ -169,6 +183,43 @@ export function FullStrength() {
           </div>
         </BentoCard>
 
+        {/* "Built for here" was a section of its own until 10 September 2026.
+            It is the same argument as the rest of this grid, so it reads
+            better as its closing card than as a fifth block of stats further
+            down the page: full strength, in your language, on the phone you
+            already own. Full width, because four figures need the room and an
+            odd fifth card would otherwise leave a hole.
+
+            `count` only where the figure is a quantity. A year is not a
+            quantity, and counting to zero is not worth watching. */}
+        <BentoCard
+          delay={180}
+          className="lg:col-span-2"
+          title="Built for here"
+          body="Made for South Africa, not adapted for it. Priced in rand, sold the way the country already buys airtime."
+        >
+          <dl className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-4">
+            {localStats.map((stat) => (
+              <div key={stat.figure}>
+                <dt className="figure display-3">
+                  {"count" in stat ? (
+                    <CountUp value={stat.count} format={stat.format} />
+                  ) : (
+                    stat.figure
+                  )}
+                </dt>
+                <dd className="mt-2 text-xs tracking-[0.14em] text-ink-muted uppercase">
+                  {stat.unit}
+                </dd>
+                <dd className="mt-4 text-base text-ink-muted">{stat.note}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-8 max-w-xl text-base text-ink-muted">
+            The heavy lifting happens on our servers, so it runs properly on
+            the phone that is actually in your hand.
+          </p>
+        </BentoCard>
       </div>
     </SectionShell>
   );

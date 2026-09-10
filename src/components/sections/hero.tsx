@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { AppShot } from "@/components/blocks/app-shot";
+import { ChatDemo } from "@/components/blocks/chat-demo";
 import { photos } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 import { StoreBadge } from "@/components/blocks/store-badge";
@@ -72,18 +72,14 @@ export function Hero() {
               delay={200}
               className="order-last mx-auto w-full max-w-[19rem] px-6 md:px-0 lg:order-none lg:max-w-none lg:pt-[50px]"
             >
-              {/* The whole device, uncropped. A full 1206x2622 capture is
-                  2.17 times as tall as it is wide, so the width comes down to
-                  about 300 to fit the phone in without the panel running away.
-                  Spending rather than credit, because the credit screen opens
-                  the stepper directly below and a thirty-day chart with the
-                  figure in steel says "priced per answer" faster. */}
-              <AppShot
-                shot="spending"
-                priority
-                width={340}
-                className="mx-auto w-full max-w-[17rem] lg:max-w-[19rem]"
-              />
+              {/* A conversation rather than a screenshot. It types itself in
+                  once, a different model answers each turn, every answer
+                  shows what it drew, and the balance falls. That is the whole
+                  positioning inside one device: every model, one wallet, and
+                  a price on each answer. A still of the spending screen made
+                  the same argument, but only to someone who stopped to read
+                  the chart. */}
+              <ChatDemo className="mx-auto w-full max-w-[17rem] lg:max-w-[19rem]" />
             </Reveal>
 
             {/* Right: the line and the actions, stacked as Vitara stacks them */}

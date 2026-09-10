@@ -202,6 +202,11 @@ export const differentiators = [
  * by range only, "a typical AI subscription costs R149 to R324 a month", so
  * `claudeProZar` is kept for internal reference and must not reach a page.
  */
+/**
+ * Unused since 10 September 2026, when the comparison section came off the
+ * page. Kept because the figures are checked and dated, and restoring the
+ * section is a one-line change.
+ */
 export const competitorPricing = {
   checkedOn: "2026-08-28",
   subscriptionRangeZar: [149, 324] as const,

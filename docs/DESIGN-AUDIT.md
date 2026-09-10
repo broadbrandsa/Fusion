@@ -441,3 +441,68 @@ section. Covered in `IMAGE-CREDITS.md`.
 
 **The FAQ answers are written from the fears in `POSITIONING.md`**, not from real
 support questions.
+
+## Third pass, 10 September 2026
+
+### The hero device
+
+A still capture of the spending screen became a conversation that types itself
+in. Four questions, one per model, and the credit balance in the phone's header
+falls with each answer. It says "every model, one wallet, priced per answer"
+inside one device, which the still only said to someone who stopped to read the
+chart.
+
+Measured against the movement rule in `AGENTS.md`. It plays once and rests on
+the finished thread, so it is an entrance, not a loop. The only looping thing
+is the typing indicator, which exists for 850ms at a time and is a state
+indicator rather than decoration.
+
+Built without React state. The finished conversation is in the markup, so a
+crawler and a browser with scripting off both get the real thing, and the
+animation only exists inside
+`(prefers-reduced-motion: no-preference) and (scripting: enabled)`. Space for
+every bubble is reserved from the first frame, so the phone never changes
+height as the thread fills in.
+
+The balance tween uses `requestAnimationFrame` with a `setTimeout` writing the
+final value regardless. rAF does not run in a background tab, and a balance
+left showing the previous turn's figure is not a cosmetic failure, it is a
+wrong number.
+
+Per-answer receipt rows came out on the client's instruction. The cost now
+lives only in the header figure. The per-answer receipt is still made twice
+elsewhere, in the stepper and on the spending screen, so the proof is not lost.
+
+Proportions: 304 x 690, a ratio of 2.27 against a real device's 2.17. Close
+enough that it reads as a phone.
+
+### The bundles band
+
+Rebuilt from a reference supplied by the client: a device floating at the left,
+type beside it, the subject of the photograph kept clear on the right. It gives
+the page a second full-bleed moment after the hero and stops four bordered-card
+sections running one into the next.
+
+`AppShot` gained a `glass` frame for it. A solid dark slab on a photograph
+reads as a sticker cut out and dropped on top; the screen inside is still a
+real capture.
+
+**The scrim has two forms, and the reason is worth recording.** Measured by
+column band, this photograph's p99 luminance runs 0.461 in its darkest quarter
+to 0.611 in its brightest, where the maker is. From `xl` the band is wide
+enough that the type column stops at 67% of it, so a horizontal gradient holds
+0.74 to 70% (white at 4.91:1) and then eases to 0.42, leaving the maker in the
+picture. Below `xl` the same column runs to 87% of a narrower band, where the
+eased end of that gradient left the lede at 3.2:1, so those widths get a flat
+0.78 instead (5.81:1). Measuring at 1440 only would have shipped the failure.
+
+### Sections removed
+
+Three came off the page on client instruction, all recorded in `SCOPE.md` with
+what they carried: `comparison.tsx` (The arithmetic), `talk-to-us.tsx` (Schools
+and teams), and `built-for-here.tsx`, which was folded into the bento grid as
+its closing card rather than deleted.
+
+The page is now nine sections rather than twelve. The comparison table was the
+only direct versus argument and the only non-card layout in the back half, so
+its loss costs both an argument and a shape.

@@ -48,18 +48,28 @@ export function AppShot({
   className,
   priority = false,
   width = 320,
+  frame = "solid",
 }: {
   shot: AppShotName;
   className?: string;
   priority?: boolean;
   width?: number;
+  /**
+   * `glass` for a device floating on a photograph, where a solid slab reads
+   * as a sticker cut out and dropped on top. The screen inside stays a real
+   * capture either way; only the shell changes.
+   */
+  frame?: "solid" | "glass";
 }) {
   const { src, alt } = appShots[shot];
 
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-[2rem] border border-white/10 bg-[#191C20] p-1.5 shadow-2xl shadow-black/50",
+        "overflow-hidden rounded-[2rem] p-1.5 shadow-2xl shadow-black/50",
+        frame === "glass"
+          ? "border border-white/25 bg-white/10 backdrop-blur-md"
+          : "border border-white/10 bg-[#191C20]",
         className,
       )}
     >

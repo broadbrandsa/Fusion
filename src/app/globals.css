@@ -585,3 +585,105 @@
   background-size: 24px 24px;
   opacity: 0.055;
 }
+
+/* ---------------------------------------------------------------------------
+   The hero conversation, 10 September 2026.
+
+   Still entrance only: it plays once and rests on the finished thread. The
+   whole conversation is in the markup already, so with scripting off or
+   reduced motion on you simply get the finished chat, which is the correct
+   fallback for a mockup.
+
+   Space for every bubble is reserved from the first frame, so the phone never
+   changes height and nothing below it moves.
+--------------------------------------------------------------------------- */
+
+/* Defaults are the finished state. */
+.chat-typing {
+  display: none;
+}
+
+.chat-demo[data-playing="true"] .chat-placeholder {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .chat-caret,
+  .chat-demo:not([data-playing]) .chat-caret {
+    display: none;
+  }
+
+  .chat-demo[data-playing="true"] .chat-caret {
+    display: inline-block;
+    animation: chat-caret 1.05s steps(1, end) infinite;
+  }
+
+  .chat-line {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .chat-line[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Dots and answer cross-fade inside a bubble that is already the right
+     size, so the thread does not jump when the answer lands. */
+  .chat-demo[data-playing="true"] .chat-answer {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .chat-demo[data-playing="true"] [data-answered="true"] .chat-answer {
+    opacity: 1;
+  }
+
+  .chat-demo[data-playing="true"] .chat-typing {
+    display: inline-flex;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .chat-demo[data-playing="true"] [data-answered="true"] .chat-typing {
+    opacity: 0;
+  }
+
+  .chat-dot {
+    animation: chat-dot 1.05s ease-in-out infinite;
+  }
+
+  .chat-dot:nth-child(2) {
+    animation-delay: 0.16s;
+  }
+
+  .chat-dot:nth-child(3) {
+    animation-delay: 0.32s;
+  }
+}
+
+@keyframes chat-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes chat-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

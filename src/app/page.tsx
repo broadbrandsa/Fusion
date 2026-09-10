@@ -2,16 +2,13 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import {
   Bundles,
-  BuiltForHere,
   ClosingCta,
-  Comparison,
   Faq,
   FullStrength,
   Hero,
   HowItWorks,
   Privacy,
   Problem,
-  TalkToUs,
 } from "@/components/sections";
 
 /**
@@ -34,11 +31,8 @@ export default function Home() {
             as fair, so the lite-version doubt gets killed first. */}
         <FullStrength />
         <Bundles />
-        <Comparison />
-        <BuiltForHere />
         <Privacy />
         <Faq />
-        <TalkToUs />
         <ClosingCta />
       </main>
       <SiteFooter />
