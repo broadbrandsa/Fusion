@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 
+import Image from "next/image";
+
 import { AppShot } from "@/components/blocks/app-shot";
 import { ModelLogo } from "@/components/blocks/model-logo";
-import { Photo } from "@/components/blocks/photo";
+import { Photo, photos, type PhotoName } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 import { models } from "@/content/models";
 
@@ -14,18 +16,56 @@ function BentoCard({
   children,
   className,
   delay = 0,
+  photo,
 }: {
   title: string;
   body: string;
   children?: ReactNode;
   className?: string;
   delay?: number;
+  /** Fills the card behind its contents rather than sitting inside it. */
+  photo?: PhotoName;
 }) {
   return (
     <Reveal delay={delay} className={className}>
-      <div className="hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8">
-        <p className="card-title">{title}</p>
-        <p className="mt-3 text-base text-ink-muted">{body}</p>
+      <div
+        className={
+          photo
+            ? "hover-lift relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 p-8"
+            : "hover-lift flex h-full flex-col rounded-2xl border border-border bg-card p-8"
+        }
+      >
+        {photo ? (
+          <>
+            <Image
+              src={photos[photo].src}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 440px, 100vw"
+              className="-z-10 object-cover saturate-[0.78]"
+            />
+            {/* Heavy where the type sits, lighter behind the device, so the
+                photograph still reads. The kitchen frame is bright: its 99th
+                percentile is 0.889, where a flat 0.72 wash would leave body
+                text at 2.40:1. At 0.92 over the type it is 5.71:1. */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(18,21,26,0.92)_0%,rgba(18,21,26,0.88)_45%,rgba(18,21,26,0.62)_100%)]"
+            />
+          </>
+        ) : null}
+        <p className={photo ? "card-title text-on-image" : "card-title"}>
+          {title}
+        </p>
+        <p
+          className={
+            photo
+              ? "mt-3 text-base text-on-image-muted"
+              : "mt-3 text-base text-ink-muted"
+          }
+        >
+          {body}
+        </p>
         {children ? <div className="mt-8">{children}</div> : null}
       </div>
     </Reveal>
@@ -76,21 +116,15 @@ export function FullStrength() {
 
         <BentoCard
           delay={100}
+          photo="kitchenCooking"
           title="Lists it fills for you"
           body="Ask for a week of dinners. Seventeen items come back specified."
         >
-          <div className="space-y-4">
-            <Photo
-              photo="kitchenCooking"
-              ratio="16 / 10"
-              sizes="(min-width: 1024px) 380px, 100vw"
-            />
-            <AppShot
-              shot="listDetail"
-              width={280}
-              className="mx-auto max-w-[11rem]"
-            />
-          </div>
+          <AppShot
+            shot="listDetail"
+            width={280}
+            className="mx-auto max-w-[11.5rem]"
+          />
         </BentoCard>
 
         <BentoCard

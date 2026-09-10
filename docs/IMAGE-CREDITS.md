@@ -38,7 +38,7 @@ photographer is good practice and costs nothing.
 | `project-flatpack.jpg` | Problem | The second burst. A project with a deadline and a manual |
 | `phone-at-dusk.jpg` | Built for here | An ordinary person on an ordinary phone, unglamorous. Tonally the closest fit to graphite in the whole set |
 | `cooking-together.jpg` | Full strength, shared chats | Two people working something out together, which is what a shared chat is |
-| `kitchen-cooking.jpg` | Full strength, lists | The list has a purpose beyond the list |
+| `kitchen-cooking.jpg` | Full strength, lists | Fills the card behind the type and the device, rather than sitting inside it |
 | `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |
 | `study-desk.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped and mirrored, see below** |
 | `side-hustle-maker.jpg` | Problem, side hustle tab | A maker painting pottery at a home workbench. Real trade, which is what the brief asked for |
