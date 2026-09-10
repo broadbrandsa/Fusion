@@ -904,3 +904,20 @@ All seven app captures were scanned; it is the only one affected. It is off
 the closing panel, which shows the spending screen again, but the stepper
 still uses it. Recorded in `ASSUMPTIONS.md` along with the larger question it
 raises about whether the product can take payment at all yet.
+
+### The page bookends on the conversation
+
+The closing panel runs the hero's chat rather than a still. Deliberately the
+same script: the two are a page apart and never on screen together, so it
+reads as a bookend, and a second conversation there would be more to read at
+the point the reader should be leaving for the App Store.
+
+Two instances, each scoped to its own root, so they animate independently:
+the hero on load, the closing one when it scrolls into view. Sized at 19rem
+to match the hero, because at the 16rem the previous still occupied the
+bubbles wrapped harder and the frame came out at a 3.07 ratio, which is not
+a phone. At 19rem it is 304 x 690, the same 2.27 as the hero.
+
+This also takes the last static capture out of the closing panel, which had
+been the spending screen only because `app-credit.png` carries a build
+warning.

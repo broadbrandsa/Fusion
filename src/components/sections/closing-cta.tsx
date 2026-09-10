@@ -1,4 +1,4 @@
-import { AppShot } from "@/components/blocks/app-shot";
+import { ChatDemo } from "@/components/blocks/chat-demo";
 import { Reveal } from "@/components/blocks/reveal";
 import { StoreBadge } from "@/components/blocks/store-badge";
 import { Wordmark } from "@/components/brand/wordmark";
@@ -34,18 +34,24 @@ export function ClosingCta() {
               <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
             </Reveal>
 
-            {/* Back to the spending screen, and not by preference.
-                `app-credit.png` was the better fit for a panel whose job is
-                "buy", but that capture carries a build-state warning in
-                amber: "Buying credit needs App Store products and receipt
-                checking on our side, which are not built yet." It cannot go
-                on a marketing page. See docs/ASSUMPTIONS.md; the stepper
-                still shows the same capture and needs a clean one. */}
+            {/* The hero's conversation again, closing the page the way it
+                opened. It replaces a still of the spending screen, which had
+                itself replaced `app-credit.png` when that capture turned out
+                to carry a build-state warning. See docs/ASSUMPTIONS.md.
+
+                Deliberately the same script rather than a second one. The
+                two are a page apart and never on screen together, so it
+                reads as a bookend; a different conversation here would just
+                be more to read at the point where the reader should be
+                leaving for the App Store. */}
             <Reveal
               delay={160}
-              className="relative mx-auto w-full max-w-[16rem] lg:mx-0"
+              /* 19rem, the same as the hero. At 16rem the bubbles wrapped
+                 harder and the frame came out at a 3.07 ratio, which is not
+                 a phone. */
+              className="relative mx-auto w-full max-w-[19rem] lg:mx-0"
             >
-              <AppShot shot="spending" width={280} />
+              <ChatDemo />
             </Reveal>
           </div>
 
