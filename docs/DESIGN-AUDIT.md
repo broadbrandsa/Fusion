@@ -619,3 +619,55 @@ inheriting.
 Graphite-on-accent text was also hardcoded as `text-[#191C20]` in four places.
 That is now an `--on-lime` token, which is the right shape regardless of which
 accent wins.
+
+## Fifth pass, 10 September 2026
+
+### The price cards were three ledgers
+
+Three cards of identical size, each with the same three-row table, one of
+whose rows ("Valid 30 days") was identical across all three. Nothing on them
+made the ladder visible, which is the one thing a prepaid price list has to
+communicate.
+
+Each card now carries a bar showing its credit against the largest: 14%, 38%,
+100%. The step from R20 to R120 is legible before a single figure is read.
+Steel is right on that bar, because what it measures is credit. It grows from
+the left on reveal, in the same vocabulary as the chart.
+
+The value line underneath carries the claim the heading makes, as a figure and
+a delta against the entry bundle: 3 000 baseline, 3 300 at +10%, 3 667 at
++22%. "Valid" came off the cards, since it differed on none of them and the
+lapse notice directly below already says it. The middle card breaks the row's
+top and bottom edge by 20px, which is the long-standing way a price table says
+"this one".
+
+Worst pixel in a glass card at 1440: name 7.32, price 5.52, credits 15.23,
+value line 6.51, and the bar itself 6.70 against the card, which clears the
+3:1 a meaningful graphic needs. The bar's track was `ink/12` and measured
+1.24, invisible; at `ink/20` the bar reads as a proportion of a whole rather
+than as a short line, which is the entire point of drawing it.
+
+The store badge and the free-start promise came off this section on
+instruction. The closing CTA still carries both.
+
+### The privacy card
+
+Four short claims in a ruled list read as small print however seriously they
+are meant. They are now four panels divided by hairlines, each with a Lucide
+line icon at one stroke weight, running four across at xl and two at sm. The
+icons are `aria-hidden`, because the heading beside each one already says what
+the icon says.
+
+### The spend line took the accent
+
+See the deviation note in `AGENTS.md`. The chart moved onto a graphite panel
+to make it possible: lime on paper is 1.02:1, mint 1.21, butter 1.21, ice
+1.22, lilac 1.48, so a line in any of the five was invisible where it sat.
+On graphite the same line reads between 10.67:1 and 15.48:1.
+
+### Pane artefact, again
+
+`transform: scaleX(0)` bars report a rendered width of 0 in the hidden pane,
+because the reveal never fires and transitions never tick. Forcing
+`data-visible` and injecting `transition: none` resolved them to 38 / 102 /
+269 of a 269px track, exactly the declared 14 / 38 / 100%.

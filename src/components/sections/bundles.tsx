@@ -4,8 +4,7 @@ import { CountUp } from "@/components/blocks/count-up";
 import { photos } from "@/components/blocks/photo";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
-import { StoreBadge } from "@/components/blocks/store-badge";
-import { bundles, cta, lapseNotice } from "@/content/site";
+import { bundles, lapseNotice } from "@/content/site";
 import { formatCredits, formatRand } from "@/lib/format";
 
 /**
@@ -48,6 +47,9 @@ const everyBundle = [
  */
 const perRand = (credits: number, price: number) => Math.round(credits / price);
 
+/** The biggest bundle, which every bar is drawn against. */
+const largestBundle = Math.max(...bundles.map((b) => b.credits));
+
 export function Bundles() {
   return (
     <section
@@ -85,67 +87,88 @@ export function Bundles() {
               needs cancelling.
             </p>
           </Reveal>
-          <Reveal delay={230}>
-            <div className="mt-9 flex flex-col items-start gap-3">
-              <StoreBadge height={56} className="-ml-1.5" />
-              <p className="text-sm text-on-image-muted">{cta.promise}</p>
-            </div>
-          </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-4 lg:grid-cols-3">
+        {/* A ladder, not three ledgers. The bar under each credit figure is
+            that bundle's credit against the largest, so the step from R20 to
+            R120 is visible before a single figure is read, and the value line
+            underneath carries the claim the heading makes. Steel is correct
+            on the bar: what it measures is credit, which is money.
+
+            "Valid 30 days" came off the cards. It is identical on all three,
+            so it was three rows of nothing that differed, and the lapse
+            notice directly below already says it. */}
+        <div className="mt-16 grid items-stretch gap-4 lg:grid-cols-3">
           {bundles.map((bundle, index) => {
             const featured = index === 1;
+            const value = perRand(bundle.credits, bundle.price);
+            const base = perRand(bundles[0].credits, bundles[0].price);
+            const uplift = Math.round((value / base - 1) * 100);
+            const share = Math.round((bundle.credits / largestBundle) * 100);
 
             return (
-              <Reveal key={bundle.id} delay={index * 110}>
+              <Reveal
+                key={bundle.id}
+                delay={index * 110}
+                /* The middle card breaks the row's top and bottom edge, the
+                   long-standing way a pricing table says "this one". */
+                className={featured ? "lg:-my-5" : undefined}
+              >
                 <div
                   className={
                     featured
-                      ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-8"
+                      ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-8 shadow-2xl shadow-black/25 lg:p-9"
                       : /* Glass rather than a solid slab, so the photograph
                            carries through the row and the cards belong to the
                            section instead of sitting on top of it. */
                         "hover-lift flex h-full flex-col rounded-2xl border border-white/15 bg-[#161A20]/85 p-8 backdrop-blur-md"
                   }
                 >
-                  <div className="flex min-h-9 items-center justify-between gap-3">
-                    <p className="card-title">{bundle.name}</p>
+                  <div className="flex min-h-8 items-center justify-between gap-3">
+                    <p className="text-sm tracking-[0.14em] text-ink-muted uppercase">
+                      {bundle.name}
+                    </p>
                     {/* Greyscale on purpose. A lime badge here would sit
                         inches from the price and win. */}
                     {featured ? <Pill>Best per rand</Pill> : null}
                   </div>
 
-                  <p className="money mt-7 text-[3.5rem] leading-none">
+                  <p className="money mt-6 text-[3.5rem] leading-none">
                     {formatRand(bundle.price)}
                   </p>
 
-                  {/* What differs, as a table rather than prose, so the three
-                      cards can be read across at a glance. */}
-                  <dl className="mt-8 border-t border-border">
-                    <div className="flex items-baseline justify-between gap-4 border-b border-border py-3.5">
-                      <dt className="text-base text-ink-muted">Credits</dt>
-                      <dd className="figure text-base text-ink">
-                        <CountUp
-                          value={bundle.credits}
-                          format="credits"
-                          durationMs={1300}
-                        />
-                      </dd>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 border-b border-border py-3.5">
-                      <dt className="text-base text-ink-muted">Per rand</dt>
-                      <dd className="figure text-base text-ink">
-                        {formatCredits(perRand(bundle.credits, bundle.price))}
-                      </dd>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 py-3.5">
-                      <dt className="text-base text-ink-muted">Valid</dt>
-                      <dd className="figure text-base text-ink">
-                        {bundle.validity} days
-                      </dd>
-                    </div>
-                  </dl>
+                  <p className="figure mt-7 text-2xl text-ink">
+                    <CountUp
+                      value={bundle.credits}
+                      format="credits"
+                      durationMs={1300}
+                    />
+                    <span className="ml-2 font-sans text-base text-ink-muted">
+                      credits
+                    </span>
+                  </p>
+
+                  <div
+                    aria-hidden="true"
+                    className="mt-4 h-1.5 overflow-hidden rounded-full bg-ink/20"
+                  >
+                    <span
+                      className="bundle-bar block h-full rounded-full bg-steel"
+                      style={{ width: `${share}%` }}
+                    />
+                  </div>
+
+                  <div className="mt-auto flex items-baseline justify-between gap-3 border-t border-border pt-6 pb-0 mt-8">
+                    <p className="text-base text-ink-muted">
+                      <span className="figure text-ink">
+                        {formatCredits(value)}
+                      </span>{" "}
+                      per rand
+                    </p>
+                    <p className="text-sm text-ink-muted">
+                      {uplift > 0 ? `+${uplift}%` : "Baseline"}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             );

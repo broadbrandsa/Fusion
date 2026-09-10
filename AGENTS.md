@@ -30,6 +30,15 @@ palette values do apply, and this project follows both.
 
 ## The rules that actually matter
 
+**One deviation from that, recorded 10 September 2026.** The spend line in
+the Problem section carries the accent rather than steel, on the client's
+instruction. It survives review for two specific reasons, both of which have
+to hold if that chart ever changes: there is no figure anywhere on it, so the
+accent is not competing with a credit figure, which is what the rule exists to
+prevent; and it sits on a graphite panel, because every accent on offer
+measures under 1.5:1 against paper and a line in any of them would simply not
+be visible.
+
 **The money is the only colour.** Chrome is greyscale, content is greyscale,
 and steel is reserved for the credit figure. Steel arrives only through the
 `.money`, `.money-held` and `.figure` classes in `globals.css`. If a component

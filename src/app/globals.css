@@ -565,6 +565,20 @@
     opacity: 1;
   }
 
+  /* The bundle bars grow from the left, in the same vocabulary as the chart.
+     scaleX rather than width, so it composites and nothing reflows; the
+     inline width still sets the true length. */
+  .bundle-bar {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.33, 1, 0.68, 1);
+    transition-delay: 180ms;
+  }
+
+  .reveal[data-visible="true"] .bundle-bar {
+    transform: none;
+  }
+
   /* Photographs lift very slightly under the cursor. Scale only, so nothing
      reflows, and the figure clips it. */
   .photo-zoom img {
@@ -596,6 +610,10 @@
 
   .chart-dot {
     opacity: 1;
+  }
+
+  .bundle-bar {
+    transform: none;
   }
 }
 

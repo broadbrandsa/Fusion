@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { EyeOff, ShieldOff, Smartphone, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { ListCard } from "@/components/blocks/app-screens";
@@ -12,11 +13,34 @@ import { models } from "@/content/models";
 
 import { SectionShell } from "./section-shell";
 
+/**
+ * Four privacy claims. Each gets a mark, because four short statements in a
+ * ruled list read as small print however seriously they are meant, and a
+ * line icon gives the eye a way in without adding a word. Lucide throughout,
+ * one stroke weight, decorative and hidden from assistive tech: the heading
+ * beside each icon already says what the icon says.
+ */
 const privacyClaims = [
-  ["Private chats vanish", "Kept nowhere. Erased when ended."],
-  ["Never used for training", "Your work stays yours."],
-  ["Deletion you can see", "In Settings, in plain language."],
-  ["Receipts stay on your phone", "We keep less than we could."],
+  {
+    icon: EyeOff,
+    title: "Private chats vanish",
+    note: "Kept nowhere. Erased when ended.",
+  },
+  {
+    icon: ShieldOff,
+    title: "Never used for training",
+    note: "Your work stays yours.",
+  },
+  {
+    icon: Trash2,
+    title: "Deletion you can see",
+    note: "In Settings, in plain language.",
+  },
+  {
+    icon: Smartphone,
+    title: "Receipts stay on your phone",
+    note: "We keep less than we could.",
+  },
 ] as const;
 
 function BentoCard({
@@ -152,10 +176,19 @@ export function FullStrength() {
           title="What happens here stays here"
           body="All four are how the product is built, not undertakings we are asking you to trust."
         >
-          <dl className="grid sm:grid-cols-2 sm:gap-x-12">
-            {privacyClaims.map(([title, note]) => (
-              <div key={title} className="border-t border-border py-6">
-                <dt className="card-title">{title}</dt>
+          <dl className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
+            {privacyClaims.map(({ icon: Icon, title, note }) => (
+              <div
+                key={title}
+                className="flex h-full flex-col bg-card p-6 transition-colors duration-300 ease-in-out hover:bg-surface-high/60"
+              >
+                <span
+                  aria-hidden="true"
+                  className="grid size-10 place-items-center rounded-lg border border-border text-ink"
+                >
+                  <Icon className="size-[18px]" strokeWidth={1.75} />
+                </span>
+                <dt className="card-title mt-5">{title}</dt>
                 <dd className="mt-2 text-base text-ink-muted">{note}</dd>
               </div>
             ))}
