@@ -722,3 +722,36 @@ transitions do not tick. A scroll-driven, rAF-throttled state change therefore
 never fires, and even when the class is applied by hand the element keeps
 reporting its pre-transition geometry. The header looked like it had stopped
 narrowing; it had not. Inject `transition: none !important`, measure, remove.
+
+## Seventh pass, 10 September 2026
+
+### Both ends of the page now overlap inwards
+
+The hero panel breaks into the Problem section, and the closing panel breaks
+into the FAQ. Measured clearance to the next section's first line: hero 178px
+at 375, 195px at 768, 232px at 1440; closing panel 117px at 1440 and no
+overlap at all below lg, where the FAQ sits too close to its own padding edge
+to allow one.
+
+### The closing panel's device
+
+Changed from the spending screen to the credit screen. The panel's job is
+"buy", so a balance with three bundles and their prices says more there than
+a thirty-day chart.
+
+**It is a deliberate repeat, and the first reasoning for it was wrong.** The
+`credit` capture looked unused because a grep for `shot=` only finds the
+`AppShot` call sites, and the stepper in How it works renders its devices a
+different way. It shows the same capture. Every other real capture is either
+already in the stepper or is about lists, which says nothing at a closing CTA.
+A purchase-confirmation capture would be the right thing here.
+
+### Open: the stepper downloads every device twice
+
+Counting images on a clean load turned up eight app captures where four were
+expected. The stepper renders each step's device twice, once in a `lg:hidden`
+block and once in a `hidden lg:block` sticky column, so at any width half of
+them are zero-width and still fetched. Two wasted image requests on every
+page view. Not touched in this pass, because it is the stepper's responsive
+structure rather than a styling bug, but it wants one render driven by CSS
+rather than two in the markup.

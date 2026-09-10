@@ -26,7 +26,12 @@ import { cta, hero } from "@/content/site";
  */
 export function Hero() {
   return (
-    <section className="px-5">
+    /* The panel overlaps the section below it: a negative bottom margin
+       pulls everything after the hero up, and z-10 keeps the panel over the
+       paper section rather than under it. The pull stays well inside the
+       next section's top padding, so it eats whitespace rather than
+       colliding with its first line. */
+    <section className="relative z-10 -mb-[clamp(1.5rem,4vw,5rem)] px-5">
       <div className="relative">
         {/* Background panel. Vitara's runs taller than its content so the
             image continues past the device; ours stops at the panel because

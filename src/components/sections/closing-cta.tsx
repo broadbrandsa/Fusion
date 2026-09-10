@@ -34,8 +34,21 @@ export function ClosingCta() {
               <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
             </Reveal>
 
-            <Reveal delay={160} className="relative mx-auto w-full max-w-[16rem] lg:mx-0">
-              <AppShot shot="spending" width={280} />
+            {/* The credit screen, not spending. This panel is the last thing
+                on the page and its job is "buy", so the screen showing a
+                balance and the three bundles with their prices says more here
+                than a thirty-day chart does.
+
+                It is a deliberate repeat: the stepper in How it works shows
+                the same capture. Every other real capture is either already
+                in the stepper or is about lists, which says nothing at a
+                closing CTA. If a purchase-confirmation screen is ever
+                captured, it belongs here instead. */}
+            <Reveal
+              delay={160}
+              className="relative mx-auto w-full max-w-[16rem] lg:mx-0"
+            >
+              <AppShot shot="credit" width={280} />
             </Reveal>
           </div>
 
