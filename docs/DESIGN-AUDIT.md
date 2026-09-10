@@ -124,18 +124,24 @@ page reading as one long list of boxes.
 ### The spend chart
 
 Worth calling out because it is the one piece of design here that is not
-borrowed. An SVG line of what you actually spent across twelve months, in
-steel, against a grey dashed line at the cheapest subscription price, with
-both totals underneath. Steel is correct rather than an exception, because
-every quantity on it is money, and the subscription reference stays grey so
-the only coloured thing on the chart is your own usage.
+borrowed. A single steel line of a year's spending, and nothing else: no
+legend, no totals, no annotation. Steel is correct rather than an exception,
+because the quantity plotted is money.
 
 The line draws itself in on reveal via `stroke-dashoffset`, with the area fill
 and the dots following.
 
-It is labelled on the page as an example year, and it deliberately uses the
-cheapest competitor rather than the dearest so the comparison cannot be
-accused of flattering itself. R400 of usage against R1 788 of subscription.
+**It was stripped back on 10 September 2026.** It had carried a dashed
+subscription reference, a label on that line, and a caption with both yearly
+totals. All of it came off: the shape is the argument, and a spiky line beside
+a heading reading "you use AI in bursts" does not need explaining. The
+subscription line went with its label rather than sitting there unlabelled,
+because an undecorated dashed rule is something a reader has to decode. The
+flat-billing half of the argument is carried by the heading above it and by
+the comparison table further down.
+
+Nothing on it is presented as data. The aria-label describes the shape rather
+than quoting figures, and no number from it is claimed anywhere on the site.
 
 ### The problem section, measured against Habitline
 
