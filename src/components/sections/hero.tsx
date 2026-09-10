@@ -72,14 +72,18 @@ export function Hero() {
               delay={200}
               className="order-last mx-auto w-full max-w-[19rem] px-6 md:px-0 lg:order-none lg:max-w-none lg:pt-[50px]"
             >
-              <div className="relative mx-auto max-h-[30rem] overflow-hidden lg:max-h-[32.5rem]">
-                <AppShot shot="credit" priority width={400} className="mx-auto" />
-                {/* Dissolve the crop rather than cutting the device off */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#12151A] to-transparent"
-                />
-              </div>
+              {/* The whole device, uncropped. A full 1206x2622 capture is
+                  2.17 times as tall as it is wide, so the width comes down to
+                  about 300 to fit the phone in without the panel running away.
+                  Spending rather than credit, because the credit screen opens
+                  the stepper directly below and a thirty-day chart with the
+                  figure in steel says "priced per answer" faster. */}
+              <AppShot
+                shot="spending"
+                priority
+                width={340}
+                className="mx-auto w-full max-w-[17rem] lg:max-w-[19rem]"
+              />
             </Reveal>
 
             {/* Right: the line and the actions, stacked as Vitara stacks them */}

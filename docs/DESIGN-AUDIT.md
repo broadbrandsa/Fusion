@@ -219,6 +219,12 @@ of which look exactly like a broken image and are not.
 Appito's tick disc is `rgb(233, 255, 114)`, which is exactly the lime chosen
 for this brand, so that part needed no translation.
 
+Each step carries its own screen: the credit capture, a recreated language
+picker, the recreated answer-with-cost, then the spending capture. Step two had
+been showing the shared-chat capture, which is about asking together rather
+than about language, so it now has a screen that matches what the step
+actually claims.
+
 **Why the two sections merged.** The four steps are the mechanism and the cost
 claims are what happens at step three, so the two sections were describing the
 same sequence twice. Step three keeps the Q1 headline at full 44px, so the

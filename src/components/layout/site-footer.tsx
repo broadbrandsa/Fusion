@@ -20,7 +20,7 @@ export function SiteFooter() {
           </p>
           <ul className="mt-5 space-y-3">
             {nav.map((item) => (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link
                   href={item.href}
                   className="inline-flex min-h-11 items-center text-base text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"

@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { AnswerCostScreen } from "@/components/blocks/app-screens";
+import {
+  AnswerCostScreen,
+  LanguagePickerScreen,
+} from "@/components/blocks/app-screens";
 import { cn } from "@/lib/utils";
 
 export type Step = {
@@ -11,8 +14,10 @@ export type Step = {
   index: string;
   title: string;
   body: string;
-  /** A real capture, or null where we only have a recreation. */
+  /** A real capture, or null where only a recreation exists. */
   screen: string | null;
+  /** Which hand-built screen to draw when there is no capture. */
+  recreation?: "answerCost" | "languages";
   screenAlt: string;
   items: string[];
 };
@@ -165,11 +170,15 @@ function Screen({ step }: { step: Step }) {
           className="h-auto w-full"
         />
       ) : (
-        /* No capture exists of an answer landing with its cost beside it,
-           which is the strongest moment the product has. Recreated until one
-           does. See docs/ASSUMPTIONS.md. */
+        /* Two moments have no capture: an answer landing with its cost beside
+           it, and the language picker. Recreated until they do. See
+           docs/ASSUMPTIONS.md. */
         <div role="img" aria-label={step.screenAlt} className="pt-4 pb-8">
-          <AnswerCostScreen />
+          {step.recreation === "languages" ? (
+            <LanguagePickerScreen />
+          ) : (
+            <AnswerCostScreen />
+          )}
         </div>
       )}
     </div>

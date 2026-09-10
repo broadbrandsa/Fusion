@@ -278,7 +278,6 @@ export const contact = {
 
 export const nav = [
   { href: "/#how-it-works", label: "How it works" },
-  { href: "/#how-it-works", label: "What it costs" },
   { href: "/#bundles", label: "Bundles" },
   { href: "/#full-strength", label: "Features" },
   { href: "/#privacy", label: "Privacy" },

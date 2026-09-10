@@ -178,6 +178,63 @@ export function SharedChatCard() {
   );
 }
 
+/**
+ * The language picker as a full screen, for the "ask in your own language"
+ * step. No capture of it exists, so this is a recreation, like the
+ * answer-with-cost screen. The eleven names are the official list and are
+ * spelled as each language spells itself.
+ */
+export function LanguagePickerScreen() {
+  const languages = [
+    "English",
+    "isiZulu",
+    "isiXhosa",
+    "Afrikaans",
+    "Sepedi",
+    "Setswana",
+    "Sesotho",
+    "Xitsonga",
+    "siSwati",
+    "Tshivenda",
+    "isiNdebele",
+  ];
+
+  return (
+    <div className="px-4 pb-6">
+      <p className="mt-6 font-heading text-xl font-bold">Which language?</p>
+      <p className="mt-2 text-xs text-ink-faint">
+        Asked before anything else. Change it any time.
+      </p>
+      <div className="mt-5 space-y-2">
+        {languages.map((language, index) => (
+          <div
+            key={language}
+            className={
+              index === 1
+                ? "flex items-center justify-between rounded-xl bg-surface-high px-3.5 py-2.5"
+                : "flex items-center justify-between rounded-xl bg-surface px-3.5 py-2.5"
+            }
+          >
+            <span
+              className={index === 1 ? "text-sm text-ink" : "text-sm text-ink-muted"}
+            >
+              {language}
+            </span>
+            {index === 1 ? (
+              <span
+                aria-hidden="true"
+                className="grid size-4 place-items-center rounded-full bg-steel text-[0.5rem] text-ground"
+              >
+                ✓
+              </span>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** The language picker, asked first, in each language's own name. */
 export function LanguagesCard() {
   const languages = [

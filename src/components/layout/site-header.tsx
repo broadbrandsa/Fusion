@@ -54,7 +54,7 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((item) => (
             <Link
-              key={item.href}
+              key={item.label}
               href={item.href}
               className="group/nav relative inline-flex min-h-11 items-center px-1.5 text-sm text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"
             >

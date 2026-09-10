@@ -142,13 +142,21 @@ out of scope and need input from whoever owns them. The privacy section makes
 product claims about server-side enforcement, and how much of that can be
 described publicly needs sign-off.
 
-**App screens on the site are partly recreations.** Five sections use the real
-captures from 09 September 2026, now in `public/images/app`. But the strongest
-moment we could show, an answer landing with its cost beside it, has no capture,
-so `src/components/blocks/app-screens.tsx` recreates it in markup. Faithful to
-the real interface and clearly marked, and it should be replaced by a real
-device capture the moment one exists. The figures shown in the recreations are
-illustrative, not logged transactions.
+**App screens on the site are partly recreations.** Most use the real captures
+from 09 September 2026, now in `public/images/app`. Two moments have no capture
+and are recreated in `src/components/blocks/app-screens.tsx`:
+
+- **An answer landing with its cost beside it.** The strongest thing the
+  product does, and the one we most need photographed.
+- **The language picker.** The brand book says the interface asks your
+  language before anything else, and there is no capture of it. The eleven
+  names are the official list, spelled as each language spells itself, but the
+  screen's real layout is unknown and this is a plausible stand-in rather than
+  a likeness.
+
+Both are faithful in spirit, clearly marked, and should be replaced by real
+device captures. Figures shown in them are illustrative, not logged
+transactions.
 
 **No distribution partner is named, anywhere.** Decided 09 September 2026. The
 brand book names three, and the site previously carried a "Distributed by"

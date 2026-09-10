@@ -31,8 +31,13 @@ const steps: Step[] = [
     index: "02",
     title: "Ask in your own language",
     body: "Every model answers in the same app, chosen per question, spending one balance.",
-    screen: appShots.sharedChat.src,
-    screenAlt: appShots.sharedChat.alt,
+    /* Was the shared-chat capture, which is about asking together rather
+       than about language. No capture of the picker exists, so it is
+       recreated. */
+    screen: null,
+    recreation: "languages",
+    screenAlt:
+      "The language picker, listing all eleven official languages with isiZulu selected",
     items: [
       "All 11 official languages, asked before anything else.",
       "Web search, photos, documents, decks and deep research.",
