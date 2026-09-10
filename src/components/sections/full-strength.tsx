@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { LanguagesCard } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
 import { ModelLogo } from "@/components/blocks/model-logo";
 import { Photo } from "@/components/blocks/photo";
@@ -77,14 +76,6 @@ export function FullStrength() {
 
         <BentoCard
           delay={100}
-          title="Your language, asked first"
-          body="All 11 official languages, before anything else."
-        >
-          <LanguagesCard />
-        </BentoCard>
-
-        <BentoCard
-          delay={60}
           title="Lists it fills for you"
           body="Ask for a week of dinners. Seventeen items come back specified."
         >
@@ -128,7 +119,7 @@ export function FullStrength() {
         </BentoCard>
 
         <BentoCard
-          delay={80}
+          delay={60}
           title="Nothing gets lost"
           body="Files, decks, saved recipes, bookmarked sources."
         >
@@ -141,7 +132,7 @@ export function FullStrength() {
 
         <BentoCard
           delay={160}
-          className="lg:col-span-2"
+          className="lg:col-span-3"
           title="And it is good company"
           body="Quiz Night, Twenty Questions, Stop the Bus, The Court. An AI keeps the score."
         >

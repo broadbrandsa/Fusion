@@ -235,43 +235,6 @@ export function LanguagePickerScreen() {
   );
 }
 
-/** The language picker, asked first, in each language's own name. */
-export function LanguagesCard() {
-  const languages = [
-    "English",
-    "isiZulu",
-    "isiXhosa",
-    "Afrikaans",
-    "Sepedi",
-    "Setswana",
-    "Sesotho",
-    "Xitsonga",
-    "siSwati",
-    "Tshivenda",
-    "isiNdebele",
-  ];
-
-  return (
-    <ScreenCard label="The language picker, asked before anything else">
-      <p className="text-xs text-ink-faint">Which language?</p>
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        {languages.map((language, index) => (
-          <span
-            key={language}
-            className={
-              index === 1
-                ? "rounded-full bg-ink px-2.5 py-1 text-xs text-ground"
-                : "rounded-full border border-white/12 px-2.5 py-1 text-xs text-ink-muted"
-            }
-          >
-            {language}
-          </span>
-        ))}
-      </div>
-    </ScreenCard>
-  );
-}
-
 /** A list filled by AI, then ticked off by hand. */
 export function ListCard() {
   const items = [
