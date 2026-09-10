@@ -40,7 +40,7 @@ photographer is good practice and costs nothing.
 | `cooking-together.jpg` | Full strength, shared chats | Two people working something out together, which is what a shared chat is |
 | `kitchen-cooking.jpg` | Full strength, lists | The list has a purpose beyond the list |
 | `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |
-| `study-desk.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped, see below** |
+| `study-desk.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped and mirrored, see below** |
 | `side-hustle-maker.jpg` | Problem, side hustle tab | A maker painting pottery at a home workbench. Real trade, which is what the brief asked for |
 
 ## The Copilot photograph is cropped, deliberately
@@ -54,6 +54,13 @@ So the frame is cropped to the left 51.5%, which puts the laptop and its
 badge entirely out of shot. What is left is a person at a desk by a window
 speaking into their phone, with a notebook open, which is a better picture of
 studying than the original anyway.
+
+It is also mirrored, so the subject sits on the left and is not buried under
+the information card that floats over the bottom right. Mirroring moved the
+window into that corner, which pushed its 99th-percentile luminance from
+0.930 to 0.965 and made it the tightest pairing in the set at 4.80:1. That
+still clears AA, so the glass stayed at 0.90, but it is now the photograph
+that sets the limit rather than the renovation.
 
 **If this image is ever re-cropped or replaced with the full frame, check for
 that logo first.** The uncropped original is not in the repository.
