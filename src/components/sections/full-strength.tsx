@@ -96,7 +96,6 @@ export function FullStrength() {
     >
       <div className="grid gap-4 lg:grid-cols-2">
         <BentoCard
-          className="lg:col-span-2"
           title="Every model, one wallet"
           body="Pick the right one per question. One balance either way."
         >
@@ -132,20 +131,6 @@ export function FullStrength() {
         </BentoCard>
 
         <BentoCard
-          delay={140}
-          photo="friendsTea"
-          scrim={[0.9, 0.86]}
-          title="Ask together, split the cost"
-          body="Up to five people. One answer. Shared from the start or never."
-        >
-          <AppShot
-            shot="sharedChat"
-            width={280}
-            className="mx-auto max-w-[11.5rem]"
-          />
-        </BentoCard>
-
-        <BentoCard
           delay={60}
           title="Nothing gets lost"
           body="Everything the app makes for you, kept where you left it."
@@ -154,16 +139,36 @@ export function FullStrength() {
         </BentoCard>
 
         <BentoCard
-          delay={160}
-          title="And it is good company"
-          body="Quiz Night, Twenty Questions, Stop the Bus, The Court. An AI keeps the score."
+          delay={140}
+          photo="friendsTea"
+          scrim={[0.9, 0.86]}
+          title="Ask together, split the cost"
+          body="Up to five people, one answer, and the cost split between whoever pays. Or hand it a game and let it referee."
         >
-          <AppShot
-            shot="games"
-            width={300}
-            className="mx-auto max-w-[12rem]"
-          />
+          <div className="grid items-start gap-8 xl:grid-cols-2">
+            <div>
+              <AppShot
+                shot="sharedChat"
+                width={280}
+                className="mx-auto max-w-[11.5rem]"
+              />
+              <p className="mt-5 text-center text-sm text-on-image-muted">
+                Shared from the moment it starts, or never.
+              </p>
+            </div>
+            <div>
+              <AppShot
+                shot="games"
+                width={280}
+                className="mx-auto max-w-[11.5rem]"
+              />
+              <p className="mt-5 text-center text-sm text-on-image-muted">
+                Quiz Night, Twenty Questions, Stop the Bus, The Court.
+              </p>
+            </div>
+          </div>
         </BentoCard>
+
       </div>
     </SectionShell>
   );
