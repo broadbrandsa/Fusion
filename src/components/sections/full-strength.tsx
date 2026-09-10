@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { ListCard } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
+import { CollectionOrbit } from "@/components/blocks/collection-orbit";
 import { ModelLogo } from "@/components/blocks/model-logo";
 import { photos, type PhotoName } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
@@ -147,13 +148,9 @@ export function FullStrength() {
         <BentoCard
           delay={60}
           title="Nothing gets lost"
-          body="Files, decks, saved recipes, bookmarked sources."
+          body="Everything the app makes for you, kept where you left it."
         >
-          <AppShot
-            shot="collections"
-            width={280}
-            className="mx-auto max-w-[12rem]"
-          />
+          <CollectionOrbit />
         </BentoCard>
 
         <BentoCard
