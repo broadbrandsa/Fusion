@@ -249,3 +249,28 @@ Worth checking the same way: **"Start free"** rests on the free grant for a
 verified number, whose size is still unknown (see the open question above).
 If that grant does not exist in the shipped app, "Start free" has the same
 problem "No card" had.
+
+
+## `app-credit.png` carries a build warning, 10 September 2026
+
+The capture used for the How it works stepper shows this, in amber, inside
+the phone:
+
+> Buying credit needs App Store products and receipt checking on our side,
+> which are not built yet.
+
+It is off the closing panel, which now shows the spending screen instead, but
+**the stepper still shows it** and there is no clean capture to put there. It
+is the only one of the seven app captures affected; the others were scanned
+and are clear.
+
+Two things follow, and the second is the bigger one.
+
+A clean capture of the credit screen is needed. Cropping the warning out is
+not an option: the screenshot would then imply a purchase flow that the
+warning says does not exist.
+
+**And the site sells bundles.** If receipt checking genuinely is not built,
+the Bundles section, the three price cards and every "buy it like airtime"
+line are describing something that cannot be done yet. That is a question
+about the product, not the site, and it needs answering before launch.

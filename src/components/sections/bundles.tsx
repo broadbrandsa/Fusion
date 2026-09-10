@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CountUp } from "@/components/blocks/count-up";
+import { Parallax } from "@/components/blocks/parallax";
 import { photos } from "@/components/blocks/photo";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
@@ -88,19 +89,25 @@ export function Bundles() {
       id="bundles"
       className="section-y relative isolate overflow-hidden border-y border-border"
     >
-      <Image
-        src={photos.cafePhone.src}
-        alt=""
-        fill
-        sizes="100vw"
-        className="-z-10 object-cover object-[62%_34%] saturate-[0.9]"
-      />
+      {/* Half the hero's travel. At 0.12 the drift slid a brighter band of
+          this photograph under the lede and took it from 6.62:1 to 3.18:1,
+          which would have meant paying for the movement with a scrim twice
+          as heavy. At 0.06 the light 0.30 wash still holds. */}
+      <Parallax className="-z-10" strength={0.06} overscan="10%">
+        <Image
+          src={photos.phoneAtDusk.src}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[62%_34%] saturate-[0.9]"
+        />
+      </Parallax>
       {/* Stronger below md, where the section is tall and narrow, the crop
           keeps almost nothing but his face, and full-width type runs across
           it. There the photograph is atmosphere; from md it is a picture. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[#12151A]/[0.82] md:bg-[#12151A]/[0.66]"
+        className="absolute inset-0 -z-10 bg-[#12151A]/[0.50] md:bg-[#12151A]/[0.36]"
       />
 
       <div className="container-site">

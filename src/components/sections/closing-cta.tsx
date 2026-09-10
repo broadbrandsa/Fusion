@@ -34,21 +34,18 @@ export function ClosingCta() {
               <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
             </Reveal>
 
-            {/* The credit screen, not spending. This panel is the last thing
-                on the page and its job is "buy", so the screen showing a
-                balance and the three bundles with their prices says more here
-                than a thirty-day chart does.
-
-                It is a deliberate repeat: the stepper in How it works shows
-                the same capture. Every other real capture is either already
-                in the stepper or is about lists, which says nothing at a
-                closing CTA. If a purchase-confirmation screen is ever
-                captured, it belongs here instead. */}
+            {/* Back to the spending screen, and not by preference.
+                `app-credit.png` was the better fit for a panel whose job is
+                "buy", but that capture carries a build-state warning in
+                amber: "Buying credit needs App Store products and receipt
+                checking on our side, which are not built yet." It cannot go
+                on a marketing page. See docs/ASSUMPTIONS.md; the stepper
+                still shows the same capture and needs a clean one. */}
             <Reveal
               delay={160}
               className="relative mx-auto w-full max-w-[16rem] lg:mx-0"
             >
-              <AppShot shot="credit" width={280} />
+              <AppShot shot="spending" width={280} />
             </Reveal>
           </div>
 

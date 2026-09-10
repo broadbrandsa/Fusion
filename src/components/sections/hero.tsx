@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ChatDemo } from "@/components/blocks/chat-demo";
+import { Parallax } from "@/components/blocks/parallax";
 import { photos } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 import { StoreBadge } from "@/components/blocks/store-badge";
@@ -19,10 +20,25 @@ import { cta, hero } from "@/content/site";
  * tower over the type. Its title is 86px at -2px tracking, its lede 20px at
  * 1.2, and its two actions stack rather than sit side by side.
  *
- * Scrim strength is set from this photograph rather than a generic worst case.
- * Measured, it is very dark: 99th percentile luminance is 0.168 in the
- * headline third, so 0.6 leaves white at 8.6:1. The extra left and right
- * gradients only guard the handful of blown highlights around the phone glow.
+ * Scrim strength is set from this photograph rather than a generic worst case,
+ * and this photograph is a demanding one. The hero runs body text down both
+ * flanks with only the device between them, so a background has to be dark on
+ * both edges at once. The café frame has blown highlights in every tenth of
+ * its width, which is why sliding object-position does nothing here, and it
+ * needs 0.84 to hold every line at AA.
+ *
+ * A flat 0.84 held everything, but it flattened the whole panel to do it.
+ * From lg the work is split instead: a 0.62 wash, with side gradients
+ * carrying the two text columns at 0.74 on the left and 0.95 across the
+ * right. The right has to be that strong because the photograph peaks at
+ * 0.99 under the second column and the two lines there are 14 and 16px, so
+ * both need 4.5:1. The headline is display type and needs only 3:1, which is
+ * what lets the left stay lighter. The gain is the middle band either side of
+ * the device, 0.84 down to 0.62, which is where the photograph is visible.
+ *
+ * Below lg the columns stack, so a left-to-right gradient is aimed at nothing
+ * and the same values left the headline at 2.55:1. Those widths get a flat
+ * 0.80 and no gradient at all.
  */
 export function Hero() {
   return (
@@ -37,18 +53,23 @@ export function Hero() {
             image continues past the device; ours stops at the panel because
             the next section is paper and a bleed would sit on top of it. */}
         <div className="absolute inset-0 overflow-hidden rounded-[30px]">
-          <Image
-            src={photos.phoneAtDusk.src}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[60%_center]"
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-[#12151A]/60" />
+          <Parallax>
+            <Image
+              src={photos.cafePhoneWide.src}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[60%_center]"
+            />
+          </Parallax>
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(to_right,rgba(18,21,26,0.45)_0%,rgba(18,21,26,0)_42%,rgba(18,21,26,0)_58%,rgba(18,21,26,0.25)_100%)]"
+            className="absolute inset-0 bg-[#12151A]/[0.80] lg:bg-[#12151A]/[0.62]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 hidden bg-[linear-gradient(to_right,rgba(18,21,26,0.74)_0%,rgba(18,21,26,0)_52%,rgba(18,21,26,0.95)_72%,rgba(18,21,26,0.95)_100%)] lg:block"
           />
         </div>
 
@@ -104,9 +125,12 @@ export function Hero() {
                     {cta.secondary.label}
                   </Link>
                 </div>
-                <p className="mt-5 text-sm text-on-image-faint">
-                  {cta.promise}
-                </p>
+                {/* on-image rather than on-image-faint. Under the café
+                    photograph's 0.84 scrim the faint tone measured 2.80:1;
+                    white clears 4.5. The faint tone is for timestamps inside
+                    the app mockups, not for a line of site copy, which is
+                    the same rule AGENTS.md states for ink faint. */}
+                <p className="mt-5 text-sm text-on-image">{cta.promise}</p>
               </Reveal>
             </div>
           </div>

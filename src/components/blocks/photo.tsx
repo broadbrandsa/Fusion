@@ -48,6 +48,14 @@ export const photos = {
     src: "/images/photos/study-at-window.jpg",
     alt: "Someone at a desk by a window, speaking into their phone with an open notebook in front of them",
   },
+  cafePhoneWide: {
+    /* The near-full frame at 1.47, matching the hero panel, so nothing is
+       cropped and the man stays small and centre-right rather than blown up.
+       `cafePhone` is the same photograph framed tight for the bundles band;
+       the hero needs the opposite. */
+    src: "/images/photos/cafe-phone-wide.jpg",
+    alt: "A young man laughing at something on his phone in a sunlit café",
+  },
   cafePhone: {
     /* Cropped to 3400 x 1642 of the original 5184 x 3456, from y 300. That
        window puts him at 70% across, clear of the type column, and keeps the

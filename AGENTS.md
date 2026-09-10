@@ -54,6 +54,18 @@ pass `tone` unless you are overriding on purpose. A section that changes tone
 would otherwise leave its logos white on white, which is exactly what happened
 when Full strength moved to paper.
 
+**Backgrounds drift on scroll.** Added 10 September 2026 on instruction, in
+the hero and the bundles section, via `Parallax`. It is a fourth kind of
+movement on a site whose rule is entrance and interaction only, so keep it
+honest: scroll-linked, never looping, transform only, and off entirely under
+`prefers-reduced-motion`.
+
+Two things it changes that are easy to miss. It moves which rows of a
+photograph pass under the type, so a scrim measured at rest is not a scrim
+that holds; both sections are measured across the full travel instead.
+And the wrapper has to overscan its container by more than the travel, or the
+edge of the photograph appears. Raising `strength` means measuring again.
+
 **There is a temporary accent picker on the site.** Bottom left, added
 10 September 2026 for sign-off, because the accent is the one colour here
 that is a choice and the room could not agree. Remove two things once it is

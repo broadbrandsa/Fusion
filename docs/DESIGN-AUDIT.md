@@ -846,3 +846,61 @@ seven live places and throughout `POSITIONING.md`. All gone; the promise line
 is now "Start free. Nothing renews." See the correction note in
 `POSITIONING.md` and the follow-up question about "Start free" in
 `ASSUMPTIONS.md`.
+
+## Tenth pass, 10 September 2026
+
+### The photographs did swap after all
+
+Reaffirmed by the client after the measurements in the eighth pass, so it was
+built. The earlier conclusion, that the café frame would have to be buried to
+work in the hero, was overstated in one specific way: the dusk photograph it
+replaced has a mean luminance of 0.022 and sat under a 0.6 scrim, compositing
+to 0.013. The café frame at 0.84 composites to 0.036. The hero is brighter
+than it was, not darker.
+
+A flat 0.84 held everything but flattened the panel to do it. From lg the work
+is split: a 0.62 wash with the side gradients carrying the two text columns,
+0.74 on the left and 0.95 across the right. The right has to be that strong
+because the photograph peaks at 0.99 under the second column and both lines
+there need 4.5:1; the headline is display type and needs only 3:1, which is
+what lets the left stay lighter.
+
+Below lg the columns stack, so a left-to-right gradient aims at nothing. The
+same values left the headline at 2.55:1 there. Those widths get a flat 0.80
+and no gradient.
+
+The bundles section gained from the trade. The dusk frame is dark enough to
+need almost nothing, so its scrim fell from 0.66 to 0.36 and the photograph
+shows far more than it did.
+
+The hero uses a second crop, `cafe-phone-wide`, the near-full frame at 1.47 to
+match the hero panel. `cafe-phone` stays as the tight 2.07 crop.
+
+### Parallax
+
+Both backgrounds drift against the scroll. Transform only, off under reduced
+motion, and clamped so a section far off screen still holds the end of its
+travel: skipping the write while off screen leaves the transform at zero and
+the first scroll event after the section appears jumps it the whole way in
+one frame.
+
+**It changes the contrast problem.** Moving a photograph moves which of its
+rows pass under the type, so a scrim measured at rest is not a scrim that
+holds. Measured across the full travel instead, at five positions per
+element. That caught a real failure: at the hero's 0.12 strength the bundles
+lede fell from 6.62:1 to 3.18:1, because the drift slid the phone glow under
+it. Halving that section's travel to 0.06 kept the light wash; the
+alternative was paying for the movement with a scrim twice as heavy.
+
+Final, worst pixel across the whole travel. Hero: badge 9.22, headline 3.54
+(needs 3), lede 5.62, cta 6.31, promise 6.31. Bundles: eyebrow 7.29, headline
+8.41, lede 4.54, lapse notice 10.03.
+
+### A build warning is on the site
+
+`app-credit.png` contains an amber notice reading "Buying credit needs App
+Store products and receipt checking on our side, which are not built yet."
+All seven app captures were scanned; it is the only one affected. It is off
+the closing panel, which shows the spending screen again, but the stepper
+still uses it. Recorded in `ASSUMPTIONS.md` along with the larger question it
+raises about whether the product can take payment at all yet.
