@@ -1,8 +1,15 @@
+import type { CSSProperties } from "react";
+
 import { formatRand } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 /**
  * A year of spending as a single line. Nothing else.
+ *
+ * It tracks in from the left. The stroke draws by dash offset, the fill is
+ * wiped by a clip on the same curve so it is never ahead of the line, and
+ * every dot waits until the sweep reaches its own x. Three parts, one clock,
+ * so it reads as a pen crossing the chart rather than as three effects.
  *
  * Steel is correct rather than a colour-rule exception, because the quantity
  * plotted is money. There is no legend, no totals and no annotation: the
@@ -38,11 +45,32 @@ const linePath = points
 const areaPath = `${linePath} L${x(SPEND.length - 1)} ${y(0)} L${x(0)} ${y(0)} Z`;
 const peak = Math.max(...SPEND);
 
+/* How long the line actually is. It is a polyline, so this is just the sum of
+   the segments, and knowing it exactly matters: a dasharray longer than the
+   path finishes the draw before the line ends, and the last stretch appears
+   to jump into place instead of being drawn. */
+const PATH_LENGTH = points.reduce((total, [px, py], i) => {
+  if (i === 0) return total;
+  const [qx, qy] = points[i - 1];
+  return total + Math.hypot(px - qx, py - qy);
+}, 0);
+
+/* One clock for the whole sweep. Each dot waits until the sweep reaches its
+   own x, so the line appears to pick the dots up as it passes them. */
+const SWEEP_MS = 1600;
+const dotDelay = (px: number) => Math.round((px / W) * SWEEP_MS);
+
 export function SpendChart({ className }: { className?: string }) {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
       className={cn("chart-line w-full", className)}
+      style={
+        {
+          "--chart-len": PATH_LENGTH.toFixed(1),
+          "--chart-ms": `${SWEEP_MS}ms`,
+        } as CSSProperties
+      }
       role="img"
       aria-label={`A year of spending, shown as a line. Eight months at nothing, and four bursts rising to ${formatRand(peak)} in the busiest.`}
     >
@@ -72,7 +100,9 @@ export function SpendChart({ className }: { className?: string }) {
             r="5"
             fill="var(--steel)"
             className="chart-dot"
-            style={{ ["--dot-delay" as string]: `${400 + i * 45}ms` }}
+            style={
+              { "--dot-delay": `${dotDelay(px)}ms` } as CSSProperties
+            }
           />
         ) : null,
       )}

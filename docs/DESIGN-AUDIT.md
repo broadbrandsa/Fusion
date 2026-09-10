@@ -527,3 +527,38 @@ its closing card rather than deleted.
 The page is now nine sections rather than twelve. The comparison table was the
 only direct versus argument and the only non-card layout in the back half, so
 its loss costs both an argument and a shape.
+
+### The bundles band went full bleed
+
+It was inset in `container-site` with a 30px radius, the same shape as the
+hero. The reference it was built from runs edge to edge, and the page had no
+block that did, so it now breaks out of the container while its content stays
+inside one.
+
+That paid for itself in contrast. The type column moved left, onto the darker
+part of a wider crop, and the scrim came down from 0.65 to 0.58, which is
+seven points more photograph. Worst pixel at 0.58, at 1280 / 1440 / 1920:
+eyebrow 4.95, headline 5.42, lede 5.44, promise 7.98.
+
+### The spend line now tracks
+
+It was already drawing by dash offset, but it did not read as a line being
+drawn, and the reason was arithmetic. The dasharray was a hardcoded 2400
+against a path that is actually 1406.3 long, so the draw completed at 59% of
+its duration and the last third of the line appeared to snap into place. The
+length is now summed from the polyline geometry, which is exact.
+
+The other two parts were fading in independently. The fill now wipes on the
+same clock and the same curve, so it is never ahead of the line, and each
+dot's delay is set from its own x rather than from its index position in a
+uniform stagger, so the line appears to pick the dots up as it passes them.
+Three parts, one clock, one curve.
+
+### A third browser-pane artefact
+
+Already recorded: `clientWidth` collapsing to 0, `requestAnimationFrame`
+pausing, scroll events not firing, image decoding suspending. Add CSS
+transitions to that list. In a hidden pane they do not tick, so
+`getComputedStyle` keeps reporting the start value however long you wait, and
+a working transition looks like a broken one. To read the target value,
+inject `transition: none !important`, measure, then remove it.
