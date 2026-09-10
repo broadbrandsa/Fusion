@@ -41,7 +41,6 @@ const steps: Step[] = [
     items: [
       "All 11 official languages, asked before anything else.",
       "Web search, photos, documents, decks and deep research.",
-      "Ask alone, or with up to five people.",
     ],
   },
   {
@@ -68,7 +67,6 @@ const steps: Step[] = [
     items: [
       "Nothing renews on its own.",
       "Credit lasts 30 days, the same as airtime.",
-      "Come back in three months, or never.",
     ],
   },
 ];
