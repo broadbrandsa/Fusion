@@ -1,21 +1,17 @@
 import { CaseTabs, type CaseTab } from "@/components/blocks/case-tabs";
-import { Eyebrow } from "@/components/blocks/eyebrow";
 import { photos } from "@/components/blocks/photo";
-import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
 import { SpendChart } from "@/components/blocks/spend-chart";
 
 /**
- * Archetype: Habitline's tabs section, carrying the spend chart above it.
+ * Habitline's tabs section, measured at 1440: a 20px-radius panel at 100px
+ * padding with a faint dot grid over it, a centred pill and heading, a centred
+ * row of tab pills, then the image with its information floated over the
+ * bottom right rather than set beside it, and a centred label and tag row to
+ * close.
  *
- * The heading and the chart make the argument, that flat billing does not fit
- * bursty use. The tabs then show what a burst actually is, because "in bursts"
- * is abstract until you name three of them. The hashtag row at the bottom says
- * the list is not exhaustive without writing another twelve panes.
- *
- * The figures are patterns rather than costs. Saying a renovation takes three
- * weeks of asking is describing a shape; saying it costs R120 would be a
- * claim about someone else's usage that we cannot support.
+ * The spend chart sits between the heading and the tabs, because the chart
+ * makes the argument and the tabs make "in bursts" concrete.
  */
 const bursts: CaseTab[] = [
   {
@@ -63,49 +59,59 @@ export function Problem() {
   return (
     <section id="problem" className="section-y tone-paper">
       <div className="container-site">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-          <div>
-            <Reveal>
-              <Eyebrow>The mismatch</Eyebrow>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="display-2 mt-5">
-                You use AI in bursts.{" "}
-                <span className="text-ink-muted">
-                  Every subscription bills you flat.
+        <div className="relative overflow-hidden rounded-[20px] bg-surface px-6 py-14 md:px-12 md:py-20 lg:p-[100px]">
+          <div
+            aria-hidden="true"
+            className="dot-grid pointer-events-none absolute inset-0 text-ink"
+          />
+
+          <div className="relative">
+            <div className="mx-auto flex max-w-[36rem] flex-col items-center gap-4 text-center">
+              <Reveal>
+                <span className="inline-flex rounded-full border border-ink/10 bg-surface px-5 py-1.5 text-sm font-medium text-ink">
+                  The mismatch
                 </span>
-              </h2>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-8 text-lg text-ink-muted">
-                Heavy for a fortnight, then nothing for a month. And none of
-                them will tell you what a single answer cost.
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={200} className="lg:pt-4">
-            <SpendChart />
-          </Reveal>
-        </div>
-
-        {/* Habitline's tabbed cases: what a burst actually looks like */}
-        <Reveal delay={80} className="mt-24 block">
-          <CaseTabs tabs={bursts} />
-        </Reveal>
-
-        <Reveal delay={140}>
-          <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-border pt-10">
-            <p className="text-lg text-ink-muted">
-              And every other kind of burst
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {alsoBursts.map((tag) => (
-                <Pill key={tag}>{tag}</Pill>
-              ))}
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="font-heading text-[clamp(2rem,3.4vw+0.6rem,3.125rem)] leading-[1.15] font-bold tracking-[-0.025em]">
+                  You use AI in bursts.{" "}
+                  <span className="text-ink-muted">
+                    Every subscription bills you flat.
+                  </span>
+                </h2>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="text-lg text-ink-muted">
+                  Heavy for a fortnight, then nothing for a month. And none of
+                  them will tell you what a single answer cost.
+                </p>
+              </Reveal>
             </div>
+
+            <Reveal delay={220} className="mt-16 block">
+              <SpendChart />
+            </Reveal>
+
+            <Reveal delay={80} className="mt-20 block">
+              <CaseTabs tabs={bursts} />
+            </Reveal>
+
+            <Reveal delay={140}>
+              <div className="mt-14 flex flex-col items-center gap-2.5 text-center">
+                <p className="text-sm font-medium text-ink">
+                  And every other kind of burst
+                </p>
+                <div className="flex flex-wrap justify-center gap-x-[25px] gap-y-2">
+                  {alsoBursts.map((tag) => (
+                    <span key={tag} className="text-sm font-medium text-ink">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

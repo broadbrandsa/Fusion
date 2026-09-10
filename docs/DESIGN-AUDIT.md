@@ -124,13 +124,42 @@ page reading as one long list of boxes.
 ### The spend chart
 
 Worth calling out because it is the one piece of design here that is not
-borrowed. Twelve months of prepaid top-ups as bars, against a dashed line at
-the cheapest subscription price, with both totals underneath. Steel is correct
-rather than an exception, because every quantity on it is money.
+borrowed. An SVG line of what you actually spent across twelve months, in
+steel, against a grey dashed line at the cheapest subscription price, with
+both totals underneath. Steel is correct rather than an exception, because
+every quantity on it is money, and the subscription reference stays grey so
+the only coloured thing on the chart is your own usage.
+
+The line draws itself in on reveal via `stroke-dashoffset`, with the area fill
+and the dots following.
 
 It is labelled on the page as an example year, and it deliberately uses the
 cheapest competitor rather than the dearest so the comparison cannot be
-accused of flattering itself. R400 of top-ups against R1 788 of subscription.
+accused of flattering itself. R400 of usage against R1 788 of subscription.
+
+### The problem section, measured against Habitline
+
+| | Habitline | Ours |
+| --- | --- | --- |
+| Panel padding | 100px | 100px |
+| Panel radius | 20px | 20px |
+| Decoration | dot grid over the panel | dot grid over the panel |
+| Header | centred pill, heading, lede | centred pill, heading, lede |
+| Tab menu | centred, 20px gap | centred, 20px gap |
+| Tab pill | 10px radius, 12x20 padding | 10px radius, 12x20 padding |
+| Info card | absolute, 40px from bottom-right | absolute, 40px from bottom-right |
+| Card width | 400px | 400px |
+| Card padding | 30px | 30px |
+| Figure | 40px | 40px |
+| Bottom row | centred label above centred tags | centred label above centred tags |
+
+**One deliberate departure, and it is a contrast fix.** Habitline runs the
+glass card at 0.72 opacity with `#B8B8B8` text, which works because the
+photograph behind it is dark. Two of ours are not. The renovation photo's
+bottom-right measures 0.947 relative luminance at the 99th percentile, where
+that pairing lands at **1.64:1**, unreadable. Measured against the brightest of
+the three, the glass runs at 0.90 with `on-image-muted`, giving 4.86:1 for the
+body and 6.98:1 for the figure. On the page they measure 12.4:1 and 17.4:1.
 
 ### The hero, measured against Vitara
 

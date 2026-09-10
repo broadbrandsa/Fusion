@@ -55,7 +55,7 @@ export function CaseTabs({ tabs }: { tabs: readonly CaseTab[] }) {
         role="tablist"
         aria-label="Kinds of burst"
         onKeyDown={onKeyDown}
-        className="flex flex-wrap gap-2"
+        className="flex flex-wrap justify-center gap-5"
       >
         {tabs.map((tab) => {
           const Icon = ICONS[tab.icon];
@@ -77,11 +77,11 @@ export function CaseTabs({ tabs }: { tabs: readonly CaseTab[] }) {
               onClick={() => select(tab.id)}
               className={
                 selected
-                  ? "inline-flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-ink bg-ink px-5 py-3 text-base text-[var(--surface)] transition-colors duration-300 ease-in-out"
-                  : "inline-flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-border bg-card px-5 py-3 text-base text-ink-muted transition-colors duration-300 ease-in-out hover:text-ink"
+                  ? "inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-[10px] border border-ink bg-muted px-5 py-3 text-lg text-ink transition-colors duration-300 ease-in-out"
+                  : "inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-[10px] border border-border bg-card px-5 py-3 text-lg text-ink-muted transition-colors duration-300 ease-in-out hover:border-ink-muted hover:text-ink"
               }
             >
-              <Icon aria-hidden="true" className="size-4" />
+              <Icon aria-hidden="true" className="size-4 shrink-0" />
               {tab.label}
             </button>
           );
@@ -96,23 +96,39 @@ export function CaseTabs({ tabs }: { tabs: readonly CaseTab[] }) {
           aria-labelledby={`${baseId}-tab-${tab.id}`}
           hidden={tab.id !== active}
           tabIndex={0}
-          className="mt-8 focus-visible:outline-none"
+          className="mt-10 focus-visible:outline-none"
         >
-          <div className="grid items-stretch gap-4 lg:grid-cols-[1.5fr_1fr]">
-            <div className="photo-zoom relative overflow-hidden rounded-2xl bg-surface" style={{ aspectRatio: "16 / 9" }}>
+          {/* Habitline floats the information over the image at 40px from the
+              bottom right, rather than setting it alongside. */}
+          <div className="relative">
+            <div
+              className="photo-zoom relative overflow-hidden rounded-[20px] bg-surface"
+              style={{ aspectRatio: "16 / 9" }}
+            >
               <Image
                 src={tab.photoSrc}
                 alt={tab.photoAlt}
                 fill
-                sizes="(min-width: 1024px) 760px, 100vw"
+                sizes="(min-width: 1024px) 1000px, 100vw"
                 className="object-cover saturate-[0.78] contrast-[1.02]"
               />
             </div>
-            <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-8">
-              <p className="text-lg text-ink-muted">{tab.body}</p>
-              <div className="mt-10">
-                <p className="figure display-2">{tab.figure}</p>
-                <p className="mt-3 text-base text-ink-muted">{tab.caption}</p>
+
+            {/* Habitline runs this glass at 0.72 with #B8B8B8 text, which
+                works because the photograph behind it is dark. Two of ours are
+                not: the renovation's bottom-right measures 0.947 at the 99th
+                percentile, where that pairing lands at 1.64:1. Measured
+                against the brightest of the three, 0.90 glass with
+                on-image-muted gives 4.86:1 and the figure in white 6.98:1. */}
+            <div className="mt-4 rounded-[20px] border border-white/20 bg-[#131515]/90 p-[30px] backdrop-blur-md sm:absolute sm:right-10 sm:bottom-10 sm:mt-0 sm:w-[25rem]">
+              <p className="text-lg text-on-image-muted">{tab.body}</p>
+              <div className="mt-[30px] flex items-center justify-between gap-2.5">
+                <p className="figure text-[2.5rem] leading-none font-medium text-on-image">
+                  {tab.figure}
+                </p>
+                <p className="max-w-[14rem] text-right text-sm text-on-image-muted">
+                  {tab.caption}
+                </p>
               </div>
             </div>
           </div>

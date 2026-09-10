@@ -507,17 +507,27 @@
 --------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
-  /* Chart bars grow from the baseline as the chart arrives. scaleY rather
-     than height, so it stays on the compositor. */
-  .chart-bar {
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    transition-delay: var(--bar-delay, 0ms);
+  /* The spend line draws itself in, the fill and dots follow. */
+  .chart-stroke {
+    stroke-dasharray: 2400;
+    stroke-dashoffset: 2400;
+    transition: stroke-dashoffset 1.6s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
-  .reveal[data-visible="true"] .chart-bar {
-    transform: scaleY(1);
+  .chart-area,
+  .chart-dot {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    transition-delay: var(--dot-delay, 700ms);
+  }
+
+  .reveal[data-visible="true"] .chart-stroke {
+    stroke-dashoffset: 0;
+  }
+
+  .reveal[data-visible="true"] .chart-area,
+  .reveal[data-visible="true"] .chart-dot {
+    opacity: 1;
   }
 
   /* Photographs lift very slightly under the cursor. Scale only, so nothing
@@ -540,7 +550,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chart-bar {
-    transform: none;
+  .chart-stroke {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
   }
+
+  .chart-area,
+  .chart-dot {
+    opacity: 1;
+  }
+}
+
+/* Habitline lays a faint dot grid over its panels. Two pixels of dot on a
+   24px pitch, which reads as texture rather than as pattern. */
+.dot-grid {
+  background-image: radial-gradient(
+    currentColor 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  opacity: 0.055;
 }
