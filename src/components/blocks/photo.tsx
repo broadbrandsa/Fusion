@@ -37,6 +37,14 @@ export const photos = {
     src: "/images/photos/phone-in-hand.jpg",
     alt: "Close on a pair of hands using a phone at a desk",
   },
+  studyDesk: {
+    src: "/images/photos/study-desk.jpg",
+    alt: "Someone at a desk by a window, speaking into their phone with an open notebook in front of them",
+  },
+  sideHustleMaker: {
+    src: "/images/photos/side-hustle-maker.jpg",
+    alt: "A maker painting a plant pot at a home workbench, surrounded by paint tins and brushes",
+  },
 } as const;
 
 export type PhotoName = keyof typeof photos;

@@ -27,6 +27,8 @@ photographer is good practice and costs nothing.
 | `photos/kitchen-cooking.jpg` | Jason Briscoe | 7MAjXGUmaPw |
 | `photos/cooking-together.jpg` | Jimmy Dean | my1mDMraGf0 |
 | `photos/phone-in-hand.jpg` | Jonas Leupe | o0A5BpHxziU |
+| `photos/study-desk.jpg` | Microsoft Copilot | Zcp8xN9DnjM |
+| `photos/side-hustle-maker.jpg` | Toa Heftiba | qtkeIDsgrLg |
 
 ### Where each one is used
 
@@ -37,40 +39,24 @@ photographer is good practice and costs nothing.
 | `phone-at-dusk.jpg` | Built for here | An ordinary person on an ordinary phone, unglamorous. Tonally the closest fit to graphite in the whole set |
 | `cooking-together.jpg` | Full strength, shared chats | Two people working something out together, which is what a shared chat is |
 | `kitchen-cooking.jpg` | Full strength, lists | The list has a purpose beyond the list |
-| `phone-in-hand.jpg` | Not used yet | Held back. Its lighting is a hot pink and orange wash that fights graphite, steel and lime all at once. Usable if it is graded down hard, and better replaced |
+| `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |
+| `study-desk.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped, see below** |
+| `side-hustle-maker.jpg` | Problem, side hustle tab | A maker painting pottery at a home workbench. Real trade, which is what the brief asked for |
 
-## Held back
+## The Copilot photograph is cropped, deliberately
 
-`docs/images-not-used/microsoft-copilot-Zcp8xN9DnjM-unsplash.jpg` is deliberately
-outside `public/`, so it cannot deploy.
+`study-desk.jpg` comes from the Microsoft Copilot campaign shoot, and the
+original frame has a laptop in it carrying the Windows 11 logo. Shipping a
+competitor's AI marketing asset, with their product mark visible, on a site
+whose whole argument is against subscription AI would be an unforced error.
 
-It is a Microsoft Copilot campaign photograph, and the laptop in frame carries
-the Windows 11 logo. Putting a competitor's AI marketing asset, with their
-product visible in it, on a site whose whole argument is against subscription
-AI would be an unforced error. It is kept rather than deleted in case it is
-wanted for something internal.
+So the frame is cropped to the left 51.5%, which puts the laptop and its
+badge entirely out of shot. What is left is a person at a desk by a window
+speaking into their phone, with a notebook open, which is a better picture of
+studying than the original anyway.
 
-## Two photographs still needed
-
-The problem section's burst tabs went from three to five on 10 September 2026,
-and the two new ones have no photograph. Each renders a dashed "Photo needed"
-placeholder carrying its brief, so neither can ship unnoticed. 16:9, and they
-sit under a glass information card at the bottom right, so keep that corner
-uncluttered.
-
-| Tab | Brief |
-| --- | --- |
-| Studying | A student working through notes at a kitchen table or a library desk, phone beside the books. Mid-term, not a graduation photo |
-| A side hustle | Someone running a small business from home or a market stall, doing the admin on a phone. Real trade, not a stock-photo boardroom |
-
-Both were chosen because studying and small-business admin are the two
-commonest things people bring to an assistant after writing, and both are
-properly bursty: a term ends, a business gets off the ground.
-
-**One thing to watch when these arrive.** The glass card over the bottom right
-runs at 0.90 opacity, which was set against the brightest photograph in the
-current set. A brighter one would need that checked again. The maths is in
-`docs/DESIGN-AUDIT.md`.
+**If this image is ever re-cropped or replaced with the full frame, check for
+that logo first.** The uncropped original is not in the repository.
 
 ## The gap worth naming
 

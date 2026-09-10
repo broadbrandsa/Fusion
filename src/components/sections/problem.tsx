@@ -46,13 +46,13 @@ const bursts: CaseTab[] = [
   },
   /* Studying and a side hustle are the two commonest things people bring to
      an assistant after writing, and both are properly bursty: a term ends, a
-     business gets off the ground. Photographs still to come. */
+     business gets off the ground. */
   {
     id: "studying",
     label: "Studying",
     icon: "graduationCap",
-    photoBrief:
-      "A student working through notes at a kitchen table or a library desk, phone beside the books. Mid-term, not a graduation photo.",
+    photoSrc: photos.studyDesk.src,
+    photoAlt: photos.studyDesk.alt,
     body: "Explaining what the textbook did not, drafting an assignment, then checking your own reasoning.",
     figure: "12",
     caption: "weeks of term, then a long holiday",
@@ -61,8 +61,8 @@ const bursts: CaseTab[] = [
     id: "side-hustle",
     label: "A side hustle",
     icon: "store",
-    photoBrief:
-      "Someone running a small business from home or a market stall, doing the admin on a phone. Real trade, not a stock-photo boardroom.",
+    photoSrc: photos.sideHustleMaker.src,
+    photoAlt: photos.sideHustleMaker.alt,
     body: "Pricing the work, writing the quote, and getting the first bit of marketing out the door.",
     figure: "8",
     caption: "weeks getting it going, then it runs",
