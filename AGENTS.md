@@ -35,6 +35,12 @@ and steel is reserved for the credit figure. Steel arrives only through the
 `.money`, `.money-held` and `.figure` classes in `globals.css`. If a component
 needs steel and is not showing money, stop and check the brand book.
 
+**Model logos follow their ground automatically.** `ModelLogo` flattens the
+mark and inverts it based on `--logo-invert`, which the tone scopes set. Do not
+pass `tone` unless you are overriding on purpose. A section that changes tone
+would otherwise leave its logos white on white, which is exactly what happened
+when Full strength moved to paper.
+
 **The lime accent is a fill, never text.** #E9FF72, added 09 September 2026 as
 the marketing accent, available as `bg-lime` and the `accent` button variant.
 Graphite on lime is 15.48:1. Lime as text on paper is 1.05:1, which fails, so

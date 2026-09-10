@@ -146,6 +146,20 @@
   --on-image-faint: #b9bfc7;
 }
 
+/* Third-party logos are flattened to one colour, then inverted or not
+   depending on the ground under them. Driven by a token rather than a prop,
+   because a section that changes tone should not silently turn its logos
+   white on white. Overridable via ModelLogo's `tone`. */
+:root,
+.tone-paper {
+  --logo-invert: 0;
+}
+
+.dark,
+.tone-graphite {
+  --logo-invert: 1;
+}
+
 /* Paper: the light theme. The same shapes on a neutral off-white, with the
    accents darkened for contrast.
 

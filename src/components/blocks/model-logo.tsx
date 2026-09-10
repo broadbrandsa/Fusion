@@ -22,24 +22,29 @@ import { cn } from "@/lib/utils";
  * the site owns put together, and the credit figure would stop being the thing
  * the eye finds.
  *
- * `brightness(0)` flattens any mark to black, then `invert(1)` lifts it to
+ * `brightness(0)` flattens any mark to black, then `invert()` lifts it to
  * white for dark grounds. Both marks keep their alpha, so only the artwork is
  * affected. Single-colour reproduction is permitted by every one of these
  * brands' guidelines; full colour is available via `tone="full"` if legal
  * would rather have it.
+ *
+ * The default follows `--logo-invert`, which the tone scopes set, so a logo
+ * inverts with its ground automatically. This section moved from graphite to
+ * paper once and the logos went white on white, which is exactly the failure
+ * a prop-driven default invites.
  */
 const byId = Object.fromEntries(models.map((model) => [model.id, model]));
 
 export function ModelLogo({
   id,
   variant = "wordmark",
-  tone = "onDark",
+  tone = "auto",
   className,
   height = 28,
 }: {
   id: (typeof models)[number]["id"];
   variant?: "wordmark" | "icon";
-  tone?: "onDark" | "onLight" | "full";
+  tone?: "auto" | "onDark" | "onLight" | "full";
   className?: string;
   height?: number;
 }) {
@@ -53,13 +58,19 @@ export function ModelLogo({
       alt={`${model.name} logo`}
       width={Math.round(height * ratio)}
       height={height}
-      className={cn(
-        "w-auto object-contain",
-        tone === "onDark" && "brightness-0 invert",
-        tone === "onLight" && "brightness-0",
-        className,
-      )}
-      style={{ height, width: "auto" }}
+      className={cn("w-auto object-contain", className)}
+      style={{
+        height,
+        width: "auto",
+        filter:
+          tone === "full"
+            ? undefined
+            : tone === "onDark"
+              ? "brightness(0) invert(1)"
+              : tone === "onLight"
+                ? "brightness(0)"
+                : "brightness(0) invert(var(--logo-invert, 1))",
+      }}
     />
   );
 }
