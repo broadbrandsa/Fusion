@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { AppShot } from "@/components/blocks/app-shot";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
-import { Button } from "@/components/ui/button";
+import { StoreBadge } from "@/components/blocks/store-badge";
 import { photos } from "@/components/blocks/photo";
-import { cta, hero, stores } from "@/content/site";
+import { cta, hero } from "@/content/site";
 
 /**
  * Vitara's hero: an inset rounded panel carrying a full-bleed photograph, with
@@ -72,30 +71,8 @@ export function Hero() {
               <p className="max-w-sm text-lg text-on-image-muted">{hero.subhead}</p>
             </Reveal>
             <Reveal delay={230}>
-              <div className="mt-9 flex flex-col items-start gap-3">
-                <Button
-                  size="lg"
-                  variant="accent"
-                  className="group/cta h-14 rounded-full pr-2 pl-7 text-base"
-                  asChild
-                >
-                  <Link href={stores[0].href}>
-                    {stores[0].label}
-                    <span
-                      aria-hidden="true"
-                      className="ml-3 grid size-9 place-items-center rounded-full bg-[#191C20] text-lime transition-transform duration-300 ease-in-out group-hover/cta:translate-x-0.5"
-                    >
-                      &rarr;
-                    </span>
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  className="h-14 rounded-full border border-white/25 bg-white/10 px-7 text-base text-on-image backdrop-blur-sm hover:bg-white/20"
-                  asChild
-                >
-                  <Link href={stores[1].href}>{stores[1].label}</Link>
-                </Button>
+              <div className="mt-9 -ml-1.5">
+                <StoreBadge height={56} />
               </div>
               <p className="mt-5 text-sm text-on-image-faint">{cta.promise}</p>
             </Reveal>

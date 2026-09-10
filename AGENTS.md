@@ -85,6 +85,17 @@ shift width as it counts.
 does not state a figure, leave it out and note it in `docs/ASSUMPTIONS.md`
 rather than inferring it.
 
+**Do not use `src/components/ui/tabs.tsx`.** The generated shadcn Tabs renders
+`tabindex="-1"` on every trigger, including the selected one, so the group has
+no tab stop and is unreachable by keyboard. `src/components/blocks/case-tabs.tsx`
+implements the WAI-ARIA pattern by hand instead: one tab stop, arrow keys,
+Home and End. Use that, or fix the primitive properly before reaching for it.
+
+**Downloads are Apple only, for now.** `StoreBadge` renders the official App
+Store artwork, which Apple requires be used as supplied rather than rebuilt.
+The Google Play URL is still in `stores` and is correct, so putting it back is
+a one-line change.
+
 ## Voice
 
 South African English. Answer first, then detail. Money always plain: what it

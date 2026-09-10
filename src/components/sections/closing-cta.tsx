@@ -1,10 +1,8 @@
-import Link from "next/link";
-
 import { AppShot } from "@/components/blocks/app-shot";
 import { Reveal } from "@/components/blocks/reveal";
+import { StoreBadge } from "@/components/blocks/store-badge";
 import { Wordmark } from "@/components/brand/wordmark";
-import { Button } from "@/components/ui/button";
-import { cta, stores } from "@/content/site";
+import { cta } from "@/content/site";
 
 /** Vitara closes on a dark panel with the wordmark set huge behind it. */
 export function ClosingCta() {
@@ -25,18 +23,8 @@ export function ClosingCta() {
               <p className="mt-6 max-w-sm text-lg text-ink-muted">
                 Start free. See every cost. Pay nothing in the quiet months.
               </p>
-              <div className="mt-10 flex flex-wrap gap-3">
-                {stores.map((store, index) => (
-                  <Button
-                    key={store.id}
-                    size="lg"
-                    variant={index === 0 ? "accent" : "outline"}
-                    className="h-14 rounded-full px-7 text-base"
-                    asChild
-                  >
-                    <Link href={store.href}>{store.label}</Link>
-                  </Button>
-                ))}
+              <div className="mt-10 -ml-1.5">
+                <StoreBadge height={56} />
               </div>
               <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
             </Reveal>

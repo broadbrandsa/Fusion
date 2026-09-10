@@ -106,7 +106,7 @@ actually wants.
 | Section | Was | Now | Borrowed from |
 | --- | --- | --- | --- |
 | Hero | Split with device and floating card, on flat graphite | **Vitara's hero**: inset rounded panel, full-bleed photograph under a scrim, headline left, device centre bleeding off the bottom, supporting line and actions right, nav floating over the image | Vitara |
-| Problem | Heading, lede, two equal photos, three facts | **A spend chart**: spiky monthly top-ups against a flat subscription line, then an asymmetric photo pair | The argument is a shape mismatch, so it is drawn |
+| Problem | Heading, lede, two equal photos, three facts | **A spend chart** above **Habitline's tabbed cases**: three kinds of burst, each with a photograph, a description and a pattern figure, then a hashtag row saying the list is not exhaustive | The chart makes the argument, the tabs make "in bursts" concrete |
 | How it works | Four identical bordered cards | **Numbered list beside a full-height device**, steps ruled rather than boxed | Vitara's roadmap, Appito's steps |
 | Cost proof | Device beside three cards | **Split with a figure floating off the device**, claims as ruled rows, no cards | Vitara's floating stat overlay |
 | Full strength | Bento, graphite | unchanged layout, moved to paper | Vitara's light bento |
@@ -161,6 +161,21 @@ the computed style instead, which is how the chart bar rule was confirmed.
 Image decoding is suspended too. A freshly requested image reports
 `complete: true` with `naturalWidth: 0`, and `img.decode()` never settles, both
 of which look exactly like a broken image and are not.
+
+### One accessibility bug found in a primitive
+
+The generated shadcn `Tabs` renders `tabindex="-1"` on every trigger, the
+selected one included, so the group has no tab stop and cannot be reached by
+keyboard at all. Verified: `anyReachableByTab: false`, unchanged by focus
+events or a programmatic focus.
+
+A separate bug in the same wrapper, `orientation` destructured out and never
+forwarded to the Radix Root, was fixed but was not the cause.
+
+Rather than fight the primitive for one section, `case-tabs.tsx` implements the
+WAI-ARIA pattern directly: one tab stop on the selected tab, arrow keys to
+move, Home and End to jump, activation following focus, and labelled panels.
+`AGENTS.md` warns against the primitive until somebody fixes it properly.
 
 ### Tone rhythm
 

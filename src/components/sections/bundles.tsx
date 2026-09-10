@@ -1,10 +1,8 @@
-import Link from "next/link";
-
 import { CountUp } from "@/components/blocks/count-up";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
-import { Button } from "@/components/ui/button";
-import { bundles, cta, lapseNotice, stores } from "@/content/site";
+import { StoreBadge } from "@/components/blocks/store-badge";
+import { bundles, cta, lapseNotice } from "@/content/site";
 import { formatRand } from "@/lib/format";
 
 /**
@@ -81,18 +79,8 @@ export function Bundles() {
         <Reveal delay={120}>
           <div className="mx-auto mt-14 max-w-lg text-center">
             <p className="text-base text-ink-muted">{lapseNotice}</p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
-              {stores.map((store, index) => (
-                <Button
-                  key={store.id}
-                  size="lg"
-                  variant={index === 0 ? "accent" : "outline"}
-                  className="h-14 rounded-full px-7 text-base"
-                  asChild
-                >
-                  <Link href={store.href}>{store.label}</Link>
-                </Button>
-              ))}
+            <div className="mt-9 flex justify-center">
+              <StoreBadge height={56} />
             </div>
             <p className="mt-4 text-sm text-ink-muted">{cta.promise}</p>
           </div>

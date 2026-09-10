@@ -228,9 +228,12 @@ export const hero = {
  * sequence has to stay honest: download, verify your number, use the free
  * grant. Nobody meets the top-up screen until the grant runs out.
  *
- * The Play link is the real one, built from the known package. The Apple link
- * is a store search, because the numeric app id was never supplied.
- * TODO: swap in the Apple listing URL once the app id is known.
+ * Only Apple is shown on the site, decided 10 September 2026. The Play link
+ * stays here because it is correct, built from the known package, so putting
+ * it back is a one-line change in StoreBadge.
+ *
+ * The Apple link is still a store search, because the numeric app id was never
+ * supplied. TODO: swap in the listing URL once the app id is known.
  */
 export const stores = [
   {

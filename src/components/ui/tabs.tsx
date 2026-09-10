@@ -11,8 +11,13 @@ function Tabs({
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
+    /* DELIBERATE EDIT to a generated shadcn file. Keep it on re-add.
+       `orientation` was destructured out and only used for the data
+       attribute, so the Radix Root never received it and its roving focus
+       group had no orientation to work with. */
     <TabsPrimitive.Root
       data-slot="tabs"
+      orientation={orientation}
       data-orientation={orientation}
       className={cn(
         "group/tabs flex gap-2 data-horizontal:flex-col",
