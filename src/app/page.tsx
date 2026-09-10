@@ -5,7 +5,6 @@ import {
   BuiltForHere,
   ClosingCta,
   Comparison,
-  CostProof,
   Faq,
   FullStrength,
   Hero,
@@ -27,8 +26,9 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Problem />
+        {/* The stepper carries what used to be a separate cost-proof
+            section. Its step three is the Q1 claim, at full size. */}
         <HowItWorks />
-        <CostProof />
         {/* Full strength comes before the price. Someone who reads R20 while
             still suspecting a cut-down product reads it as cheap rather than
             as fair, so the lite-version doubt gets killed first. */}

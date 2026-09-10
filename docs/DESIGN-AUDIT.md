@@ -107,8 +107,8 @@ actually wants.
 | --- | --- | --- | --- |
 | Hero | Split with device and floating card, on flat graphite | **Vitara's hero**, matched against its rendered values rather than its markup. See the table below | Vitara |
 | Problem | Heading, lede, two equal photos, three facts | **A spend chart** above **Habitline's tabbed cases**: three kinds of burst, each with a photograph, a description and a pattern figure, then a hashtag row saying the list is not exhaustive | The chart makes the argument, the tabs make "in bursts" concrete |
-| How it works | Four identical bordered cards | **Numbered list beside a full-height device**, steps ruled rather than boxed | Vitara's roadmap, Appito's steps |
-| Cost proof | Device beside three cards | **Split with a figure floating off the device**, claims as ruled rows, no cards | Vitara's floating stat overlay |
+| How it works | Four identical bordered cards | **Appito's sticky scroll stepper**, and it now absorbs the old cost-proof section. See below | Appito |
+| Cost proof | Device beside three cards | Merged into the stepper as step three, at full title size | Appito |
 | Full strength | Bento, graphite | unchanged layout, moved to paper | Vitara's light bento |
 | Bundles | Three-up on paper, middle graphite | Three-up on graphite, middle inverts to paper | Vitara pricing |
 | Comparison | Two bordered panels | **A comparison table**, seven rows | None of the three use one, but a versus argument is what a table is for |
@@ -201,6 +201,51 @@ the computed style instead, which is how the chart bar rule was confirmed.
 Image decoding is suspended too. A freshly requested image reports
 `complete: true` with `naturalWidth: 0`, and `img.decode()` never settles, both
 of which look exactly like a broken image and are not.
+
+### The stepper, measured against Appito
+
+| | Appito | Ours |
+| --- | --- | --- |
+| Grid | 3 equal columns | 3 equal columns |
+| Gap | 145px | 145px |
+| Align | start | start |
+| Per-step block | 900px, sticky | 640px, sticky |
+| Step title | 44px / 700 | 44px / 700 |
+| Step pill | lime, radius 30, 8x24 padding | lime, pill radius, 8x24 |
+| Tick disc | 20px, lime | 20px, lime |
+| Item gap | 25px | 25px |
+| Device column | sticky, screen swaps | sticky, screen swaps |
+
+Appito's tick disc is `rgb(233, 255, 114)`, which is exactly the lime chosen
+for this brand, so that part needed no translation.
+
+**Why the two sections merged.** The four steps are the mechanism and the cost
+claims are what happens at step three, so the two sections were describing the
+same sequence twice. Step three keeps the Q1 headline at full 44px, so the
+argument loses no weight by moving.
+
+**Blocks are 640px rather than 900px.** Four steps at Appito's height would add
+3600px to a page that is already long.
+
+**Two implementation notes worth keeping.**
+
+The active step is derived from scroll position, not from an
+IntersectionObserver. The step blocks are sticky, so once pinned they sit in
+the viewport permanently and every one of them reports as intersecting, which
+holds the active index at zero forever. Their flow position still advances
+normally, so measuring the column against the sticky line is both simpler and
+correct.
+
+There is no `requestAnimationFrame` throttle on that scroll handler. A passive
+scroll listener already fires at most once a frame, so it bought nothing, and
+rAF is suspended in a hidden document.
+
+### A third thing that looks like a bug and is not
+
+A hidden document does not emit scroll events at all. `window.scrollTo` moves
+the page, `window.scrollY` updates, and no listener fires. Anything driven by
+scroll will appear frozen when the browser pane is backgrounded. Dispatch
+`new Event("scroll")` by hand after each programmatic scroll when verifying.
 
 ### One accessibility bug found in a primitive
 

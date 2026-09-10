@@ -251,7 +251,7 @@ export const stores = [
 export const cta = {
   /** Sits under the store buttons, so the promise stays the free start. */
   promise: "Start free. No card.",
-  secondary: { label: "See what an answer costs", href: "/#nothing-hidden" },
+  secondary: { label: "See what an answer costs", href: "/#how-it-works" },
 } as const;
 
 /**
@@ -278,7 +278,7 @@ export const contact = {
 
 export const nav = [
   { href: "/#how-it-works", label: "How it works" },
-  { href: "/#nothing-hidden", label: "What it costs" },
+  { href: "/#how-it-works", label: "What it costs" },
   { href: "/#bundles", label: "Bundles" },
   { href: "/#full-strength", label: "Features" },
   { href: "/#privacy", label: "Privacy" },

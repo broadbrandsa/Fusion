@@ -33,8 +33,7 @@ in `POSITIONING.md`.
 | --- | --- | --- | --- |
 | `hero.tsx` | 1 | Graphite | Built. Decided headline, store buttons, real credit capture with the cost moment floating off it |
 | `problem.tsx` | Sets up all | Paper | Built. Spend chart contrasting bursty top-ups with flat billing, plus an asymmetric photo pair |
-| `how-it-works.tsx` | 1 | Graphite | Built. Numbered list beside a full-height device, Vitara's roadmap pattern |
-| `cost-proof.tsx` | 2 | Graphite | Built. Carries Q1. Answer-with-cost screen with a figure floating off it, claims as ruled rows |
+| `how-it-works.tsx` | 1 and 2 | Graphite | Built. Appito's sticky scroll stepper, four steps, absorbing the former cost-proof section as step three |
 | `bundles.tsx` | 1 | Graphite | Built. Three-up with the middle inverted to paper, real credit figures, lapse notice. No answer counts |
 | `comparison.tsx` | 1 | Paper | Built. A seven-row comparison table, no competitor named |
 | `full-strength.tsx` | 3 | Paper | Built. Bento grid, five real app captures plus two hand-built cards |

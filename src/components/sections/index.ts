@@ -1,7 +1,6 @@
 export { Hero } from "./hero";
 export { Problem } from "./problem";
 export { HowItWorks } from "./how-it-works";
-export { CostProof } from "./cost-proof";
 export { Bundles } from "./bundles";
 export { Comparison } from "./comparison";
 export { FullStrength } from "./full-strength";
