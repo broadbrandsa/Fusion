@@ -746,12 +746,103 @@ different way. It shows the same capture. Every other real capture is either
 already in the stepper or is about lists, which says nothing at a closing CTA.
 A purchase-confirmation capture would be the right thing here.
 
-### Open: the stepper downloads every device twice
+### Fixed: the stepper downloaded every device twice
 
 Counting images on a clean load turned up eight app captures where four were
 expected. The stepper renders each step's device twice, once in a `lg:hidden`
 block and once in a `hidden lg:block` sticky column, so at any width half of
 them are zero-width and still fetched. Two wasted image requests on every
-page view. Not touched in this pass, because it is the stepper's responsive
-structure rather than a styling bug, but it wants one render driven by CSS
-rather than two in the markup.
+page view. Fixed in the pass below.
+
+## Eighth pass, 10 September 2026
+
+### The stepper's duplicate downloads
+
+Each step's screen is in the markup twice, once for the stacked layout below
+lg and once for the sticky column from lg, and only one is ever displayed. A
+hidden `<img>` is still fetched, so a clean load pulled eight captures where
+four are shown.
+
+Fixed with `sizes` rather than by duplicating the markup. Each instance now
+asks for 1px at the width where it is hidden, so the browser takes the
+smallest candidate in the srcset. Verified in both directions: at 1440 the
+sticky copy requests `w=750` and the stacked copy `w=32`; at 375 they swap.
+That is 58KB down to 1KB per hidden capture, 114KB off every page load.
+
+### The hero and bundles photographs cannot swap
+
+Asked for, measured, and not done, because the hero would fail badly.
+
+The hero puts body text in two columns, one down each flank, with only the
+device between them. That makes it the most demanding slot on the site: a
+photograph has to be dark on both edges at once. Scored across the whole set
+at the hero's 1.47 crop, taking the p99.5 luminance under each text column
+and solving for the scrim each would need:
+
+| Photograph | Minimum scrim |
+| --- | --- |
+| `phone-at-dusk` | **0.15** |
+| `side-hustle-maker` | 0.74 |
+| `cafe-phone` | 0.77 |
+| `project-flatpack` | 0.77 |
+| `friends-tea` | 0.78 |
+| `phone-in-hand` | 0.83 |
+| `kitchen-cooking` | 0.84 |
+| `project-renovation` | 0.84 |
+| `study-at-window` | 0.85 |
+
+`phone-at-dusk` is not merely the best fit, it is the only viable one, by a
+factor of five. Everything else needs a scrim heavy enough to erase it.
+
+Two further things were tried before concluding. Moving `object-position`
+across the full range changed nothing useful: the café frame has blown
+highlights, 0.94 to 1.00, in **every tenth of its width**, so there is no
+dark band to sit text on. And a wider crop of the café original at the hero's
+own 1.47 ratio, so the man is small and central rather than cropped up large,
+still needed 0.84.
+
+If the café photograph is wanted in the hero, the layout has to change first:
+the flanking text columns are the constraint, not the picture. A hero with
+type on one side only would open the set up considerably.
+
+## Ninth pass, 10 September 2026
+
+### The price cards, rebuilt against a supplied reference
+
+The rate now sits as a sub-line under the name, the price carries a raised
+currency mark and a "once off" suffix, every card has its own action, and the
+ticked features sit in a recessed panel rather than loose on the card face.
+The progress bars are gone.
+
+Two departures from the reference, both the same reason: it puts a lime price
+and a lime button on its featured card, and ours cannot, because the brand
+book keeps the accent away from a credit figure and these cards are nothing
+but credit figures. The featured card takes its emphasis from the paper
+inversion, the 20px lift and the pill instead, and its action is a solid ink
+fill.
+
+**The ticks carry the product now.** They were three commercial lines that
+said nothing about what you get. They are the Full strength cards restated in
+one line each, because the bundles differ only in how much credit they hold:
+every one buys the whole product. "Nothing renews" and the thirty-day validity
+came off the list, since the section lede and the lapse notice directly below
+already carry them.
+
+Worst-pixel contrast, all four layers deep where a feature line sits on a
+recessed panel on a translucent card on a scrimmed photograph: 4.93:1 at
+worst, 15.63 at best.
+
+### Two claims that were simply wrong
+
+**"Best per rand" was on the wrong card.** It was hardcoded to the middle one,
+where a pricing table conventionally puts its recommendation, and the middle
+one is not the best per rand: Regular buys 3 300 and Heavy buys 3 667. Both
+the badge and the featured styling are now derived from the figures, so they
+cannot disagree again and the badge moves on its own if prices change.
+
+**"No card" was false.** Flagged by the client. Bundles are bought through the
+App Store, which means a payment method on the Apple account. It appeared in
+seven live places and throughout `POSITIONING.md`. All gone; the promise line
+is now "Start free. Nothing renews." See the correction note in
+`POSITIONING.md` and the follow-up question about "Start free" in
+`ASSUMPTIONS.md`.

@@ -1,20 +1,19 @@
+import { Check } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { CountUp } from "@/components/blocks/count-up";
 import { photos } from "@/components/blocks/photo";
 import { Pill } from "@/components/blocks/pill";
 import { Reveal } from "@/components/blocks/reveal";
-import { bundles, lapseNotice } from "@/content/site";
+import { Button } from "@/components/ui/button";
+import { bundles, lapseNotice, stores } from "@/content/site";
 import { formatCredits, formatRand } from "@/lib/format";
 
 /**
  * One photograph behind the whole section, heading and prices together. It
  * was a band above a separate block of cards, and the seam between the two
  * was exactly what made it read as two sections.
- *
- * Laid out after the reference supplied on 10 September 2026: full bleed, the
- * subject kept clear on the right, the type held in a narrow column on the
- * left at display scale with the action directly beneath it.
  *
  * The scrim is set by sampling the composited pixels under the rendered type
  * rather than by estimating from the frame, because this photograph has small
@@ -29,26 +28,59 @@ import { formatCredits, formatRand } from "@/lib/format";
  */
 
 /**
- * What every bundle includes, said once under the row rather than three times
- * inside it. An identical list repeated in all three cards is what made them
- * read as three slabs: nothing in the repetition helps anyone choose, and it
- * buried the two lines that actually differ.
+ * The product, on every card.
+ *
+ * These are the Full strength cards restated in one line each, because the
+ * bundles differ only in how much credit they carry: every one of them buys
+ * the whole product. The list was three commercial lines before, which said
+ * nothing about what you actually get.
+ *
+ * Nothing renews and the thirty-day validity are deliberately not here. The
+ * section lede carries the first and the lapse notice directly below carries
+ * the second, and repeating them inside three cards was what made the cards
+ * read as filler in the first place.
+ *
+ * The ticks are ink, not lime. Lime is the tick everywhere else on the site,
+ * but the brand book keeps the accent away from a credit figure because it is
+ * nearly three times the luminance of steel and wins the eye, and these cards
+ * are nothing but credit figures. Same reason the pill is grey.
  */
-const everyBundle = [
-  "Every model, one balance",
-  "No card. Nothing renews",
+const included = [
+  "Every model, one wallet",
+  "Web search, photos, documents and decks",
+  "Lists it fills in for you",
+  "Ask together, split the cost",
+  "Nothing you make gets lost",
+  "Private chats leave nothing behind",
 ];
 
 /**
- * Credits per rand. It is the only figure that separates the three, and it is
+ * Credits per rand. It is the only figure that separates the three and it is
  * the arithmetic behind "bigger bundles buy more per rand", so the claim can
  * be checked on the card rather than taken on trust. Derived from the
  * published price and credit figures, not a new claim.
  */
 const perRand = (credits: number, price: number) => Math.round(credits / price);
 
-/** The biggest bundle, which every bar is drawn against. */
-const largestBundle = Math.max(...bundles.map((b) => b.credits));
+/**
+ * Which bundle actually buys the most per rand, worked out from the figures
+ * rather than assumed.
+ *
+ * It was hardcoded to the middle card, where a pricing table conventionally
+ * puts its recommendation, and the middle card is not the best per rand:
+ * Regular buys 3 300 and Heavy buys 3 667. The badge was simply wrong, and
+ * the card carrying the emphasis was not the card the badge described.
+ * Deriving both from the data means they cannot disagree again, and if the
+ * prices change the badge moves on its own.
+ */
+const bestPerRandIndex = bundles.reduce(
+  (best, bundle, index) =>
+    perRand(bundle.credits, bundle.price) >
+    perRand(bundles[best].credits, bundles[best].price)
+      ? index
+      : best,
+  0,
+);
 
 export function Bundles() {
   return (
@@ -89,22 +121,21 @@ export function Bundles() {
           </Reveal>
         </div>
 
-        {/* A ladder, not three ledgers. The bar under each credit figure is
-            that bundle's credit against the largest, so the step from R20 to
-            R120 is visible before a single figure is read, and the value line
-            underneath carries the claim the heading makes. Steel is correct
-            on the bar: what it measures is credit, which is money.
+        {/* Laid out after the reference supplied on 10 September 2026: the
+            rate as a sub-line under the name, a raised currency mark on the
+            price, an action on every card, and the ticked features in a
+            recessed panel rather than loose on the card face.
 
-            "Valid 30 days" came off the cards. It is identical on all three,
-            so it was three rows of nothing that differed, and the lapse
-            notice directly below already says it. */}
+            Two departures from it, both for the same reason. Its featured
+            card takes a lime price and a lime button; ours cannot, because
+            the brand book keeps the accent away from a credit figure and
+            these cards are nothing but credit figures. The featured card
+            earns its emphasis from the paper inversion, the lift and the
+            pill instead, and its action is a solid ink fill. */}
         <div className="mt-16 grid items-stretch gap-4 lg:grid-cols-3">
           {bundles.map((bundle, index) => {
-            const featured = index === 1;
+            const featured = index === bestPerRandIndex;
             const value = perRand(bundle.credits, bundle.price);
-            const base = perRand(bundles[0].credits, bundles[0].price);
-            const uplift = Math.round((value / base - 1) * 100);
-            const share = Math.round((bundle.credits / largestBundle) * 100);
 
             return (
               <Reveal
@@ -117,71 +148,85 @@ export function Bundles() {
                 <div
                   className={
                     featured
-                      ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-8 shadow-2xl shadow-black/25 lg:p-9"
+                      ? "tone-paper hover-lift flex h-full flex-col rounded-2xl border border-border p-7 shadow-2xl shadow-black/25 lg:p-8"
                       : /* Glass rather than a solid slab, so the photograph
                            carries through the row and the cards belong to the
                            section instead of sitting on top of it. */
-                        "hover-lift flex h-full flex-col rounded-2xl border border-white/15 bg-[#161A20]/85 p-8 backdrop-blur-md"
+                        "hover-lift flex h-full flex-col rounded-2xl border border-white/15 bg-[#161A20]/85 p-7 backdrop-blur-md lg:p-8"
                   }
                 >
-                  <div className="flex min-h-8 items-center justify-between gap-3">
-                    <p className="text-sm tracking-[0.14em] text-ink-muted uppercase">
-                      {bundle.name}
-                    </p>
-                    {/* Greyscale on purpose. A lime badge here would sit
-                        inches from the price and win. */}
+                  <div className="flex min-h-8 items-start justify-between gap-3">
+                    <div>
+                      <p className="card-title">{bundle.name}</p>
+                      <p className="mt-1.5 text-sm text-ink-muted">
+                        <span className="figure text-ink">
+                          {formatCredits(value)}
+                        </span>{" "}
+                        credits per rand
+                      </p>
+                    </div>
                     {featured ? <Pill>Best per rand</Pill> : null}
                   </div>
 
-                  <p className="money mt-6 text-[3.5rem] leading-none">
-                    {formatRand(bundle.price)}
+                  <p className="money mt-7 flex items-start gap-1 leading-none">
+                    <span aria-hidden="true" className="mt-1.5 text-2xl">
+                      R
+                    </span>
+                    <span aria-hidden="true" className="text-[3.5rem]">
+                      {bundle.price}
+                    </span>
+                    <span className="mt-auto pb-1.5 text-base text-ink-muted">
+                      once off
+                    </span>
+                    {/* The price is split across spans for the raised mark,
+                        so the readable version is spelled out here. */}
+                    <span className="sr-only">
+                      {formatRand(bundle.price)}, paid once
+                    </span>
                   </p>
 
-                  <p className="figure mt-7 text-2xl text-ink">
+                  <p className="figure mt-4 text-base text-ink-muted">
                     <CountUp
                       value={bundle.credits}
                       format="credits"
                       durationMs={1300}
-                    />
-                    <span className="ml-2 font-sans text-base text-ink-muted">
-                      credits
-                    </span>
+                    />{" "}
+                    credits
                   </p>
 
-                  <div
-                    aria-hidden="true"
-                    className="mt-4 h-1.5 overflow-hidden rounded-full bg-ink/20"
+                  <Button
+                    size="lg"
+                    variant={featured ? "default" : "outline"}
+                    className="mt-7 h-12 w-full rounded-full text-sm"
+                    asChild
                   >
-                    <span
-                      className="bundle-bar block h-full rounded-full bg-steel"
-                      style={{ width: `${share}%` }}
-                    />
-                  </div>
+                    <Link href={stores[0].href}>Get the app</Link>
+                  </Button>
 
-                  <div className="mt-auto flex items-baseline justify-between gap-3 border-t border-border pt-6 pb-0 mt-8">
-                    <p className="text-base text-ink-muted">
-                      <span className="figure text-ink">
-                        {formatCredits(value)}
-                      </span>{" "}
-                      per rand
-                    </p>
-                    <p className="text-sm text-ink-muted">
-                      {uplift > 0 ? `+${uplift}%` : "Baseline"}
-                    </p>
-                  </div>
+                  <ul
+                    className={
+                      featured
+                        ? "mt-7 flex flex-col gap-3 rounded-xl bg-ground p-6"
+                        : "mt-7 flex flex-col gap-3 rounded-xl bg-black/25 p-6"
+                    }
+                  >
+                    {included.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border border-border text-ink"
+                        >
+                          <Check className="size-3" strokeWidth={2.5} />
+                        </span>
+                        <span className="text-base text-ink-muted">{line}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Reveal>
             );
           })}
         </div>
-
-        <Reveal delay={120}>
-          <ul className="mt-9 flex flex-wrap justify-center gap-x-10 gap-y-2 text-base text-on-image-muted">
-            {everyBundle.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-        </Reveal>
 
         <Reveal delay={160}>
           <p className="mx-auto mt-10 max-w-lg text-center text-base text-on-image-muted">

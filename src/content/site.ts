@@ -67,7 +67,7 @@ export const pillars = [
   {
     id: "nothing-to-cancel",
     title: "Nothing to cancel",
-    body: "Prepaid, in rand, with no card and no debit order. Nothing renews on its own, so there is nothing to cancel.",
+    body: "Prepaid, in rand, with no subscription and no debit order. Nothing renews on its own, so there is nothing to cancel.",
   },
   {
     id: "nothing-hidden",
@@ -96,7 +96,7 @@ export type PillarId = (typeof pillars)[number]["id"];
  */
 export const features = [
   { id: "prepaid-bundles", pillar: "nothing-to-cancel", label: "Bundles from R20", claim: "Buy it like airtime", live: true },
-  { id: "no-card", pillar: "nothing-to-cancel", label: "No card, no debit order", claim: "Nothing to commit to", live: true },
+  { id: "no-subscription", pillar: "nothing-to-cancel", label: "No subscription, no debit order", claim: "Nothing to commit to", live: true },
   { id: "no-renewal", pillar: "nothing-to-cancel", label: "Nothing renews on its own", claim: "Nothing to cancel", live: true },
   { id: "never-below-zero", pillar: "nothing-to-cancel", label: "Balance never goes below zero", claim: "Bill shock is impossible", live: true },
   { id: "free-grant", pillar: "nothing-to-cancel", label: "Free grant on a verified number", claim: "Try it before you pay", live: true },
@@ -171,7 +171,7 @@ export const differentiators = [
   {
     id: "prepaid-in-rand",
     title: "Prepaid AI, in rand",
-    body: "A R20 bundle bought like airtime, with no card, no subscription and no monthly debit order.",
+    body: "A R20 bundle bought like airtime, with no subscription and no monthly debit order.",
   },
   {
     id: "two-frontier-ais",
@@ -254,8 +254,16 @@ export const stores = [
 ] as const;
 
 export const cta = {
-  /** Sits under the store buttons, so the promise stays the free start. */
-  promise: "Start free. No card.",
+  /**
+   * Sits under the store buttons, so the promise stays the free start.
+   *
+   * "No card" came off every one of the seven places it appeared on
+   * 10 September 2026. Bundles are bought through the App Store, which means
+   * a payment method on the Apple account, so the claim was false. What is
+   * still true, and is what the pillar actually rests on, is that nothing
+   * renews: no subscription and no debit order of ours.
+   */
+  promise: "Start free. Nothing renews.",
   secondary: { label: "See what an answer costs", href: "/#how-it-works" },
 } as const;
 

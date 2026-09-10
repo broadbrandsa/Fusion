@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Do I need a card?",
-    a: "No. No card, no subscription, no debit order. A newly verified number starts with free credit.",
+    a: "No. No subscription and no debit order. A newly verified number starts with free credit.",
   },
   {
     q: "Is this a weaker AI?",

@@ -94,7 +94,7 @@ export function StepStack({ steps }: { steps: readonly Step[] }) {
                 small: four full-height captures stacked inline took the
                 section past 4800px on a phone. */}
             <div className="mt-10 max-w-[13.5rem] lg:hidden">
-              <Screen step={step} />
+              <Screen step={step} at="narrow" />
             </div>
             <ul className="mt-8 flex flex-col gap-6 lg:hidden">
               {step.items.map((item) => (
@@ -119,7 +119,7 @@ export function StepStack({ steps }: { steps: readonly Step[] }) {
                   : "pointer-events-none absolute inset-0 opacity-0",
               )}
             >
-              <Screen step={step} />
+              <Screen step={step} at="wide" />
             </div>
           ))}
         </div>
@@ -157,7 +157,24 @@ function Item({ children }: { children: string }) {
   );
 }
 
-function Screen({ step }: { step: Step }) {
+/**
+ * Every step's screen is in the markup twice, once for the stacked layout
+ * below lg and once for the sticky column from lg, and only one of the two
+ * is ever displayed. A hidden `<img>` is still fetched, so a clean load was
+ * pulling eight captures where four are shown.
+ *
+ * `sizes` fixes that without duplicating the markup: at the width where an
+ * instance is hidden it asks for 1px, and the browser picks the smallest
+ * candidate in the srcset, a few hundred bytes instead of a couple of
+ * hundred kilobytes. Whichever instance is actually visible asks for its
+ * real width.
+ */
+const SCREEN_SIZES = {
+  narrow: "(min-width: 1024px) 1px, 216px",
+  wide: "(min-width: 1024px) 352px, 1px",
+} as const;
+
+function Screen({ step, at }: { step: Step; at: keyof typeof SCREEN_SIZES }) {
   return (
     <div className="tone-graphite overflow-hidden rounded-[2rem] border border-white/10 bg-ground shadow-2xl shadow-black/40">
       {step.screen ? (
@@ -166,7 +183,7 @@ function Screen({ step }: { step: Step }) {
           alt={step.screenAlt}
           width={352}
           height={765}
-          sizes="352px"
+          sizes={SCREEN_SIZES[at]}
           className="h-auto w-full"
         />
       ) : (

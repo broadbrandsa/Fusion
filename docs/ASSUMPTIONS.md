@@ -236,3 +236,16 @@ Competitor pricing was checked 28 August 2026 and should be re-checked before
 launch, since the whole argument rests on it. The brand identity moved from
 ember orange to steel on 01 September 2026, so any asset older than that date
 is off-brand and should not be reused.
+
+
+## "No card" removed, 10 September 2026
+
+Flagged by the client: the site claimed "no card" in seven places, and buying
+through the App Store requires a payment method on the Apple account. The
+claim was false and every instance is gone. `cta.promise` is now "Start free.
+Nothing renews."
+
+Worth checking the same way: **"Start free"** rests on the free grant for a
+verified number, whose size is still unknown (see the open question above).
+If that grant does not exist in the shipped app, "Start free" has the same
+problem "No card" had.

@@ -5,7 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 
 import { Wordmark } from "@/components/brand/wordmark";
 import { Button } from "@/components/ui/button";
-import { nav, stores } from "@/content/site";
+import { cta, nav, stores } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -184,7 +184,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <p className="mt-4 text-center text-sm text-ink-muted">
-            Start free. No card.
+            {cta.promise}
           </p>
         </nav>
       </div>

@@ -71,7 +71,7 @@ in the product today.
 
 ### What holds it up
 
-Prepaid, in rand, no card. Bundles from R20, bought like airtime, with no
+Prepaid, in rand. Bundles from R20, bought like airtime, with no
 subscription and no monthly debit order. The alternatives sell dollar
 subscriptions from about R149 to R324 a month.
 
@@ -237,7 +237,7 @@ them. If something fits none, it does not go on the site.
 **Pillar 1. Nothing to cancel.**
 The payment model, and the shape argument under it. Flat billing does not fit
 bursty use, so buy the amount your project needs and nothing more. Prepaid in
-rand, no card, no debit order, nothing renews, balance never below zero.
+rand, no subscription, no debit order, nothing renews, balance never below zero.
 Thirty-day validity stated plainly rather than in fine print.
 
 **Pillar 2. Nothing hidden.**
@@ -265,7 +265,7 @@ line answers the objection they were about to raise.
 > # Prepaid AI, priced per answer
 >
 > Top up like airtime, ask in your own language, and see what every answer cost.
-> No card, no subscription, nothing to cancel.
+> No subscription, no debit order, nothing to cancel.
 
 Rejected alternatives, and why. "Nothing to cancel" alone says nothing about
 what the product is, so it cannot be the H1. "Ask anything. See what it cost."
@@ -277,7 +277,7 @@ hero.
 
 ## Q4. The offer they cannot say no to
 
-> **Start free on a verified number. No card. Then R20 when you want more, and
+> **Start free on a verified number. Then R20 when you want more, and
 > nothing renews, so there is nothing to cancel.**
 
 Not a discount, and it should not be. The offer removes every risk at once, and
@@ -287,7 +287,7 @@ to refuse and impossible to disbelieve.
 | Risk removed | How | Why it is credible |
 | --- | --- | --- |
 | Paying before you know | Free grant on a verified number | Already in the product |
-| Needing a card | No card to start | Nothing to enter |
+| Being locked in | Nothing renews | Nothing to cancel |
 | Getting locked in | Nothing renews on its own | Not a policy, the architecture |
 | Bill shock | Balance can never go below zero | Enforced server-side |
 | A big job surprising you | Quotes before it runs | Already in the product |
@@ -349,7 +349,7 @@ screen until the grant runs out, and the CTA and the first-run experience agree
 with each other.
 
 In practice that is two store buttons with the promise sitting under them:
-**Start free on a verified number. No card.** Never "Get a bundle" until top-up
+**Start free on a verified number.** Never "Get a bundle" until top-up
 ships. Bundle prices stay on the page as context for what comes after the
 grant, not as a checkout. When top-up ships, the CTA needs no rewrite, only a
 purchase path.
@@ -398,7 +398,7 @@ it is. Nothing marked not live may be claimed on the site.
 | --- | --- | --- | --- |
 | Buy only what a project needs | 1 | Flat billing does not fit bursty use | Yes |
 | Prepaid bundles, R20 / R50 / R120 | 1 | Buy it like airtime | Prices yes, purchase no |
-| No card, no debit order | 1 | Nothing to commit to | Yes |
+| No subscription, no debit order | 1 | Nothing to commit to | Yes |
 | Nothing renews on its own | 1 | Nothing to cancel | Yes |
 | Balance never below zero | 1 | Bill shock is impossible | Yes |
 | Free grant on a verified number | 1 | Try it before you pay | Yes |
@@ -634,3 +634,19 @@ the same data, so the ask does not change.
 | 09 Sep 2026 | Full rewrite for clarity. Problem section added up front. Q1 now bridges to the problem: cost transparency is what makes buying the right amount possible. Log narration stripped from the body. Writing guidelines consolidated into one list. |
 | 09 Sep 2026 | Three decisions folded in. Q1 framing confirmed as one thing with four proofs. Competitors are compared by price range and never named on the site. Education gets a talk-to-us route rather than silence or a coming-soon. |
 | 09 Sep 2026 | Open facts rewritten in plain language. The grant size is probably 60 000 credits, evidenced by the arithmetic on the Your credit screen. The credits-per-answer question explained properly, with dropping answer counts entirely as the likely and better resolution. Education ask reduced to a high-level read. One enquiry destination. Store links wired generically. |
+
+
+## Correction, 10 September 2026: "no card"
+
+**"No card" was false and is off the site.** It appeared in seven live places
+and throughout this document. Bundles are bought through the App Store, which
+means a payment method on the Apple account, so the site was promising
+something the product cannot deliver.
+
+What survives, and what the "nothing to cancel" pillar actually rests on:
+prepaid, in rand, no subscription, no debit order of ours, nothing renews on
+its own, and a free start on a verified number. All of those remain true.
+
+The offer line loses a little force and gains the right to be made. Anyone
+writing new copy: the absence we can promise is the recurring charge, not the
+card.

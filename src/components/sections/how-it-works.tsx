@@ -17,7 +17,7 @@ const steps: Step[] = [
     id: "top-up",
     index: "01",
     title: "Buy it like airtime",
-    body: "Pick a bundle. No card, no subscription, no debit order anywhere in it.",
+    body: "Pick a bundle. No subscription and no debit order anywhere in it.",
     screen: appShots.credit.src,
     screenAlt: appShots.credit.alt,
     items: [
