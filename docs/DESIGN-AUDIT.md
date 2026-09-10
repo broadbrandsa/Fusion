@@ -105,7 +105,7 @@ actually wants.
 
 | Section | Was | Now | Borrowed from |
 | --- | --- | --- | --- |
-| Hero | Split with device and floating card, on flat graphite | **Vitara's hero**: inset rounded panel, full-bleed photograph under a scrim, headline left, device centre bleeding off the bottom, supporting line and actions right, nav floating over the image | Vitara |
+| Hero | Split with device and floating card, on flat graphite | **Vitara's hero**, matched against its rendered values rather than its markup. See the table below | Vitara |
 | Problem | Heading, lede, two equal photos, three facts | **A spend chart** above **Habitline's tabbed cases**: three kinds of burst, each with a photograph, a description and a pattern figure, then a hashtag row saying the list is not exhaustive | The chart makes the argument, the tabs make "in bursts" concrete |
 | How it works | Four identical bordered cards | **Numbered list beside a full-height device**, steps ruled rather than boxed | Vitara's roadmap, Appito's steps |
 | Cost proof | Device beside three cards | **Split with a figure floating off the device**, claims as ruled rows, no cards | Vitara's floating stat overlay |
@@ -131,6 +131,46 @@ rather than an exception, because every quantity on it is money.
 It is labelled on the page as an example year, and it deliberately uses the
 cheapest competitor rather than the dearest so the comparison cannot be
 accused of flattering itself. R400 of top-ups against R1 788 of subscription.
+
+### The hero, measured against Vitara
+
+Reading the markup was not enough; the first attempt looked wrong because the
+scrim was guessed. These are Vitara's computed values at 1440 beside ours.
+
+| | Vitara | Ours |
+| --- | --- | --- |
+| Grid columns | 431.7 / 385.1 / 423.2 | 431.3 / 385.1 / 423.6 |
+| Column gap | 40px | 40px |
+| Grid padding-top | 75px | 75px |
+| Column padding-top | 200 / 50 / 200 | 200 / 50 / 200 |
+| Panel radius | 30px | 30px |
+| Title | 86px, -2px | 84px, -2.02px |
+| Lede | 20px / 1.2 | 20px / 1.3 |
+| Device | 385 x 481 | 385 x 520 |
+| Overlay | flat `#101011` at 0.6 | flat `#12151A` at 0.6 |
+| Actions | two, stacked | two, stacked |
+
+The outer columns drop 200px while the device column drops only 50px, and
+that single fact is what makes the composition work: the device towers over
+the type instead of sitting level with it.
+
+**What the first attempt got wrong.** The scrim was 0.72 plus two gradients,
+which composited to roughly 0.96 behind the headline and buried the
+photograph completely. Vitara uses one flat layer at 0.6.
+
+**Scrim strength is set from this photograph, not a generic worst case.**
+Measured off the file: 99th percentile luminance is 0.168 in the headline
+third and 0.132 in the copy third, because the image is genuinely dark. At
+0.6 plus a light directional gradient that leaves the headline at 11.3:1, and
+3.8:1 over the handful of blown pixels near the phone glow, which passes for
+84px text. The copy third holds 6.9:1 at its worst.
+
+**Two deliberate deviations.** Vitara's background panel runs 244px taller
+than its content and bleeds over the section beneath; ours stops at the panel,
+because the next section is paper and a bleed would sit on top of it. And
+Vitara's device is a 385x481 cropped render, while ours is a full 1206x2622
+capture, so it is clipped to 520px with a gradient dissolving the cut rather
+than cutting the phone off square.
 
 ### Motion, second pass
 
