@@ -2,9 +2,10 @@ import type { ReactNode } from "react";
 
 import Image from "next/image";
 
+import { ListCard } from "@/components/blocks/app-screens";
 import { AppShot } from "@/components/blocks/app-shot";
 import { ModelLogo } from "@/components/blocks/model-logo";
-import { Photo, photos, type PhotoName } from "@/components/blocks/photo";
+import { photos, type PhotoName } from "@/components/blocks/photo";
 import { Reveal } from "@/components/blocks/reveal";
 import { models } from "@/content/models";
 
@@ -17,6 +18,7 @@ function BentoCard({
   className,
   delay = 0,
   photo,
+  scrim = [0.93, 0.9],
 }: {
   title: string;
   body: string;
@@ -25,6 +27,8 @@ function BentoCard({
   delay?: number;
   /** Fills the card behind its contents rather than sitting inside it. */
   photo?: PhotoName;
+  /** Scrim opacity, top and bottom. Set per photograph from its luminance. */
+  scrim?: [number, number];
 }) {
   return (
     <Reveal delay={delay} className={className}>
@@ -44,13 +48,16 @@ function BentoCard({
               sizes="(min-width: 1024px) 440px, 100vw"
               className="-z-10 object-cover saturate-[0.78]"
             />
-            {/* Heavy where the type sits, lighter behind the device, so the
-                photograph still reads. The kitchen frame is bright: its 99th
-                percentile is 0.889, where a flat 0.72 wash would leave body
-                text at 2.40:1. At 0.92 over the type it is 5.71:1. */}
+            {/* Set from each photograph's 99th-percentile luminance, because
+                text now runs the full height of these cards. Kitchen is the
+                brighter at 0.889 and needs 0.90 even at its lightest point to
+                hold 5.02:1; friends-tea is 0.695 and clears it at 0.86. */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(18,21,26,0.92)_0%,rgba(18,21,26,0.88)_45%,rgba(18,21,26,0.62)_100%)]"
+              className="absolute inset-0 -z-10"
+              style={{
+                background: `linear-gradient(to bottom, rgba(18,21,26,${scrim[0]}) 0%, rgba(18,21,26,${scrim[1]}) 100%)`,
+              }}
             />
           </>
         ) : null}
@@ -86,7 +93,7 @@ export function FullStrength() {
       title="Not a lite version of anything"
       lede="Prepaid is how you pay. It is not what you get."
     >
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-2">
         <BentoCard
           className="lg:col-span-2"
           title="Every model, one wallet"
@@ -120,36 +127,21 @@ export function FullStrength() {
           title="Lists it fills for you"
           body="Ask for a week of dinners. Seventeen items come back specified."
         >
-          <AppShot
-            shot="listDetail"
-            width={280}
-            className="mx-auto max-w-[11.5rem]"
-          />
+          <ListCard />
         </BentoCard>
 
         <BentoCard
           delay={140}
-          className="lg:col-span-2"
+          photo="friendsTea"
+          scrim={[0.9, 0.86]}
           title="Ask together, split the cost"
           body="Up to five people. One answer. Shared from the start or never."
         >
-          <div className="grid items-center gap-6 sm:grid-cols-[0.75fr_1.25fr]">
-            <AppShot
-              shot="sharedChat"
-              width={280}
-              className="mx-auto max-w-[12rem]"
-            />
-            <div className="space-y-4">
-              <Photo
-                photo="cookingTogether"
-                ratio="16 / 9"
-                sizes="(min-width: 1024px) 440px, 100vw"
-              />
-              <p className="text-base text-ink-muted">
-                Or hand it a game and let it referee.
-              </p>
-            </div>
-          </div>
+          <AppShot
+            shot="sharedChat"
+            width={280}
+            className="mx-auto max-w-[11.5rem]"
+          />
         </BentoCard>
 
         <BentoCard
@@ -166,7 +158,6 @@ export function FullStrength() {
 
         <BentoCard
           delay={160}
-          className="lg:col-span-3"
           title="And it is good company"
           body="Quiz Night, Twenty Questions, Stop the Bus, The Court. An AI keeps the score."
         >

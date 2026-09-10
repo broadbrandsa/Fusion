@@ -235,52 +235,71 @@ export function LanguagePickerScreen() {
   );
 }
 
-/** A list filled by AI, then ticked off by hand. */
+/**
+ * The dinner list, built rather than screenshotted, and set straight onto its
+ * card rather than inside a panel of its own.
+ *
+ * The real capture is 1206x2622, and at the size this card gives it the text
+ * was illegible, which defeats the point: the argument is that seventeen
+ * properly specified items come back, and you have to be able to read them
+ * to believe it. Items and quantities are taken from the real capture.
+ *
+ * Completed items are struck through and set in on-image muted rather than
+ * anything fainter. The strikethrough already carries "done", so the colour
+ * does not need to whisper as well, and that keeps colour from being the only
+ * indicator.
+ */
 export function ListCard() {
   const items = [
-    ["500 g spaghetti pasta", true],
+    ["500 g spaghetti", true],
     ["500 g beef mince", true],
     ["2 x onions", false],
     ["4 cloves garlic", true],
+    ["2 x 400 g tins chopped tomatoes", false],
     ["2 tbsp tomato paste", false],
+    ["50-100 g Parmesan", false],
   ] as const;
 
   return (
-    <ScreenCard label="A shopping list filled in by AI">
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-ink">Food for dinner</p>
-        <span className="text-xs text-ink-faint">3 of 17</span>
+    <div
+      role="img"
+      aria-label="A shopping list filled in by AI: seventeen specified items with quantities, three of them already ticked off"
+    >
+      <div className="flex items-baseline justify-between">
+        <p className="text-sm font-medium text-on-image">Food for dinner</p>
+        <p className="figure text-xs text-on-image-muted">3 of 17</p>
       </div>
-      <div className="mt-3 space-y-2">
+
+      <ul className="mt-5 space-y-3">
         {items.map(([label, done]) => (
-          <div key={label} className="flex items-center gap-2.5">
+          <li key={label} className="flex items-start gap-3">
             <span
               aria-hidden="true"
               className={
                 done
-                  ? "grid size-4 place-items-center rounded-[5px] bg-steel text-[0.5rem] text-ground"
-                  : "size-4 rounded-[5px] border border-white/25"
+                  ? "mt-px grid size-4 shrink-0 place-items-center rounded-[5px] bg-steel text-[0.5rem] text-[#191C20]"
+                  : "mt-px size-4 shrink-0 rounded-[5px] border border-white/35"
               }
             >
-              {done ? "✓" : ""}
+              {done ? "\u2713" : ""}
             </span>
             <span
               className={
                 done
-                  ? "text-xs text-ink-faint line-through"
-                  : "text-xs text-ink"
+                  ? "text-xs text-on-image-muted line-through"
+                  : "text-xs text-on-image"
               }
             >
               {label}
             </span>
-          </div>
+          </li>
         ))}
-      </div>
-    </ScreenCard>
+        <li className="pt-1 text-xs text-on-image-muted">and ten more</li>
+      </ul>
+    </div>
   );
 }
 
-/** Two frontier models, chosen per question, spending one balance. */
 export function ModelPickerCard() {
   return (
     <ScreenCard label="Claude and Gemini, chosen per question">

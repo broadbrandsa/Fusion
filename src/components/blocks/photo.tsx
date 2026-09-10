@@ -29,16 +29,18 @@ export const photos = {
     src: "/images/photos/kitchen-cooking.jpg",
     alt: "A woman stirring a pot at the stove in a bright kitchen",
   },
-  cookingTogether: {
-    src: "/images/photos/cooking-together.jpg",
-    alt: "Two people cooking together at a stove, one offering the other a taste from a spoon",
+  friendsTea: {
+    src: "/images/photos/friends-tea.jpg",
+    alt: "Four friends laughing over mugs of tea, one pair high-fiving across the table",
   },
   phoneInHand: {
     src: "/images/photos/phone-in-hand.jpg",
     alt: "Close on a pair of hands using a phone at a desk",
   },
   studyDesk: {
-    src: "/images/photos/study-desk.jpg",
+    /* Renamed when the frame was mirrored. Editing an image in place leaves
+       caches serving the old bytes, because the URL does not change. */
+    src: "/images/photos/study-at-window.jpg",
     alt: "Someone at a desk by a window, speaking into their phone with an open notebook in front of them",
   },
   sideHustleMaker: {

@@ -25,9 +25,9 @@ photographer is good practice and costs nothing.
 | `photos/project-flatpack.jpg` | Oppo Find X5 Pro | gphz4u1ZKto |
 | `photos/phone-at-dusk.jpg` | Rui Silvestre | uYdZFJsjJUs |
 | `photos/kitchen-cooking.jpg` | Jason Briscoe | 7MAjXGUmaPw |
-| `photos/cooking-together.jpg` | Jimmy Dean | my1mDMraGf0 |
+| `photos/friends-tea.jpg` | Toa Heftiba | l_ExpFwwOEg |
 | `photos/phone-in-hand.jpg` | Jonas Leupe | o0A5BpHxziU |
-| `photos/study-desk.jpg` | Microsoft Copilot | Zcp8xN9DnjM |
+| `photos/study-at-window.jpg` | Microsoft Copilot | Zcp8xN9DnjM |
 | `photos/side-hustle-maker.jpg` | Toa Heftiba | qtkeIDsgrLg |
 
 ### Where each one is used
@@ -37,15 +37,15 @@ photographer is good practice and costs nothing.
 | `project-renovation.jpg` | Problem | A renovation is the burst, stated in a picture |
 | `project-flatpack.jpg` | Problem | The second burst. A project with a deadline and a manual |
 | `phone-at-dusk.jpg` | Built for here | An ordinary person on an ordinary phone, unglamorous. Tonally the closest fit to graphite in the whole set |
-| `cooking-together.jpg` | Full strength, shared chats | Two people working something out together, which is what a shared chat is |
-| `kitchen-cooking.jpg` | Full strength, lists | Fills the card behind the type and the device, rather than sitting inside it |
+| `friends-tea.jpg` | Full strength, shared chats | Fills the card behind the type. Four people round one table is what a shared chat looks like |
+| `kitchen-cooking.jpg` | Full strength, lists | Fills the card behind the type and the list, rather than sitting inside it |
 | `phone-in-hand.jpg` | Problem, job hunting tab | Hands on a phone at a desk. Its pink and orange lighting is graded down like the rest |
-| `study-desk.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped and mirrored, see below** |
+| `study-at-window.jpg` | Problem, studying tab | Someone at a desk speaking into their phone. **Cropped and mirrored, see below** |
 | `side-hustle-maker.jpg` | Problem, side hustle tab | A maker painting pottery at a home workbench. Real trade, which is what the brief asked for |
 
 ## The Copilot photograph is cropped, deliberately
 
-`study-desk.jpg` comes from the Microsoft Copilot campaign shoot, and the
+`study-at-window.jpg` comes from the Microsoft Copilot campaign shoot, and the
 original frame has a laptop in it carrying the Windows 11 logo. Shipping a
 competitor's AI marketing asset, with their product mark visible, on a site
 whose whole argument is against subscription AI would be an unforced error.
@@ -64,6 +64,21 @@ that sets the limit rather than the renovation.
 
 **If this image is ever re-cropped or replaced with the full frame, check for
 that logo first.** The uncropped original is not in the repository.
+
+## Scrims over photographic cards
+
+Two cards in Full strength use a photograph as their background with the type
+running the full height, so the scrim has to hold contrast everywhere rather
+than just at the top. Each is set from that photograph's 99th-percentile
+luminance rather than from a house default.
+
+| Card | Photograph | p99 | Scrim, top to bottom | Body text |
+| --- | --- | --- | --- | --- |
+| Lists | `kitchen-cooking.jpg` | 0.889 | 0.93 to 0.90 | 5.02:1 |
+| Ask together | `friends-tea.jpg` | 0.695 | 0.90 to 0.86 | 4.75:1 |
+
+`BentoCard` takes the pair as a `scrim` prop. Measure any new photograph
+before swapping it in: at 0.72, the kitchen frame leaves body text at 2.40:1.
 
 ## The gap worth naming
 
